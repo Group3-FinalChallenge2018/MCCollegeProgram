@@ -86,4 +86,11 @@ public class User {
         this.roles = roles;
     }
 
+    public void addProgramme(Programme programme){
+        this.appliedProgramme.add(programme);
+}
+
+    public boolean containsProgram(Programme programme) {
+        return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme);
+    }
 }

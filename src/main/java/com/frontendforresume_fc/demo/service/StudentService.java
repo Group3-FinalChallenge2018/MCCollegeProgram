@@ -29,6 +29,18 @@ public class StudentService {
      * Student applies to programme
      */
     public void apply2Programme(User user, Programme programme){
+        //if student already applied or got accepted, student cannot apply
+        if(user.containsProgram(programme)){
+            return;
+        }
+        user.addProgramme(programme);
+        userRepository.save(user);
+
+        if(programme.getAppliedUsers() == null){
+            programme.setAppliedUsers(new HashSet<>());
+        }
+        programme.addAppliedUsers(user);
+        programmeRepository.save(programme);
     }
 
     /*
