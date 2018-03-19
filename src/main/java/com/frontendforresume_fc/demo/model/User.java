@@ -48,6 +48,9 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Programme> acceptedProgramme;
 
+    public User() {
+    }
+
     public long getId() {
         return id;
     }
@@ -102,5 +105,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public void addProgramme(Programme programme){
+        this.appliedProgramme.add(programme);
+}
+
+    public boolean containsProgram(Programme programme) {
+        return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme);
     }
 }
