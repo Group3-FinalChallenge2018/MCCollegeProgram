@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>register</title>
+    <title>resume listing</title>
     <link rel="icon" href="../images/favicon.ico">
     <!-- jQuery UI -->
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
@@ -16,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
     <!-- Font-awesome -->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+
+
     <!-- Animate -->
     <link rel="stylesheet" type="text/css" href="../css/animate.css">
     <!-- Fw -->
@@ -36,8 +39,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">home</a>
                 <ul class="dropdown-menu">
                     <li><a href="index.html">home 1</a></li>
-                    <li><a href="home_2.html">home 2</a></li>
-                    <li><a href="home_3.html">home 3</a></li>
+                    <li><a href="XXX-home_2.html">home 2</a></li>
+                    <li><a href="XXX-home_3.html">home 3</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -125,8 +128,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">home</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="index.html">home 1</a></li>
-                                    <li><a href="home_2.html">home 2</a></li>
-                                    <li><a href="home_3.html">home 3</a></li>
+                                    <li><a href="XXX-home_2.html">home 2</a></li>
+                                    <li><a href="XXX-home_3.html">home 3</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -176,46 +179,35 @@
         </div>
     </div>
 </header>
-<section class="p-t-50 p-b-0 bg-f">
-    <div class="container">
-        <div class="p-40 p-xs-20 bg-4f84c4">
-            <div class="rad-0 w-full no-bg">
-                <div class="row m-0">
-                    <div class="col-sm-11 p-5 p-t-0">
-                        <div class="row m-0">
-                            <div class="col-sm-8 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20" placeholder="What job you are looking for?"></div>
-                            <div class="col-sm-4 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20 selected" placeholder="City, provide, street"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-1 p-5 p-l-0 p-xs-10">
-                        <button class="ht-btn ht-btn-3x bg-dc4c46 pull-right text-center p-l-25 p-r-25 m-t-0 rad-3 w-full" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-900"></div>
-        </div>
-    </div>
-</section>
-<section class="block">
+<section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
-            <h1>register</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
+            <h1>78 Accepted Students for <br/>Hiring for Tech</h1>
+            <p>Out of 100 applicants, 78 have accepted.</p>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
-                    <input type="text" class="form-item" placeholder="Full name">
-                    <input type="text" class="form-item" placeholder="Username">
-                    <input type="text" class="form-item" placeholder="Email">
-                    <input type="password" class="form-item" placeholder="Password">
-                    <input type="password" class="form-item" placeholder="Confrim password">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
+            <div class="col-md-14"><!-- Blog-item -->
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-10">
+                            <h3 class="heading p-b-0 p-t-0">
+                                <a href="user_resume">John Anderson</a>
+                            </h3>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
+                        </div>
                     </div>
-                    <div class="form-group"></div>
-                    <a href="#" class="ht-btn bg-4f84c4 m-t-20">Register</a>
                 </div>
+                <nav aria-label="Page navigation" class="m-t-20">
+                    <ul class="pagination ht-pagination">
+                        <li><a href="#" aria-label="Previous"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#" aria-label="Next"><i class="fa fa-angle-double-right"></i></a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

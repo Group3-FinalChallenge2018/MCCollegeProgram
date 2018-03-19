@@ -23,4 +23,29 @@ public class HomeController {
     }
 
 
+    @RequestMapping("/user_resume")
+    public String viewUsersResume() {
+        return "html/user_resume";
+    }
+
+
+    @RequestMapping("/accepted_students_hit")
+    public String viewAcceptedStudentsForHIT() {
+        return "html/accepted_students_hit";
+    }
+
+    @RequestMapping("/accepted_students_ptf")
+    public String viewAcceptedStudentsForPTF() {
+        return "html/accepted_students_ptf";
+    }
+
+    @RequestMapping("/list_of_programs")
+    public String viewListOfPrograms() {
+        return "html/list_of_programs";
+    }
+
+    @RequestMapping("/add_admin")
+    public String addAdmin() {
+        return "html/add_admin";
+    }
 }
