@@ -34,6 +34,13 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void saveNewAdmin(User user) {
+        HashSet<Role> hash = new HashSet<>();
+        hash.add(roleRepository.findByRole("ADMIN"));
+        user.setRoles(hash);
+        userRepository.save(user);
+    }
+
     public void saveUser(User user){
         userRepository.save(user);
     }

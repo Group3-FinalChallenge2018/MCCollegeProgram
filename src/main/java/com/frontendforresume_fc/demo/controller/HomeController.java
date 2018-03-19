@@ -22,8 +22,12 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "homepage";
+        return "html/home_1";
     }
 
 
+    @RequestMapping("/register")
+    public String register() {
+        return "html/register";
+    }
 }
