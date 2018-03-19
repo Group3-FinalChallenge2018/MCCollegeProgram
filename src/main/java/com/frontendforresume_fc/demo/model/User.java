@@ -3,6 +3,7 @@ package com.frontendforresume_fc.demo.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.awt.datatransfer.FlavorEvent;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +26,15 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Requirement> studentRequirements;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Programme> appliedProgramme;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Programme> acceptedProgramme;
 
     public long getId() {
         return id;
