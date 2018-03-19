@@ -36,6 +36,9 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Programme> acceptedProgramme;
 
+    public User() {
+    }
+
     public long getId() {
         return id;
     }
@@ -91,4 +94,5 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
 }
