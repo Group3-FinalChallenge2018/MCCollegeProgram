@@ -69,4 +69,8 @@ public class Programme {
     public void setAcceptedUsers(Set<User> acceptedUsers) {
         this.acceptedUsers = acceptedUsers;
     }
+
+    public void addAppliedUsers(User user){
+        this.appliedUsers.add(user);
+    }
 }

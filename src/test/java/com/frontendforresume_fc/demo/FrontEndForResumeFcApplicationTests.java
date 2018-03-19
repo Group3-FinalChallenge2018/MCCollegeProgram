@@ -20,7 +20,7 @@ public class FrontEndForResumeFcApplicationTests {
 		student.setFirstName("Harry");
 		student.setLastName("Um");
 		userService.saveNewUser(student);
-	
+
 	}
 
 }
