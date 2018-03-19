@@ -3,10 +3,13 @@ package com.frontendforresume_fc.demo.utils;
 import com.frontendforresume_fc.demo.model.Programme;
 import com.frontendforresume_fc.demo.model.Requirement;
 import com.frontendforresume_fc.demo.model.Role;
+import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.RequirementRepository;
 import com.frontendforresume_fc.demo.repository.RoleRepository;
+import com.frontendforresume_fc.demo.repository.UserRepository;
 import com.frontendforresume_fc.demo.service.RequirementService;
+import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -24,6 +27,10 @@ public class DataLoader implements CommandLineRunner {
     @Autowired
     RequirementService requirementService;
 
+
+@Autowired
+    UserService userService;
+
     @Override
     public void run(String... strings) throws Exception{
         Role r = new Role();
@@ -33,6 +40,13 @@ public class DataLoader implements CommandLineRunner {
         r = new Role();
         r.setRole("ADMIN");
         roleRepository.save(r);
+
+        User user2 = new User("password", "clark", "Clark", "Kent", "clark@kent.com");
+        userService.saveNewUser(user2);
+
+        User user3 = new User("password", "admin", "admink", "adminKent", "admin@kent.com");
+        userService.saveNewAdmin(user3);
+
 
         Programme hit = new Programme("Hiring in Tech");
         hit.setProgrammeRequirements(new HashSet<>());

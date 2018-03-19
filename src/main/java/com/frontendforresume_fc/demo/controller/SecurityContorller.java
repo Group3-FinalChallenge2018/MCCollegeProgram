@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Controller
 public class SecurityContorller {
-    private final String secDir = "security/";
+    private final String secDir = "html/";
 
     @Autowired
     private UserService userService;
@@ -31,7 +31,7 @@ public class SecurityContorller {
     @GetMapping("/register")
     public String showRegistrationPage(Model model){
         model.addAttribute("user", new User());
-        return secDir + "registration";
+        return secDir + "register";
     }
 
     @PostMapping("/register")
@@ -41,7 +41,7 @@ public class SecurityContorller {
             Model model
     ){
         if(result.hasErrors()){
-            return  secDir + "registration";
+            return  secDir + "register";
         }else{
             userService.saveNewUser(user);
         }
