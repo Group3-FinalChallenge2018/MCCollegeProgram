@@ -18,7 +18,7 @@ import javax.validation.Valid;
 
 @Controller
 public class SecurityContorller {
-    private final String secDir = "security/";
+    private final String secDir = "html/";
 
     @Autowired
     private UserService userService;
