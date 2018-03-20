@@ -1,6 +1,7 @@
 package com.frontendforresume_fc.demo.service;
 
 import com.frontendforresume_fc.demo.model.Programme;
+import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
@@ -19,6 +20,18 @@ public class StudentService {
     ProgrammeRepository programmeRepository;
 
     /*
+     * Check if given User is student or not
+     */
+    public boolean isStudent(User user){
+        for(Role role: user.getRoles()){
+            if(role.getRole().equalsIgnoreCase("USER")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*
      * See suggestions of programmes that they should apply for
      */
     public Set<Programme> getProgrammeSuggestion(User user){
@@ -29,6 +42,11 @@ public class StudentService {
      * Student applies to programme
      */
     public void apply2Programme(User user, Programme programme){
+        //if user is not student return
+        if(!isStudent(user)){
+            return;
+        }
+
         //if student already applied or got accepted, student cannot apply
         if(user.containsProgram(programme)){
             return;
@@ -47,13 +65,15 @@ public class StudentService {
      * Get a list of programmes that students have been approved for
      */
     public Set<Programme> getApprovedProgramme(User user){
-        return new HashSet<>();
+        return user.getApprovedProgramme();
     }
 
     /*
      * Student accepts admission into a programme
      */
     public void acceptProgramme(User user, Programme programme){
+        for(Programme p: user.getAcceptedProgramme()){
+        }
 
     }
 

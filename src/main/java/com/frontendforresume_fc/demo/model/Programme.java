@@ -19,8 +19,14 @@ public class Programme {
     @ManyToMany(mappedBy = "appliedProgramme")
     private Set<User> appliedUsers;
 
+    @ManyToMany(mappedBy = "approvedProgramme")
+    private Set<User> approvedUsers;
+
     @ManyToMany(mappedBy = "acceptedProgramme")
     private Set<User> acceptedUsers;
+
+    public Programme() {
+    }
 
     public Programme(String name) {
         this.name = name;
@@ -72,5 +78,13 @@ public class Programme {
 
     public void addAppliedUsers(User user){
         this.appliedUsers.add(user);
+    }
+
+    public Set<User> getApprovedUsers() {
+        return approvedUsers;
+    }
+
+    public void setApprovedUsers(Set<User> approvedUsers) {
+        this.approvedUsers = approvedUsers;
     }
 }

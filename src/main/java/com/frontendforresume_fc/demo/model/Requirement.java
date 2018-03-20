@@ -19,6 +19,9 @@ public class Requirement {
     @ManyToMany(mappedBy = "studentRequirements")
     private Set<User> students;
 
+    public Requirement() {
+    }
+
     public Requirement(String description, boolean answer) {
         this.description = description;
         this.answer = answer;
