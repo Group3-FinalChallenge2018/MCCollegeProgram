@@ -53,11 +53,11 @@ public class HomeController {
 
 
 
-    @RequestMapping("/all_users")
-    public String viewAllUsers(Model model) {
+    @RequestMapping("/all_applicants")
+    public String viewAllApplicants(Model model) {
         model.addAttribute("userlist",userRepository.findAll());
 
-        return "html/all_users";
+        return "html/all_applicants";
     }
 
 

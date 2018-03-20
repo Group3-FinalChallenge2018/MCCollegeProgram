@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -174,6 +175,12 @@
 				</div>
 			</div>
 		</header>
+
+
+		<div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
+
+
+
 		<section>
 			<div class="banner bg-image-1 h-700 main-banner bg-fixed">
 				<div class="container">

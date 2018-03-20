@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -176,6 +177,11 @@
         </div>
     </div>
 </header>
+
+
+<div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
+
+
 <section class="block">
     <div class="container">
         <div class="title-group line-default">
@@ -266,6 +272,11 @@
         <a href="#" class="ht-btn bg-4f84c4 pull-right">Save &amp; Update</a>
     </div>
 </section>
+
+
+<div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
+
+
 <footer class="bg-2">
     <div class="footer-top">
         <div class="container">
