@@ -25,9 +25,6 @@ public class User {
 
     private String email;
 
-    public User() {
-    }
-
     public User(String password, String username, String firstName, String lastName, String email) {
         this.password = password;
         this.username = username;
@@ -47,6 +44,9 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Programme> acceptedProgramme;
+
+    public User() {
+    }
 
     public long getId() {
         return id;
