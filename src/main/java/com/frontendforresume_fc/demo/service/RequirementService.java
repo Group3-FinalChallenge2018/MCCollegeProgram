@@ -10,8 +10,8 @@ public class RequirementService {
     @Autowired
     RequirementRepository requirementRepository;
 
-    public Requirement createRequirement(String description){
-        Requirement requirement = new Requirement(description, true);
+    public Requirement createRequirement(String description, boolean yesOrNo){
+        Requirement requirement = new Requirement(description, yesOrNo);
         requirementRepository.save(requirement);
 
         return requirement;
