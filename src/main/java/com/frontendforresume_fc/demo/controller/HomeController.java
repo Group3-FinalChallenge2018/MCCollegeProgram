@@ -61,9 +61,9 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/user_resume")
-    public String viewUsersResume() {
-        return "html/user_resume";
+    @RequestMapping("/applicant_resume")
+    public String viewApplicantsResume() {
+        return "html/applicant_resume";
     }
 
 
