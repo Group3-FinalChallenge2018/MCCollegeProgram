@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Admin</title>
+    <title>job details</title>
     <link rel="icon" href="../images/favicon.ico">
     <!-- jQuery UI -->
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
@@ -14,6 +14,7 @@
     <!-- Owl-coursel -->
     <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
     <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
     <!-- Font-awesome -->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
@@ -84,7 +85,7 @@
         </ul>
     </div>
 </div>
-<header class="header-absolute">
+<header class="header-absolute smaller">
     <div class="top-header">
         <div class="container">
             <div class="row">
@@ -110,7 +111,7 @@
             </div>
         </div>
     </div>
-    <div class="main-header p-b-20 p-t-20">
+    <div class="main-header p-b-20 p-t-20 slideInDown animated">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3">
@@ -178,105 +179,144 @@
     </div>
 </header>
 
-
 <div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
 
-
+<!--<section class="p-t-50 p-b-0 bg-f">-->
+    <!--<div class="container">-->
+        <!--<div class="p-40 p-xs-20 bg-4f84c4">-->
+            <!--<div class="rad-0 w-full no-bg">-->
+                <!--<div class="row m-0">-->
+                    <!--<div class="col-sm-11 p-5 p-t-0">-->
+                        <!--<div class="row m-0">-->
+                            <!--<div class="col-sm-8 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20" placeholder="What job you are looking for?"></div>-->
+                            <!--<div class="col-sm-4 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20" placeholder="City, provide, street"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-1 p-5 p-l-0 p-xs-10">-->
+                        <!--<button class="ht-btn ht-btn-3x bg-dc4c46 pull-right text-center p-l-25 p-r-25 m-t-0 rad-3 w-full" type="submit"><i class="fa fa-search"></i></button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="max-w-900"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
 <section class="block">
     <div class="container">
         <div class="title-group line-default">
-            <h1>Add Administrator</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
+            <h1>Hiring in Tech</h1>
+            <h3>IIT Solution, INC</h3>
+            <p class="under-line p-b-20">Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left">Personal infomation<br></h4>
-                    <form>
-                        <input type="text" class="form-item" placeholder="Location">
-                        <input type="text" class="form-item" placeholder="Email">
-                        <input type="text" class="form-item" placeholder="Phone">
-                        <input type="text" class="form-item" placeholder="Age">
-                        <select class="form-item">
-                            <option>Salary</option>
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                            <option>Option 4</option>
-                            <option>Option 5</option>
-                        </select>
-                        <input type="text" class="form-item" placeholder="Address">
-                        <input type="text" class="form-item" placeholder="Zip code">
-                        <input type="text" class="form-item" placeholder="State/Province">
-                        <input type="text" class="form-item" placeholder="Country">
-                        <textarea class="form-item h-200 p-15" placeholder="About me"></textarea>
-                    </form>
+            <div class="col-sm-7">
+                <div class="box-item p-30 box-shadow-d">
+                    <h3 class="f-20">Basic Information</h3>
+                    <ul class="list-2x list-n-bg">
+                        <p>TechHire is a new U.S. Department of Labor grant-funded training program for those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, you may be able to enter one or more tracks that will help you further your education and training and find a job.</p>
+
+                        <li><strong>PROGRAM TITLE:</strong>Hiring In Tech, Information Technology Training Program</li>
+                        <li><strong>ADDRESS: </strong>51 Mannakee Street, Rockville, MD 20850</li>
+                        <li><strong>TERM: </strong>Varies</li>
+                        <li><strong>CONTACT:</strong>techhire@montgomerycollege.edu</li>
+                        <li><strong>PREREQUISITES:</strong>Must attend an orientation session</li>
+                        <li><strong>REQUIREMENTS:</strong><br/>
+                            <ul>
+                                <li>English Language Learner</li>
+                                <li>Unemployed with barriers to employment</li>
+                                <li>Underemployment with barriers to better employment</li>
+                            </ul>
+                        </li>
+                        <li><strong>ADDITIONAL REQUIREMENTS:</strong><br/>
+                            <ul>
+                                <li></li>
+                                <li>Be comfortable using computers for everyday purposes</li>
+                                <li>Have a strong interest in an IT career</li>
+                                <li>Have a high school diploma or GED®</li>
+                                <li>Be legally authorized to work in the U.S.</li>
+                                <li>Be able to increase your income or job stability through the program.</li>
+                            </ul>
+                        </li>
+                        <li><strong>PROGRAM TRACKS:</strong><br/>
+                            <ul>
+                                <li><strong>Intensive Coaching:</strong><br/>
+                                    This is for people with IT skills and experience, a high English level, and who are ready to look for a job right away.
+                                </li>
+                                <li><strong>Short-Term Training:</strong><br/>
+                                    This is for people who need more help with English and IT skills and who are ready to complete classes that will last from up to 6 months. These classes will help you earn certificates to start or advance a career in the IT field.
+                                </li>
+                                <li><strong>Long-Term Training:</strong><br/>
+                                    This is for people who have a high level of English and basic skills and are ready to enter credit classes for longer training at the College, or for those who are already enrolled in those classes.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="list-inline m-t-20">
+                        <li><a href="#"><i class="fa fa-facebook icon icon-40 rad-3 bg-4f84c4"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google icon icon-40 rad-3 bg-f2552c"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter icon icon-40 rad-3 bg-95dee3"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram icon icon-40 rad-3 bg-fe718b"></i></a></li>
+                    </ul>
+                    <a href="#" class="ht-btn bg-00c400 m-t-20 m-b-20 m-r-15">Apply for this job</a>
+                    <a href="#" class="ht-btn bg-4f84c4 m-t-20 m-b-20">Save</a>
+
+                    <h2 class="f-20">ABOUT</h2>
+                    <p>TechHire is a new U.S. Department of Labor grant-funded training program for those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, you may be able to enter one or more tracks that will help you further your education and training and find a job.</p>
+                    <h2 class="f-20">Senior Software Engineer</h2>
+                    <p>Develops information systems by studying operations; designing, developing, and installing software solutions; supports and develops software team.</p>
+                    <ul class="m-l-40 ln">
+                        <li>Develops software solutions by studying information needs; conferring with users; studying systems flow, data usage, and work processes; investigating problem areas; following the software development lifecycle.</li>
+                        <li>Determines operational feasibility by evaluating analysis, problem definition, requirements, solution development, and proposed solutions.</li>
+                        <li>Documents and demonstrates solutions by developing documentation, flowcharts, layouts, diagrams, charts, code comments and clear code.</li>
+                        <li>Prepares and installs solutions by determining and designing system specifications, standards, and programming.</li>
+                        <li>Improves operations by conducting systems analysis; recommending changes in policies and procedures.<p></p><p>Protects operations by keeping information confidential.</p></li>
+                        <li>Provides information by collecting, analyzing, and summarizing development and service issues.</li>
+                        <li>Accomplishes engineering and organization mission by completing related results as needed.</li>
+                    </ul>
+                    <h2 class="f-20">Qualifications required</h2>
+                    <ul class="list-1x m-l-40 ln">
+                        <li>Interest in user interface design.</li>
+                        <li>Web application development experience.</li>
+                        <li>Experience working on cross-browser platforms.</li>
+                        <li class="selected">Development experience designing object-oriented JavaScript.</li>
+                        <li>Software Development Fundamentals</li>
+                        <li>Analyzing Information</li>
+                        <li>General Programming Skills</li>
+                    </ul>
                 </div>
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left">Your photo</h4>
-                    <div class="p-15 border-1x m-b-15"><input type="file" placeholder=""></div>
-                    <form><div class="form-group"></div></form>
-                </div>
+                <a href="#" class="ht-btn bg-00c400">Apply for this job</a>
             </div>
-            <div class="col-sm-6">
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left selected">Skills<br></h4>
-                    <form>
-                        <input type="text" class="form-item" placeholder="Brief biography">
-                        <input type="text" class="form-item" placeholder="Scholarships">
-                        <input type="text" class="form-item" placeholder="Study abroad">
-                        <input type="text" class="form-item" placeholder="Presentations and lectures">
-                    </form>
+            <div class="col-md-5"><!-- Product-item -->
+                <div class="box-item p-30 box-shadow-d">
+                    <img src="../images/log7.png" alt="image" class="m-b-10 w-50">
+                    <h2 class="f-30 f-xs-20 p-0">ITI Solutions, Inc</h2>
+                    <div><span class="color-a f-14">Last updated: January 23 2015</span></div>
+                    <ul class="list-inline m-t-5">
+                        <li><i class="fa fa-star color-feda00"></i><i class="fa fa-star m-l-5 color-feda00"></i><i class="fa fa-star m-l-5 color-feda00"></i><i class="fa fa-star m-l-5 color-feda00"></i><i class="fa fa-star m-l-5 color-a"></i></li>
+                        <li>354 Reviews</li>
+                        <li>121<i class="fa fa-heart-o m-l-5"></i></li>
+                    </ul>
+                    <ul class="list list-1x m-t-20">
+                        <li><strong>Founed</strong>1985</li>
+                        <li><strong>Company Size</strong><span>500 - 1000 employees</span></li>
+                        <li><strong>Industry</strong>Computer / IT services</li>
+                        <li><strong>Adress</strong>San Antonio, Texas, US</li>
+                        <li><strong>Website</strong><span class="w-150">www.theme3x.com</span></li>
+                    </ul>
                 </div>
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left">Education</h4>
-                    <form>
-                        <select class="form-item">
-                            <option>Education</option>
-                            <option>Option 1</option>
-                            <option>Option 2</option>
-                            <option>Option 3</option>
-                            <option>Option 4</option>
-                            <option>Option 5</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left">Where have you worked?</h4>
-                    <form>
-                        <input type="text" class="form-item" placeholder="Employer">
-                        <input type="text" class="form-item" placeholder="Address employer">
-                        <input type="text" class="form-item" placeholder="Job title">
-                        <input type="text" class="form-item" placeholder="Start date">
-                        <input type="text" class="form-item" placeholder="End date">
-                        <textarea class="form-item p-15" placeholder="About me"></textarea>
-                    </form>
-                </div>
-                <div class="box p-40">
-                    <div></div>
-                    <h4 class="title line-default line-default-left">Social link</h4>
-                    <form>
-                        <input type="text" class="form-item" placeholder="Facebook">
-                        <input type="text" class="form-item" placeholder="Google +">
-                        <input type="text" class="form-item" placeholder="Twitter">
-                        <input type="text" class="form-item" placeholder="Instagram">
-                    </form>
+                <div class="box-item p-30 box-shadow-d">
+                    <h3 class="p-t-0 text-center">Suggested Programs</h3>
+                    <h5 class="p-t-0  text-center">Based on your profile, you should also apply to the following:</h5>
+                    <hr/>
+                    <div class="border-1x p-15 m-t-ab-1 m-b-15">
+                        <h3 class="p-0 p-b-5 f-16 text-center"><a href="html/program_detail_ptf" target="_blank">Promising the Future</a></h3>
+                    </div>
+                    <!--<a href="#" class="ht-btn m-t-20 bg-4f84c4">View all Jobs</a>-->
                 </div>
             </div>
         </div>
-        <a href="#" class="ht-btn bg-4f84c4 pull-right">Save &amp; Update</a>
     </div>
 </section>
-
-
-<div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
-
-
 <footer class="bg-2">
     <div class="footer-top">
         <div class="container">
