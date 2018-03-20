@@ -8,4 +8,6 @@ import java.util.Set;
 
 public interface UserRepository extends CrudRepository<User, Long> {
     User findUserByUsername(String username);
+
+    int countByUsername(int usernumber);
 }

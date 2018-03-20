@@ -1,16 +1,14 @@
 package com.frontendforresume_fc.demo.controller;
 
 import com.frontendforresume_fc.demo.model.User;
+import com.frontendforresume_fc.demo.repository.UserRepository;
 import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -20,14 +18,39 @@ public class HomeController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping("/")
     public String index() {
         return "html/index";
     }
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("user",new User());
+        return "html/register";
+    }
+
+    @PostMapping("/register")
+    public String processregistration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model ){
+
+        model.addAttribute("user",user);
+        if(result.hasErrors()){
+            return "html/register";
+        }else{
+            userService.saveNewUser(user);
+            model.addAttribute("message","User Account Successfully Created");
+
+        }
+        return "html/index";
+    }
+
 
 
     @RequestMapping("/all_users")
-    public String viewAllUsers() {
+    public String viewAllUsers(Model model) {
+        model.addAttribute("userlist",userRepository.findAll());
+
         return "html/all_users";
     }
 

@@ -182,11 +182,14 @@
 <section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
-            <h1>2,547 Resume found</h1>
+            <span th:each="user,iterationStatus  : ${userlist}">
+            <h1 th:text="${iterationStatus.size}"></h1><h2>Resume found </h2>
+                                </span>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
         </div>
+
         <div class="row">
-            <div class="col-md-14"><!-- Blog-item -->
+            <div class="col-md-14" th:each="user : ${userlist}"><!-- Blog-item -->
                 <div class="box-item">
                     <div class="row">
                         <div class="col-sm-2 text-center">
@@ -194,11 +197,13 @@
                         </div>
                         <div class="col-sm-10">
                             <h3 class="heading p-b-0 p-t-0">
-                                <a href="user_resume">John Anderson</a>
+                                <a th:text="${user.firstName}">John Anderson</a>
                             </h3>
-                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">Java Developer</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
                             <div class="f-weight-400">Skill: <span class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
+                            <div class="f-weight-400">Email: <span class="color-9" th:text="${user.email}"></span></div>
+
                         </div>
                     </div>
                     <div class="border-1x p-10 m-t-15 bg-f">
@@ -216,13 +221,13 @@
                         </div>
                     </div>
                 </div>
-                <nav aria-label="Page navigation" class="m-t-20">
-                    <ul class="pagination ht-pagination">
-                        <li><a href="#" aria-label="Previous"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" aria-label="Next"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
-                </nav>
+                <!--<nav aria-label="Page navigation" class="m-t-20">-->
+                    <!--<ul class="pagination ht-pagination">-->
+                        <!--<li><a href="#" aria-label="Previous"><i class="fa fa-angle-double-left"></i></a></li>-->
+                        <!--<li><a href="#">1</a></li>-->
+                        <!--<li><a href="#" aria-label="Next"><i class="fa fa-angle-double-right"></i></a></li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
             </div>
         </div>
     </div>
