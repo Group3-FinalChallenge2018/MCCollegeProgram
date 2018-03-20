@@ -25,6 +25,12 @@ public class HomeController {
     public String index() {
         return "html/index";
     }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "html/login";
+    }
+
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user",new User());

@@ -221,7 +221,7 @@
 						<input th:field="*{username}" type="text" class="form-item" placeholder="Username">
 
 
-						<input type="text" class="form-item" placeholder="Email">
+						<input th:field="*{email}" type="text" class="form-item" placeholder="Email">
 
 						<span th:if="${#fields.hasErrors('password')}"
 							  th:errors="*{password}">Password Error</span>
