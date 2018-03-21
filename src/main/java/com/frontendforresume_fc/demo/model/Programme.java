@@ -13,9 +13,6 @@ public class Programme {
 
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Requirement> programmeRequirements;
-
     @ManyToMany(mappedBy = "appliedProgramme", cascade = CascadeType.ALL)
     private Set<User> appliedUsers;
 
@@ -26,6 +23,111 @@ public class Programme {
     private Set<User> acceptedUsers;
 
     public Programme() {
+    }
+
+    private String englishStatus;
+    private String employmentStatus;
+    private String underemploymentStatus;
+    private String itcareerInterest;
+    private String diplomaStatus;
+    private String usworkAuth;
+    private String objectoritentedExperience;
+    private String major;
+    //    Needs Local Date Time Format
+    private String gradYear;
+    private String salary;
+
+    public Programme(String englishStatus, String employmentStatus, String underemploymentStatus, String itcareerInterest, String diplomaStatus, String usworkAuth, String objectoritentedExperience, String major, String gradYear, String salary) {
+        this.englishStatus = englishStatus;
+        this.employmentStatus = employmentStatus;
+        this.underemploymentStatus = underemploymentStatus;
+        this.itcareerInterest = itcareerInterest;
+        this.diplomaStatus = diplomaStatus;
+        this.usworkAuth = usworkAuth;
+        this.objectoritentedExperience = objectoritentedExperience;
+        this.major = major;
+        this.gradYear = gradYear;
+        this.salary = salary;
+    }
+
+    public String getEnglishStatus() {
+        return englishStatus;
+    }
+
+    public void setEnglishStatus(String englishStatus) {
+        this.englishStatus = englishStatus;
+    }
+
+    public String getEmploymentStatus() {
+        return employmentStatus;
+    }
+
+    public void setEmploymentStatus(String employmentStatus) {
+        this.employmentStatus = employmentStatus;
+    }
+
+    public String getUnderemploymentStatus() {
+        return underemploymentStatus;
+    }
+
+    public void setUnderemploymentStatus(String underemploymentStatus) {
+        this.underemploymentStatus = underemploymentStatus;
+    }
+
+    public String getItcareerInterest() {
+        return itcareerInterest;
+    }
+
+    public void setItcareerInterest(String itcareerInterest) {
+        this.itcareerInterest = itcareerInterest;
+    }
+
+    public String getDiplomaStatus() {
+        return diplomaStatus;
+    }
+
+    public void setDiplomaStatus(String diplomaStatus) {
+        this.diplomaStatus = diplomaStatus;
+    }
+
+    public String getUsworkAuth() {
+        return usworkAuth;
+    }
+
+    public void setUsworkAuth(String usworkAuth) {
+        this.usworkAuth = usworkAuth;
+    }
+
+    public String getObjectoritentedExperience() {
+        return objectoritentedExperience;
+    }
+
+    public void setObjectoritentedExperience(String objectoritentedExperience) {
+        this.objectoritentedExperience = objectoritentedExperience;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getGradYear() {
+        return gradYear;
+    }
+
+    public void setGradYear(String gradYear) {
+        this.gradYear = gradYear;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
     public Programme(String name) {
@@ -46,18 +148,6 @@ public class Programme {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Requirement> getProgrammeRequirements() {
-        return programmeRequirements;
-    }
-
-    public void setProgrammeRequirements(Set<Requirement> programmeRequirements) {
-        this.programmeRequirements = programmeRequirements;
-    }
-
-    public void addRequirement(Requirement requirement){
-        this.programmeRequirements.add(requirement);
     }
 
     public Set<User> getAppliedUsers() {
