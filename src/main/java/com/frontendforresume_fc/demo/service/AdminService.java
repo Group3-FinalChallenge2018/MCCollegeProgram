@@ -21,6 +21,9 @@ public class AdminService {
     @Autowired
     ProgrammeRepository programmeRepository;
 
+    @Autowired
+    UserService userService;
+
     /*
      * Check if given User is admin or not
      */
@@ -54,16 +57,6 @@ public class AdminService {
      * Get a list of students who have applied for a given programme
      */
     public HashSet<User> getAppliedStudents(Programme programme){
-        /*
-        HashSet appliedStudents = new HashSet();
-        for(User user : userRepository.findAll()){
-            if(user.containsAppliedProgramme(programme)){
-                appliedStudents.add(user);
-                break;
-            }
-        }
-        return appliedStudents;
-        */
         return userRepository.findUsersByAppliedProgrammeContains(programme);
     }
 
@@ -78,20 +71,37 @@ public class AdminService {
      * Approve a given Student to admit to the programme
      */
     public void approveStudent2Programme(User user,  Programme programme){
-
+        user.deleteAppliedProgramme(programme);
+        user.addApprovedProgramme(programme);
+        userRepository.save(user);
     }
 
     /*
      * Return a list of students who accepts admission to given programme
      */
     public Set<User> getAcceptedStudents(Programme programme){
-        return new HashSet<>();
+        return userRepository.findUsersByAcceptedProgrammeContains(programme);
+    }
+
+    /*
+     * Return a number of applications (number of applied students) for a given program
+     */
+    public int getNumOfAppliedStudents(Programme programme){
+        return userRepository.countUsersByAppliedProgrammeContains(programme);
+    }
+
+    /*
+     * Return a number of accepted students for a given program
+     */
+    public int getNumOfAcceptedStudents(Programme programme){
+        return userRepository.countUsersByAcceptedProgrammeContains(programme);
     }
 
     /*
      * Add other administrators
      */
-    public void addNewAdmin(){
-
+    public void addNewAdmin(String password, String username, String firstName, String lastName, String email){
+        User admin = new User(password, username, firstName, lastName, email);
+        userService.saveNewAdmin(admin);
     }
 }

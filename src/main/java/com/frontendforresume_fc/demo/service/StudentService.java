@@ -68,15 +68,8 @@ public class StudentService {
      * Student accepts admission into a programme
      */
     public void acceptProgramme(User user, Programme programme){
-        for(Programme p: user.getAcceptedProgramme()){
-        }
-
-    }
-
-    /*
-     * Student declines admission into a programme
-     */
-    public void declineProgramme(User user, Programme programme){
-
+        user.deleteApprovedProgramme(programme);
+        user.addAcceptedProgramme(programme);
+        userRepository.save(user);
     }
 }

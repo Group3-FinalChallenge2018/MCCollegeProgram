@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -25,6 +26,18 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepository.findUserByUsername(username);
+    }
+
+    public Set<User> findByUser(){
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleRepository.findByRole("USER"));
+        return userRepository.findUsersByRoles(roles);
+    }
+
+    public Set<User> findByAdmin(){
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleRepository.findByRole("ADMIN"));
+        return userRepository.findUsersByRoles(roles);
     }
 
     public void saveNewUser(User user) {
