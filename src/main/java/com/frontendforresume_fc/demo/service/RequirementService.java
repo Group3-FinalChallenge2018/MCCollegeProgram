@@ -16,4 +16,11 @@ public class RequirementService {
 
         return requirement;
     }
+
+    public Requirement getRequirement(String description, boolean yesOrNo){
+        Requirement requirement = new Requirement(description, yesOrNo);
+        requirementRepository.save(requirement);
+
+        return requirement;
+    }
 }
