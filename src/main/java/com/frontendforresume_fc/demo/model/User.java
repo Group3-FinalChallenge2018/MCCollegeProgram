@@ -68,6 +68,9 @@ public class User {
     private Set<Programme> appliedProgramme;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Programme> approvedProgramme;
+
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Programme> acceptedProgramme;
 
     public User() {
@@ -209,11 +212,47 @@ public class User {
         this.roles = roles;
     }
 
+    public Set<Requirement> getStudentRequirements() {
+        return studentRequirements;
+    }
+
+    public void setStudentRequirements(Set<Requirement> studentRequirements) {
+        this.studentRequirements = studentRequirements;
+    }
+
+    public Set<Programme> getAppliedProgramme() {
+        return appliedProgramme;
+    }
+
+    public void setAppliedProgramme(Set<Programme> appliedProgramme) {
+        this.appliedProgramme = appliedProgramme;
+    }
+
+    public Set<Programme> getAcceptedProgramme() {
+        return acceptedProgramme;
+    }
+
+    public Set<Programme> getApprovedProgramme() {
+        return approvedProgramme;
+    }
+
+    public void setApprovedProgramme(Set<Programme> approvedProgramme) {
+        this.approvedProgramme = approvedProgramme;
+    }
+
+    public void setAcceptedProgramme(Set<Programme> acceptedProgramme) {
+        this.acceptedProgramme = acceptedProgramme;
+    }
+
     public void addProgramme(Programme programme){
         this.appliedProgramme.add(programme);
 }
 
     public boolean containsProgram(Programme programme) {
         return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme);
+    }
+
+    public void addRequirement(Requirement requirement){
+        this.studentRequirements.add(requirement);
     }
 }
