@@ -26,6 +26,10 @@ public class ProgrammeService {
         return programmeRepository.findAll();
     }
 
+    public void saveProgramme(Programme programme){
+        programmeRepository.save(programme);
+    }
+
 
 
 }

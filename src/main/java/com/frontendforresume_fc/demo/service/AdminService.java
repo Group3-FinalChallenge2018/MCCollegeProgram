@@ -53,8 +53,18 @@ public class AdminService {
     /*
      * Get a list of students who have applied for a given programme
      */
-    public Set<User> getAppliedStudents(Programme programme){
-        return new HashSet<>();
+    public HashSet<User> getAppliedStudents(Programme programme){
+        /*
+        HashSet appliedStudents = new HashSet();
+        for(User user : userRepository.findAll()){
+            if(user.containsAppliedProgramme(programme)){
+                appliedStudents.add(user);
+                break;
+            }
+        }
+        return appliedStudents;
+        */
+        return userRepository.findUsersByAppliedProgrammeContains(programme);
     }
 
     /*
@@ -67,7 +77,7 @@ public class AdminService {
     /*
      * Approve a given Student to admit to the programme
      */
-    public void approveStudent2Programme(User user){
+    public void approveStudent2Programme(User user,  Programme programme){
 
     }
 

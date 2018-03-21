@@ -31,7 +31,7 @@ public class FrontEndForResumeFcApplicationTests {
 	AdminService adminService;
 
 	@Test
-	public void contextLoads() {
+	public void compareUserProgramReq() {
 		User user = userService.findByUsername("clark");
 		Programme programme = programmeService.findByName("Promising the Future");
 
@@ -44,8 +44,19 @@ public class FrontEndForResumeFcApplicationTests {
 		user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
 
 		HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
+	}
 
+	@Test
+	public void studentApply2Programme(){
+		User clark = userService.findByUsername("clark");
+		User admin = userService.findByUsername("admin");
+		Programme programme = programmeService.findByName("Promising the Future");
+
+		studentService.apply2Programme(clark, programme);
+		HashSet<User> appliedStudentSet = adminService.getAppliedStudents(programme);
+		adminService.approveStudent2Programme(clark, programme);
 
 	}
+
 
 }

@@ -44,21 +44,17 @@ public class StudentService {
     public void apply2Programme(User user, Programme programme){
         //if user is not student return
         if(!isStudent(user)){
+            System.out.println("User is not student");
             return;
         }
 
         //if student already applied or got accepted, student cannot apply
         if(user.containsProgram(programme)){
+            System.out.println("This student already applies or accepted this program");
             return;
         }
-        user.addProgramme(programme);
+        user.addAppliedProgramme(programme);
         userRepository.save(user);
-
-        if(programme.getAppliedUsers() == null){
-            programme.setAppliedUsers(new HashSet<>());
-        }
-        programme.addAppliedUsers(user);
-        programmeRepository.save(programme);
     }
 
     /*

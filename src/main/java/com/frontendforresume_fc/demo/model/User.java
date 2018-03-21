@@ -139,15 +139,38 @@ public class User {
         this.acceptedProgramme = acceptedProgramme;
     }
 
-    public void addProgramme(Programme programme){
+    public void addAppliedProgramme(Programme programme) {
         this.appliedProgramme.add(programme);
-}
-
-    public boolean containsProgram(Programme programme) {
-        return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme);
     }
 
-    public void addRequirement(Requirement requirement){
+    public void deleteAppliedProgramme(Programme programme) {
+        this.appliedProgramme.remove(programme);
+    }
+
+    public void addApprovedProgramme(Programme programme){
+        this.approvedProgramme.add(programme);
+    }
+
+    public void deleteApprovedProgramme(Programme programme){
+        this.approvedProgramme.remove(programme);
+    }
+
+    public void addAcceptedProgramme(Programme programme){
+        this.acceptedProgramme.add(programme);
+    }
+
+    public void deleteAcceptedProgramme(Programme programme){
+        this.acceptedProgramme.remove(programme);
+    }
+
+    public boolean containsAppliedProgramme(Programme programme){
+        return this.appliedProgramme.contains(programme);
+    }
+    public boolean containsProgram(Programme programme) {
+        return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme) || this.approvedProgramme.contains(programme);
+    }
+
+    public void addRequirement(Requirement requirement) {
         this.studentRequirements.add(requirement);
     }
 }

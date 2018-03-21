@@ -16,13 +16,13 @@ public class Programme {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Requirement> programmeRequirements;
 
-    @ManyToMany(mappedBy = "appliedProgramme")
+    @ManyToMany(mappedBy = "appliedProgramme", cascade = CascadeType.ALL)
     private Set<User> appliedUsers;
 
-    @ManyToMany(mappedBy = "approvedProgramme")
+    @ManyToMany(mappedBy = "approvedProgramme", cascade = CascadeType.ALL)
     private Set<User> approvedUsers;
 
-    @ManyToMany(mappedBy = "acceptedProgramme")
+    @ManyToMany(mappedBy = "acceptedProgramme", cascade = CascadeType.ALL)
     private Set<User> acceptedUsers;
 
     public Programme() {
@@ -86,5 +86,29 @@ public class Programme {
 
     public void setApprovedUsers(Set<User> approvedUsers) {
         this.approvedUsers = approvedUsers;
+    }
+
+    public void addAppliedUser(User user) {
+        this.appliedUsers.add(user);
+    }
+
+    public void deleteAppliedUser(Programme programme) {
+        this.appliedUsers.remove(programme);
+    }
+
+    public void addApprovedUser(User user){
+        this.approvedUsers.add(user);
+    }
+
+    public void deleteApprovedUser(User user){
+        this.approvedUsers.remove(user);
+    }
+
+    public void addAcceptedUser(User user){
+        this.acceptedUsers.add(user);
+    }
+
+    public void deleteAcceptedUser(User user) {
+        this.acceptedUsers.remove(user);
     }
 }

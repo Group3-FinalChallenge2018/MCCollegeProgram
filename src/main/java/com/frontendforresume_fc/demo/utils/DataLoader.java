@@ -41,11 +41,32 @@ public class DataLoader implements CommandLineRunner {
         r.setRole("ADMIN");
         roleRepository.save(r);
 
-        User user2 = new User("password", "clark", "Clark", "Kent", "clark@kent.com");
-        userService.saveNewUser(user2);
+        User student = new User("password", "clark", "Clark", "Kent", "clark@kent.com");
+        userService.saveNewUser(student);
 
-        User user3 = new User("password", "admin", "admink", "adminKent", "admin@kent.com");
-        userService.saveNewAdmin(user3);
+        User student2 = new User("password", "harry", "Harry", "Potter", "harry@kent.com");
+        userService.saveNewUser(student2);
+
+        User student3 = new User("password", "tony", "Tony", "stark", "tony@kent.com");
+        userService.saveNewUser(student3);
+
+        User student4 = new User("password", "holy", "Holy", "Grail", "holy@kent.com");
+        userService.saveNewUser(student4);
+
+        User student5 = new User("password", "hola", "Hola", "hi", "hola@kent.com");
+        userService.saveNewUser(student5);
+
+        User student6 = new User("password", "samsung", "Samsung", "Galaxy", "samsung@kent.com");
+        userService.saveNewUser(student6);
+
+        User student7 = new User("password", "yolo", "Yolo", "Man", "yolo@kent.com");
+        userService.saveNewUser(student7);
+
+        User admin = new User("password", "admin", "admink", "adminKent", "admin@kent.com");
+        userService.saveNewAdmin(admin);
+
+        User admin2 = new User("password", "admin2", "admink", "adminKent", "admin2@kent.com");
+        userService.saveNewAdmin(admin2);
 
 
         Programme hit = new Programme("Hiring in Tech");
