@@ -30,26 +30,26 @@ public class TestController {
     @Autowired
     RequirementService requirementService;
 
-    @RequestMapping("")
-    public String index(Model model){
-        User user = userService.findByUsername("clark");
-        Programme programme = programmeService.findByName("Promising the Future");
-
-        user.setStudentRequirements(new HashSet<>());
-
-        user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
-        user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
-        user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
-        user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
-        user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
-        user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
-
-        HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
-
-        model.addAttribute("programme", programme.getProgrammeRequirements());
-        model.addAttribute("students", user.getStudentRequirements());
-        model.addAttribute( "requirementMatch", userEligibilty);
-
-        return "test";
-    }
+//    @RequestMapping("/testr")
+//    public String testrequirements(Model model){
+//        User user = userService.findByUsername("clark");
+//        Programme programme = programmeService.findByName("Promising the Future");
+//
+//        user.setStudentRequirements(new HashSet<>());
+//
+//        user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
+//        user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
+//        user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
+//        user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
+//        user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
+//        user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
+//
+//        HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
+//
+//        model.addAttribute("programme", programme.getProgrammeRequirements());
+//        model.addAttribute("students", user.getStudentRequirements());
+//        model.addAttribute( "requirementMatch", userEligibilty);
+//
+//        return "test";
+//    }
 }

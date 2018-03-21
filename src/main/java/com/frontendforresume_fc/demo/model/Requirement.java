@@ -11,6 +11,7 @@ public class Requirement {
 
     private String description;
 
+
     private boolean answer;
 
     @ManyToMany(mappedBy = "programmeRequirements")
@@ -62,6 +63,7 @@ public class Requirement {
     public Set<User> getStudents() {
         return students;
     }
+
 
     public void setStudents(Set<User> students) {
         this.students = students;
