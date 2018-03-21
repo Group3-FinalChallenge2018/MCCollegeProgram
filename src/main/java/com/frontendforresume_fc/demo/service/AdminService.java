@@ -100,8 +100,8 @@ public class AdminService {
     /*
      * Add other administrators
      */
-    public void addNewAdmin(String password, String username, String firstName, String lastName, String email){
-        User admin = new User(password, username, firstName, lastName, email);
-        userService.saveNewAdmin(admin);
-    }
+//    public void addNewAdmin(String password, String username, String firstName, String lastName, String email){
+//        User admin = new User(password, username, firstName, lastName, email);
+//        userService.saveNewAdmin(admin);
+//    }
 }
