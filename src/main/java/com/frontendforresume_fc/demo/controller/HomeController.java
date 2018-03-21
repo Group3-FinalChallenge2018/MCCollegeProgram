@@ -1,13 +1,10 @@
 package com.frontendforresume_fc.demo.controller;
 
 import com.frontendforresume_fc.demo.model.Programme;
-import com.frontendforresume_fc.demo.model.Requirement;
 import com.frontendforresume_fc.demo.model.User;
-import com.frontendforresume_fc.demo.repository.RequirementRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
 import com.frontendforresume_fc.demo.service.AdminService;
 import com.frontendforresume_fc.demo.service.ProgrammeService;
-import com.frontendforresume_fc.demo.service.RequirementService;
 import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

@@ -13,8 +13,20 @@ public class Programme {
 
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Requirement> programmeRequirements;
+    private String englishLearner;
+    private String unemployed;
+    private String underemployed;
+    private String comfortableComputer;
+    private String interestIT;
+    private String highschool;
+    private String legalUS;
+
+    private String oop;
+    private String experienceOOP;
+    private String majorCS;
+    private String graduated6;
+    private String earning42000;
+    private String workUS;
 
     @ManyToMany(mappedBy = "appliedProgramme", cascade = CascadeType.ALL)
     private Set<User> appliedUsers;
@@ -32,6 +44,110 @@ public class Programme {
         this.name = name;
     }
 
+    public String getEnglishLearner() {
+        return englishLearner;
+    }
+
+    public void setEnglishLearner(String englishLearner) {
+        this.englishLearner = englishLearner;
+    }
+
+    public String getUnemployed() {
+        return unemployed;
+    }
+
+    public void setUnemployed(String unemployed) {
+        this.unemployed = unemployed;
+    }
+
+    public String getUnderemployed() {
+        return underemployed;
+    }
+
+    public void setUnderemployed(String underemployed) {
+        this.underemployed = underemployed;
+    }
+
+    public String getComfortableComputer() {
+        return comfortableComputer;
+    }
+
+    public void setComfortableComputer(String comfortableComputer) {
+        this.comfortableComputer = comfortableComputer;
+    }
+
+    public String getInterestIT() {
+        return interestIT;
+    }
+
+    public void setInterestIT(String interestIT) {
+        this.interestIT = interestIT;
+    }
+
+    public String getHighschool() {
+        return highschool;
+    }
+
+    public void setHighschool(String highschool) {
+        this.highschool = highschool;
+    }
+
+    public String getLegalUS() {
+        return legalUS;
+    }
+
+    public void setLegalUS(String legalUS) {
+        this.legalUS = legalUS;
+    }
+
+    public String getOop() {
+        return oop;
+    }
+
+    public void setOop(String oop) {
+        this.oop = oop;
+    }
+
+    public String getExperienceOOP() {
+        return experienceOOP;
+    }
+
+    public void setExperienceOOP(String experienceOOP) {
+        this.experienceOOP = experienceOOP;
+    }
+
+    public String getMajorCS() {
+        return majorCS;
+    }
+
+    public void setMajorCS(String majorCS) {
+        this.majorCS = majorCS;
+    }
+
+    public String getGraduated6() {
+        return graduated6;
+    }
+
+    public void setGraduated6(String graduated6) {
+        this.graduated6 = graduated6;
+    }
+
+    public String getEarning42000() {
+        return earning42000;
+    }
+
+    public void setEarning42000(String earning42000) {
+        this.earning42000 = earning42000;
+    }
+
+    public String getWorkUS() {
+        return workUS;
+    }
+
+    public void setWorkUS(String workUS) {
+        this.workUS = workUS;
+    }
+
     public long getId() {
         return id;
     }
@@ -46,18 +162,6 @@ public class Programme {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Requirement> getProgrammeRequirements() {
-        return programmeRequirements;
-    }
-
-    public void setProgrammeRequirements(Set<Requirement> programmeRequirements) {
-        this.programmeRequirements = programmeRequirements;
-    }
-
-    public void addRequirement(Requirement requirement){
-        this.programmeRequirements.add(requirement);
     }
 
     public Set<User> getAppliedUsers() {
