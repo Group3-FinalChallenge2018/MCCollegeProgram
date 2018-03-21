@@ -1,14 +1,10 @@
 package com.frontendforresume_fc.demo.utils;
 
 import com.frontendforresume_fc.demo.model.Programme;
-import com.frontendforresume_fc.demo.model.Requirement;
 import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
-import com.frontendforresume_fc.demo.repository.RequirementRepository;
 import com.frontendforresume_fc.demo.repository.RoleRepository;
-import com.frontendforresume_fc.demo.repository.UserRepository;
-import com.frontendforresume_fc.demo.service.RequirementService;
 import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,9 +19,6 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     ProgrammeRepository programmeRepository;
-
-    @Autowired
-    RequirementService requirementService;
 
 
 @Autowired
@@ -70,24 +63,22 @@ public class DataLoader implements CommandLineRunner {
 
 
         Programme hit = new Programme("Hiring in Tech");
-        hit.setProgrammeRequirements(new HashSet<>());
-        hit.addRequirement(requirementService.createRequirement("English Language Learner", true));
-        hit.addRequirement(requirementService.createRequirement("Unemployed with barriers to employment", true));
-        hit.addRequirement(requirementService.createRequirement("Underemployed with barriers to better employment", true));
-        hit.addRequirement(requirementService.createRequirement("Be comfortable using computers for everyday purposes", true));
-        hit.addRequirement(requirementService.createRequirement("Have a strong interest in an IT career", true));
-        hit.addRequirement(requirementService.createRequirement("Have a high school diploma or GED", true));
-        hit.addRequirement(requirementService.createRequirement("Be legally authorized to work in the U.S.", true));
+        hit.setEnglishLearner("YES");
+        hit.setUnemployed("YES");
+        hit.setUnderemployed("YES");
+        hit.setComfortableComputer("YES");
+        hit.setInterestIT("YES");
+        hit.setHighschool("YES");
+        hit.setLegalUS("YES");
         programmeRepository.save(hit);
 
         Programme ptf = new Programme("Promising the Future");
-        ptf.setProgrammeRequirements(new HashSet<>());
-        ptf.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
-        ptf.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
-        ptf.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", true));
-        ptf.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", true));
-        ptf.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", true));
-        ptf.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
+        ptf.setOop("YES");
+        ptf.setExperienceOOP("YES");
+        ptf.setMajorCS("YES");
+        ptf.setGraduated6("YES");
+        ptf.setEarning42000("YES");
+        ptf.setWorkUS("YES");
         programmeRepository.save(ptf);
     }
 }

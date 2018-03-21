@@ -1,12 +1,10 @@
 package com.frontendforresume_fc.demo.service;
 
 import com.frontendforresume_fc.demo.model.Programme;
-import com.frontendforresume_fc.demo.model.Requirement;
 import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
-import org.codehaus.groovy.util.HashCodeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +34,7 @@ public class AdminService {
         return false;
     }
 
-    public HashSet<Requirement> compareUserAndProgrammeRequirements(User user, Programme programme){
+/*    public HashSet<Requirement> compareUserAndProgrammeRequirements(User user, Programme programme){
         HashSet<Requirement> userEligibilty = new HashSet<>();
         for(Requirement studentReq: user.getStudentRequirements()){
             for(Requirement programmeReq : programme.getProgrammeRequirements()){
@@ -52,7 +50,7 @@ public class AdminService {
         }
 
         return userEligibilty;
-    }
+    }*/
     /*
      * Get a list of students who have applied for a given programme
      */
