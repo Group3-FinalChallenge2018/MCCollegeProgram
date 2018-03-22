@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>register</title>
+    <title>Register</title>
     <link rel="icon" href="../images/favicon.ico">
     <!-- jQuery UI -->
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
@@ -176,48 +177,159 @@
         </div>
     </div>
 </header>
-<section class="p-t-50 p-b-0 bg-f">
-    <div class="container">
-        <div class="p-40 p-xs-20 bg-4f84c4">
-            <div class="rad-0 w-full no-bg">
-                <div class="row m-0">
-                    <div class="col-sm-11 p-5 p-t-0">
-                        <div class="row m-0">
-                            <div class="col-sm-8 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20" placeholder="What job you are looking for?"></div>
-                            <div class="col-sm-4 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20 selected" placeholder="City, provide, street"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-1 p-5 p-l-0 p-xs-10">
-                        <button class="ht-btn ht-btn-3x bg-dc4c46 pull-right text-center p-l-25 p-r-25 m-t-0 rad-3 w-full" type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-900"></div>
-        </div>
-    </div>
-</section>
 <section class="block">
     <div class="container">
         <div class="title-group line-default">
             <h1>register</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
         </div>
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
-                    <input type="text" class="form-item" placeholder="Full name">
-                    <input type="text" class="form-item" placeholder="Username">
-                    <input type="text" class="form-item" placeholder="Email">
-                    <input type="password" class="form-item" placeholder="Password">
-                    <input type="password" class="form-item" placeholder="Confrim password">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3" >
+                    <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
+                        <span th:if="${#fields.hasErrors('lastName')}"
+                              th:errors="*{lastName}">Last Name Error</span>
+                        <input th:field="*{lastName}"  type="text" class="form-item" placeholder="Last name">
+
+                        <span th:if="${#fields.hasErrors('firstName')}"
+                              th:errors="*{firstName}">First Name Error</span>
+                        <input type="text"  th:field="*{firstName}" class="form-item" placeholder="First name">
+
+
+                        <span th:if="${#fields.hasErrors('username')}"
+                              th:errors="*{username}">Username Error</span>
+                        <input th:field="*{username}" type="text" class="form-item" placeholder="Username">
+
+
+                        <input th:field="*{email}" type="text" class="form-item" placeholder="Email">
+
+                        <span th:if="${#fields.hasErrors('password')}"
+                              th:errors="*{password}">Password Error</span>
+                        <input type="password" th:field="*{password}"  class="form-item" placeholder="Password">
                     </div>
-                    <div class="form-group"></div>
-                    <a href="#" class="ht-btn bg-4f84c4 m-t-20">Register</a>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3" >
+                    <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
+                        <label>Are you Fluent in English?</label>
+                        <fieldset>
+                        <input type="text" name="Basic understanding of object oriented programming" th:class="#{req.class()}"/>
+                        <input type="submit" value="Subscribe me!" th:value="#{req.getDescription()}"/>
+                        </fieldset>
+                        <span style="display: none"  th:field="${req.getDescription()}"> </span>
+                        <select th:field="*{englishStatus}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>class
+
+                        <span th:if="${#fields.hasErrors('employmentStatus')}"
+                        th:errors="*{employmentStatus}">employmentStatus Error</span>
+                        <label>Are you Cuurently Employed?</label>
+                        <select th:field="*{employmentStatus}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('underemploymentStatus')}"
+                        th:errors="*{underemploymentStatus}">underemploymentStatus Error</span>
+                        <label>Are you Currently underemployed? In the state of Maryland, a person who makes $42,000 or less is underemployed</label>
+                        <select th:field="*{underemploymentStatus}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('itcareerInterest')}"
+                        th:errors="*{itcareerInterest}">itcareerInterest Error</span>
+                        <label>Are you passionate about coding and  believe you have the drive to succeed in an challenging immersive environment.
+                        </label>
+                        <select th:field="*{itcareerInterest}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('diplomaStatus')}"
+                        th:errors="*{diplomaStatus}">diplomaStatus Error</span>
+                        <label>Do you have Highschool Diploma or GED?
+                        </label>
+                        <select th:field="*{diplomaStatus}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('usworkAuth')}"
+                        th:errors="*{usworkAuth}">diplomaStatus Error</span>
+                        <label>Are you Authorized to Work in United States?
+                        </label>
+                        <select th:field="*{usworkAuth}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('objectoritentedExperience')}"
+                        th:errors="*{objectoritentedExperience}">objectoritentedExperience  Error</span>
+                        <label>Do you have Experience with Object Oritened Programmming?
+                        </label>
+                        <select th:field="*{objectoritentedExperience}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+
+
+
+
+                        <span th:if="${#fields.hasErrors('gradYear')}"
+                        th:errors="*{gradYear}">gradYear  Error</span>
+                        <label> Our ideal candidate has graduatated college within the last 6 years?  Have you graduated during this timeframe?
+                        </label>
+                        <select th:field="*{gradYear}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('salary')}"
+                        th:errors="*{salary}">salary  Error</span>
+                        <label> Do you currently have a salary less than $42,000?
+                        </label>
+                        <select th:field="*{salary}">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select>
+
+
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
+                        </div>
+                        <div class="form-group"></div>
+                        <button class="ht-btn bg-4f84c4 m-t-20">Register</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form th:action="@{/register}" th:object="${requirements}" method="post">
+            <fieldset>
+                <label>Do you have Experience with Object Oritened Programmming?
+                </label>
+                <input style="display: none" type="text" value="Basic understanding of object oriented programming" th:value="#{requirements.getDescription}"/>
+            </fieldset>
+            <select  type="text" id="answer" name="answer"  th:value="#{requirements.isAnswer}">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+
+            <fieldset>
+                <label> Do you currently have a salary less than $42,000?
+                </label>
+                <input style="display: none" type="text" value="Currently earning 42,000 or less" th:value="#{requirements.getDescription}"/>
+            </fieldset>
+            <select  type="text" id="answer" name="answer"  th:value="#{requirements.isAnswer}">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </form>
     </div>
 </section>
 <footer class="bg-2">
