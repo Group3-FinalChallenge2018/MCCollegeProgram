@@ -80,11 +80,71 @@ public class HomeController {
         return "html/add_admin";
     }
 
-    @RequestMapping("/add_applicants")
-    public String addApplicant() {
-        return "html/add_applicants";
+    @RequestMapping("/all_applicants")
+    public String allApplicants() {
+        return "html/all_applicants";
     }
 
+    @RequestMapping("/applicant_dashboard_accepted")
+    public String applicantDashboardAccepted() {
+        return "html/applicant_dashboard_accepted";
+    }
+
+    @RequestMapping("/applicant_dashboard_applied")
+    public String applicantDashboardApplied() {
+        return "html/applicant_dashboard_applied";
+    }
+
+    @RequestMapping("/applicant_dashboard_approved")
+    public String applicantDashboardApproved() {
+        return "html/applicant_dashboard_approved";
+    }
+
+    @RequestMapping("/applicant_resume")
+    public String viewApplicantsResume() {
+        return "html/applicant_resume";
+    }
+
+    @RequestMapping("/applicants_hit")
+    public String viewHiTApplicants() {
+        return "html/applicants_hit";
+    }
+
+    @RequestMapping("/applicants_ptf")
+    public String viewPtFApplicants() { return "html/applicants_ptf"; }
+
+    @RequestMapping("/apply_hit")
+    public String applyToHiT() {
+        return "html/apply_hit";
+    }
+
+    @RequestMapping("/apply_ptf")
+    public String applyToPtF() {
+        return "html/apply_ptf";
+    }
+
+    @RequestMapping("/blog")
+    public String blog() { return "html/blog"; }
+
+    @RequestMapping("/contact")
+    public String contact() { return "html/contact"; }
+
+    @RequestMapping("/faqs")
+    public String faqs() { return "html/faqs"; }
+
+    @RequestMapping("/list_of_programs")
+    public String viewListOfPrograms() { return "html/list_of_programs"; }
+
+    @RequestMapping("/list_of_programs_admin")
+    public String viewListOfProgramsAdminView() { return "html/list_of_programs_admin"; }
+
+    @RequestMapping("/login")
+    public String login() { return "html/login"; }
+
+    @RequestMapping("/post_program")
+    public String postProgram() {
+        return "html/post_program";
+    }
 
     @RequestMapping("/register")
     public String register() {
@@ -93,26 +153,9 @@ public class HomeController {
 
 
 
-    @RequestMapping("/login")
-    public String login() {
-        return "html/login";
-    }
-
-    @RequestMapping("/applicant_resume")
-    public String viewApplicantsResume() {
-        return "html/applicant_resume";
-    }
 
 
 
-    @RequestMapping("/list_of_programs")
-    public String viewListOfPrograms() {
-        return "html/list_of_programs";
-    }
-
-
-    @RequestMapping("/blog")
-    public String blog() { return "html/blog"; }
 
 
 
