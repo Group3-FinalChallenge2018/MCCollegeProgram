@@ -8,19 +8,6 @@
 <body>
 
 
-<!-- Start of TEST NAV BAR -->
-<div th:fragment="navlinks">
-    <a href="/">Index</a> |
-    <a href="/all_applicants">All Applicants</a> |
-    <a href="/applicant_resume">Applicant's Resume</a> |
-    <a href="/accepted_students_hit">List of Accepted Students for HiT</a> |
-    <a href="/accepted_students_ptf">List of Accepted Students for PtF</a> |
-    <a href="/list_of_programs">List of Programs</a> |
-    <a href="/add_admin">Add Admin</a> |
-</div>
-<!-- End of TEST NAV BAR -->
-
-
 <!-- Start of TOP HEADER MENU -->
 <div th:fragment="top_header_menu">
 <div class="top-header">
@@ -35,10 +22,10 @@
             <div class="col-sm-12 col-md-6">
                 <ul class="top-link pull-right">
                     <li>
-                        <a href="/faqs" role="button" aria-haspopup="true" aria-expanded="false">FAQs</a>
+                        <a th:href="@{/faqs}" role="button" aria-haspopup="true" aria-expanded="false">FAQs</a>
                     </li>
                     <li>
-                        <a href="/" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
+                        <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
                     </li>
                     <li class="menu-btn"><i class="fa fa-bars f-14 icon icon-20"></i></li>
                 </ul>
@@ -62,25 +49,25 @@
         </div>
         <ul class="menu-mb">
             <li>
-                <a href="/" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">home</a>
             </li>
             <li>
-                <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
             </li>
             <li>
-                <a href="/list_of_programs" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                <a th:href="@{/list_of_programs}" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
             </li>
             <li>
-                <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
             </li>
             <li>
-                <a href="/applicant_dashboard_applied" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
+                <a th:href="@{/applicant_dashboard_applied}" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
             </li>
             <li>
-                <a href="/faqs" role="button" aria-haspopup="true" aria-expanded="false">faqs</a>
+                <a th:href="@{/faqs}" role="button" aria-haspopup="true" aria-expanded="false">faqs</a>
             </li>
             <li>
-                <a href="/" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
+                <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
             </li>
         </ul>
     </div>
@@ -97,7 +84,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3">
-                <a href="#" class="logo m-t-10 m-b-10">
+                <a th:href="@{/}"  class="logo m-t-10 m-b-10">
                     <img src="../images/mt-0996-logo.png" alt="image" class="pull-left m-r-5 w-40">
                     <h2 class="f-25 f-weight-300 f-family-poppins text-uppercase p-t-10 p-b-10">Program<strong class="f-weight-600 color-4f84c4">Seeker</strong></h2>
                 </a>
@@ -106,19 +93,19 @@
                 <nav id="holder_mn" class="menu-nav">
                     <ul>
                         <li>
-                            <a href="/" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                            <a th:href="@{/}"  role="button" aria-haspopup="true" aria-expanded="false">home</a>
                         </li>
                         <li>
-                            <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                            <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
                         </li>
                         <li>
-                            <a href="/list_of_programs" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                            <a th:href="@{/list_of_programs}" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
                         </li>
                         <li>
-                            <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                            <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
                         </li>
                         <li>
-                            <a href="/applicant_dashboard_applied" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
+                            <a th:href="@{/applicant_dashboard_applied}" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
                         </li>
                     </ul>
                 </nav>
@@ -159,32 +146,30 @@
             </div>
             <ul class="menu-mb">
                 <li>
-                    <a href="/" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                    <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">home</a>
                 </li>
                 <li>
-                    <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                    <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
                 </li>
-                <!--<li>-->
-                <!--<a href="list_of_programs.html" role="button" aria-haspopup="true" aria-expanded="false">programs</a>-->
-                <!--</li>-->
                 <li class="dropdown">
-                    <a href="/list_of_programs" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                    <a th:href="@{/list_of_programs}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/post_program">Post Program</a></li>
-                        <li><a href="/all_applicants">View Applicants</a></li>
+                        <li><a th:href="@{/post_program}" >Post Program</a></li>
+                        <li><a th:href="@{/list_of_programs}" >View Programs</a></li>
+                        <li><a th:href="@{/all_applicants}" >View Applicants</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                    <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
                 </li>
                 <li>
-                    <a href="/add_admin" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+                    <a th:href="@{/add_admin}" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
                 </li>
                 <li>
-                    <a href="/faqs" role="button" aria-haspopup="true" aria-expanded="false">faqs</a>
+                    <a th:href="@{/faqs}" role="button" aria-haspopup="true" aria-expanded="false">faqs</a>
                 </li>
                 <li>
-                    <a href="/" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
+                    <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
                 </li>
             </ul>
         </div>
@@ -207,10 +192,10 @@
                 <div class="col-sm-12 col-md-6">
                     <ul class="top-link pull-right">
                         <li>
-                            <a href="/faqs" role="button" aria-haspopup="true" aria-expanded="false">FAQs</a>
+                            <a th:href="@{/faqs}" role="button" aria-haspopup="true" aria-expanded="false">FAQs</a>
                         </li>
                         <li>
-                            <a href="/" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
+                            <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
                         </li>
                         <li class="menu-btn"><i class="fa fa-bars f-14 icon icon-20"></i></li>
                     </ul>
@@ -229,7 +214,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
-                        <a href="index.html" class="logo m-t-10 m-b-10">
+                        <a th:href="@{/}" class="logo m-t-10 m-b-10">
                             <img src="../images/mt-0996-logo.png" alt="image" class="pull-left m-r-5 w-40">
                             <h2 class="f-25 f-weight-300 f-family-poppins text-uppercase p-t-10 p-b-10">Program<strong class="f-weight-600 color-4f84c4">Seeker</strong></h2>
                         </a>
@@ -238,23 +223,24 @@
                         <nav id="holder_mn_admin" class="menu-nav">
                             <ul>
                                 <li>
-                                    <a href="/" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                                    <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">home</a>
                                 </li>
                                 <li>
-                                    <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                                    <a th:href="@{/about_iti}"  role="button" aria-haspopup="true" aria-expanded="false">about</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="/list_of_programs" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                                    <a th:href="@{/list_of_programs}"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/post_program">Post Program</a></li>
-                                        <li><a href="/all_applicants">View Applicants</a></li>
+                                        <li><a th:href="@{/post_program}" >Post Program</a></li>
+                                        <li><a th:href="@{/list_of_programs}" >View Programs</a></li>
+                                        <li><a th:href="@{/all_applicants}" >View Applicants</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                                    <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
                                 </li>
                                 <li>
-                                    <a href="/add_admin" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+                                    <a th:href="@{/add_admin}" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
                                 </li>
                             </ul>
                         </nav>
@@ -296,20 +282,20 @@
                 <div class="col-sm-2 m-t-60 m-t-xs-30">
                     <h4>Information</h4>
                     <ul class="list">
-                        <li><a href="/list_of_programs">View Programs</a></li>
-                        <li><a href="/register">Create Your Profile</a></li>
+                        <li><a th:href="@{/list_of_programs}" >View Programs</a></li>
+                        <li><a th:href="@{/register}" >Create Your Profile</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-2 m-t-60 m-t-xs-30">
                     <h4>Community</h4>
                     <ul class="list">
-                        <li><a href="/blog">Blog</a></li>
+                        <li><a th:href="@{/blog}">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 m-t-60 m-t-xs-30">
                     <h4>Newsletter</h4>
                     <input type="text" class="form-item no-border m-t-5" placeholder="Enter your email">
-                    <a href="#" class="ht-btn bg-4f84c4 m-t-30">Subscribe</a>
+                    <a th:href="@{/}" class="ht-btn bg-4f84c4 m-t-30">Subscribe</a>
                 </div>
             </div>
         </div>
