@@ -23,19 +23,23 @@ public class User {
 
     private String lastName;
 
+    private String email;
+
     private String englishStatus;
     private String employmentStatus;
     private String underemploymentStatus;
+    private String comfortableComputer;
     private String itcareerInterest;
     private String diplomaStatus;
     private String usworkAuth;
+    private String understandOOP;
     private String objectoritentedExperience;
     private String major;
-//    Needs Local Date Time Format
     private String gradYear;
     private String salary;
+    private String able2WorkUS;
 
-    private String email;
+
 
     public User(String password, String username, String firstName, String lastName, String email) {
         this.password = password;
@@ -44,14 +48,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
     }
-    //    public User(String password, String username, String firstName, String lastName, String email) {
-//        this.password = password;
-//        this.username = username;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//    }
-
 
     public User(String password, String username, String firstName, String lastName, String englishStatus, String employmentStatus, String underemploymentStatus, String itcareerInterest, String diplomaStatus, String usworkAuth, String objectoritentedExperience, String major, String gradYear, String salary, String email) {
         this.password = password;
@@ -216,6 +212,30 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getComfortableComputer() {
+        return comfortableComputer;
+    }
+
+    public void setComfortableComputer(String comfortableComputer) {
+        this.comfortableComputer = comfortableComputer;
+    }
+
+    public String getUnderstandOOP() {
+        return understandOOP;
+    }
+
+    public void setUnderstandOOP(String understandOOP) {
+        this.understandOOP = understandOOP;
+    }
+
+    public String getAble2WorkUS() {
+        return able2WorkUS;
+    }
+
+    public void setAble2WorkUS(String able2WorkUS) {
+        this.able2WorkUS = able2WorkUS;
     }
 
     public Set<Role> getRoles() {

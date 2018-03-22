@@ -14,10 +14,10 @@ import java.util.Set;
 @Service
 public class StudentService {
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
     @Autowired
-    ProgrammeRepository programmeRepository;
+    ProgrammeService programmeService;
 
     /*
      * Check if given User is student or not
@@ -54,7 +54,8 @@ public class StudentService {
             return;
         }
         user.addAppliedProgramme(programme);
-        userRepository.save(user);
+        userService.saveUser(user);
+        programmeService.saveProgramme(programme);
     }
 
     /*
@@ -69,7 +70,9 @@ public class StudentService {
      */
     public void acceptProgramme(User user, Programme programme){
         user.deleteApprovedProgramme(programme);
+        userService.saveUser(user);
         user.addAcceptedProgramme(programme);
-        userRepository.save(user);
+        userService.saveUser(user);
+        programmeService.saveProgramme(programme);
     }
 }

@@ -28,14 +28,16 @@ public class Programme {
     private String englishStatus;
     private String employmentStatus;
     private String underemploymentStatus;
+    private String comfortableComputer;
     private String itcareerInterest;
     private String diplomaStatus;
     private String usworkAuth;
+    private String understandOOP;
     private String objectoritentedExperience;
     private String major;
-    //    Needs Local Date Time Format
     private String gradYear;
     private String salary;
+    private String able2WorkUS;
 
     public Programme(String englishStatus, String employmentStatus, String underemploymentStatus, String itcareerInterest, String diplomaStatus, String usworkAuth, String objectoritentedExperience, String major, String gradYear, String salary) {
         this.englishStatus = englishStatus;
@@ -48,6 +50,31 @@ public class Programme {
         this.major = major;
         this.gradYear = gradYear;
         this.salary = salary;
+    }
+
+
+    public String getComfortableComputer() {
+        return comfortableComputer;
+    }
+
+    public void setComfortableComputer(String comfortableComputer) {
+        this.comfortableComputer = comfortableComputer;
+    }
+
+    public String getUnderstandOOP() {
+        return understandOOP;
+    }
+
+    public void setUnderstandOOP(String understandOOP) {
+        this.understandOOP = understandOOP;
+    }
+
+    public String getAble2WorkUS() {
+        return able2WorkUS;
+    }
+
+    public void setAble2WorkUS(String able2WorkUS) {
+        this.able2WorkUS = able2WorkUS;
     }
 
     public String getEnglishStatus() {
@@ -166,7 +193,7 @@ public class Programme {
         this.acceptedUsers = acceptedUsers;
     }
 
-    public void addAppliedUsers(User user){
+    public void addAppliedUsers(User user) {
         this.appliedUsers.add(user);
     }
 
@@ -186,15 +213,15 @@ public class Programme {
         this.appliedUsers.remove(programme);
     }
 
-    public void addApprovedUser(User user){
+    public void addApprovedUser(User user) {
         this.approvedUsers.add(user);
     }
 
-    public void deleteApprovedUser(User user){
+    public void deleteApprovedUser(User user) {
         this.approvedUsers.remove(user);
     }
 
-    public void addAcceptedUser(User user){
+    public void addAcceptedUser(User user) {
         this.acceptedUsers.add(user);
     }
 
