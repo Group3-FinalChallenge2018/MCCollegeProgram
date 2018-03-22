@@ -189,13 +189,13 @@
 
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <div class="p-30 bg-f box-shadow-d">
+                <div class="p-30 bg-f box-shadow-d" th:each="user : ${user}">
                     <h2 class="f-20 p-b-10 p-t-0">Program(s) Requirements</h2>
                     <ul class="list-2x list-n-bg text-left">
                         <li class="p-5"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></li>
                         <li class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</li>
                         <li class="p-5"><i class="fa fa-check m-r-5"></i>Applied</li>
-                        <li class="p-5"><i class="fa fa-check m-r-5"></i>English Language Learner</li>
+                        <li class="p-5" ><i class="fa fa-check m-r-5" th:text="${user.getenglishStatus()}"></i>English Language Learner</li>
                         <li class="p-5"><i class="fa fa-check m-r-5"></i>Unemployed</li>
                         <li class="p-5"><i class="fa fa-check m-r-5"></i>Underemployed</li>
                         <li class="p-5"><i class="fa fa-check m-r-5"></i>Authorized U.S. Worker</li>
@@ -236,25 +236,24 @@
             <th>What is Student answer?</th>
             </thead>
             <tbody>
-            <tr th:each="req : ${requirementsforuser}">
-                <td th:text="${req.getDescription()}"></td>
-                <td th:text="${req.isAnswer()}"></td>
+            <tr th:each="user : ${user}">
+                <td th:text="${user.getenglishStatus()}"></td>
             </tr>
             </tbody>
         </table>
 
-        <table>
-            <thead>
-            <th>Student Requirement Description</th>
-            <th>What is Student answer?</th>
-            </thead>
-            <tbody>
-            <tr th:each="req : ${oobjrequirementsforuser}">
-                <td th:text="${req.getDescription()}"></td>
-                <td th:text="${req.isAnswer()}"></td>
-            </tr>
-            </tbody>
-        </table>
+        <!--<table>-->
+            <!--<thead>-->
+            <!--<th>Student Requirement Description</th>-->
+            <!--<th>What is Student answer?</th>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr th:each="req : ${oobjrequirementsforuser}">-->
+                <!--<td th:text="${req.getDescription()}"></td>-->
+                <!--<td th:text="${req.isAnswer()}"></td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
         <!--<table>-->
             <!--<thead>-->
             <!--<th>Requirment Description</th>-->

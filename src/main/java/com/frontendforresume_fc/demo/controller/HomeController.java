@@ -25,17 +25,15 @@ public class HomeController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    RequirementRepository requirementRepository;
 
     @Autowired
     AdminService adminService;
 
+
     @Autowired
     ProgrammeService programmeService;
 
-    @Autowired
-    RequirementService requirementService;
+
 
     @RequestMapping("/")
     public String index() {
@@ -48,26 +46,60 @@ public class HomeController {
     }
 
     @GetMapping("/register")
-    public String register(@ModelAttribute("user") User user ,@ModelAttribute("requirements") Requirement requirement, Model model ) {
+    public String register(@ModelAttribute("user") User user, Model model ) {
         model.addAttribute("user",new User());
-        model.addAttribute("requirements",new Requirement());
 //Creating new user and new requirments model for the newly created user
 
         return "html/testregister";
     }
 
     @PostMapping("/register")
-    public String processregistration(@Valid @ModelAttribute("user") User user,@ModelAttribute("requirements") Requirement requirement, BindingResult result, Model model ){
+    public String processregistration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model ){
 
         model.addAttribute("user",user);
         if(result.hasErrors()){
             return "html/register";
         }else{
+
+
+
 //            Pasing in the current created user and requirments and checking username
             userService.saveNewUser(user);
             userService.findByUsername(user.getUsername());
             Programme programme = programmeService.findByName("Promising the Future");
-            model.addAttribute( "requirementMatch", userEligibilty);
+
+            System.out.println(user.getEmploymentStatus());
+            System.out.println(programme.getEmploymentStatus());
+            System.out.println(user.getEnglishStatus());
+            System.out.println(programme.getEnglishStatus());
+            System.out.println(user.getDiplomaStatus());
+            System.out.println(programme.getDiplomaStatus());
+//            Continue this to see all viaribled and manipulate for testing if they match the program add a new model attribute and list?
+
+//            System.out.println();user.getGradYear();
+//            System.out.println();programme.getGradYear();
+//            System.out.println();user.getMajor();
+//            System.out.println();programme.getMajor();
+//            System.out.println();user.getItcareerInterest();
+//            System.out.println();programme.getItcareerInterest();
+
+
+//            user.setStudentRequirements(new HashSet<>());
+//
+//            user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
+//            user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
+//            user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
+//            user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
+//            user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
+//            user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
+//
+//
+//            HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
+//            programme
+//            model.addAttribute("programme", programme.getProgrammeRequirements());
+//            model.addAttribute("students", user.getStudentRequirements());
+//            model.addAttribute( "requirementMatch", userEligibilty);
+
 
         }
 
@@ -80,22 +112,23 @@ public class HomeController {
         User user = userService.findByUsername("clark");
         Programme programme = programmeService.findByName("Promising the Future");
 
-        user.setStudentRequirements(new HashSet<>());
+//        user.setStudentRequirements(new HashSet<>());
+//
+//        user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
+//        user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
+//        user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
+//        user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
+//        user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
+//        user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
+//
+//        HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
+        userRepository.save(user);
 
-        user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
-        user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
-        user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
-        user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
-        user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
-        user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
-
-        HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
-
-        model.addAttribute("programme", programme.getProgrammeRequirements());
-        model.addAttribute("students", user.getStudentRequirements());
-        model.addAttribute( "requirementMatch", userEligibilty);
-
-        return "html/testapplicant_resume";
+//        model.addAttribute("programme", programme.getProgrammeRequirements());
+//        model.addAttribute("students", user.getStudentRequirements());
+//        model.addAttribute( "requirementMatch", userEligibilty);
+        model.addAttribute("userlist",userRepository.findAll());
+        return "html/testapp_resume";
     }
 
 
@@ -108,16 +141,16 @@ public class HomeController {
 
 
     @RequestMapping("/applicant_resume")
-    public String viewApplicantsResume(Authentication auth,Model model,@ModelAttribute("requirements") Requirement requirement,@ModelAttribute("user") User user ) {
-
+    public String viewApplicantsResume(Authentication auth,Model model) {
+        model.addAttribute("userlist",userRepository.findAll());
 
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user model to save these requirments for this user.
         System.out.println(auth.getName());
-        model.addAttribute("requirementsforuser",requirementService.getRequirement("Basic understanding of object oriented programming",requirement.isAnswer()));
-        model.addAttribute("oobjrequirementsforuser",requirementService.getRequirement("Previous experience with an object-oriented language", requirement.isAnswer()));
+//        model.addAttribute("requirementsforuser",requirementService.getRequirement("Basic understanding of object oriented programming",requirement.isAnswer()));
+//        model.addAttribute("oobjrequirementsforuser",requirementService.getRequirement("Previous experience with an object-oriented language", requirement.isAnswer()));
 
-        return "html/testapplicant_resume";
+        return "html/testapp_resume";
     }
 
 

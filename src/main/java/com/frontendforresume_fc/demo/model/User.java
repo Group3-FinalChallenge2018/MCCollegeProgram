@@ -23,22 +23,19 @@ public class User {
 
     private String lastName;
 
+    private String englishStatus;
+    private String employmentStatus;
+    private String underemploymentStatus;
+    private String itcareerInterest;
+    private String diplomaStatus;
+    private String usworkAuth;
+    private String objectoritentedExperience;
+    private String major;
+//    Needs Local Date Time Format
+    private String gradYear;
+    private String salary;
+
     private String email;
-
-    private String englishLearner;
-    private String unemployed;
-    private String underemployed;
-    private String comfortableComputer;
-    private String interestIT;
-    private String highschool;
-    private String legalUS;
-
-    private String oop;
-    private String experienceOOP;
-    private String majorCS;
-    private String graduated6;
-    private String earning42000;
-    private String workUS;
 
     public User(String password, String username, String firstName, String lastName, String email) {
         this.password = password;
@@ -47,10 +44,39 @@ public class User {
         this.lastName = lastName;
         this.email = email;
     }
+    //    public User(String password, String username, String firstName, String lastName, String email) {
+//        this.password = password;
+//        this.username = username;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//    }
+
+
+    public User(String password, String username, String firstName, String lastName, String englishStatus, String employmentStatus, String underemploymentStatus, String itcareerInterest, String diplomaStatus, String usworkAuth, String objectoritentedExperience, String major, String gradYear, String salary, String email) {
+        this.password = password;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.englishStatus = englishStatus;
+        this.employmentStatus = employmentStatus;
+        this.underemploymentStatus = underemploymentStatus;
+        this.itcareerInterest = itcareerInterest;
+        this.diplomaStatus = diplomaStatus;
+        this.usworkAuth = usworkAuth;
+        this.objectoritentedExperience = objectoritentedExperience;
+        this.major = major;
+        this.gradYear = gradYear;
+        this.salary = salary;
+        this.email = email;
+    }
+
 
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
+
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Programme> appliedProgramme;
@@ -64,108 +90,84 @@ public class User {
     public User() {
     }
 
-    public String getEnglishLearner() {
-        return englishLearner;
+    public String getEnglishStatus() {
+        return englishStatus;
     }
 
-    public void setEnglishLearner(String englishLearner) {
-        this.englishLearner = englishLearner;
+    public void setEnglishStatus(String englishStatus) {
+        this.englishStatus = englishStatus;
     }
 
-    public String getUnemployed() {
-        return unemployed;
+    public String getEmploymentStatus() {
+        return employmentStatus;
     }
 
-    public void setUnemployed(String unemployed) {
-        this.unemployed = unemployed;
+    public void setEmploymentStatus(String employmentStatus) {
+        this.employmentStatus = employmentStatus;
     }
 
-    public String getUnderemployed() {
-        return underemployed;
+    public String getUnderemploymentStatus() {
+        return underemploymentStatus;
     }
 
-    public void setUnderemployed(String underemployed) {
-        this.underemployed = underemployed;
+    public void setUnderemploymentStatus(String underemploymentStatus) {
+        this.underemploymentStatus = underemploymentStatus;
     }
 
-    public String getComfortableComputer() {
-        return comfortableComputer;
+    public String getItcareerInterest() {
+        return itcareerInterest;
     }
 
-    public void setComfortableComputer(String comfortableComputer) {
-        this.comfortableComputer = comfortableComputer;
+    public void setItcareerInterest(String itcareerInterest) {
+        this.itcareerInterest = itcareerInterest;
     }
 
-    public String getInterestIT() {
-        return interestIT;
+    public String getDiplomaStatus() {
+        return diplomaStatus;
     }
 
-    public void setInterestIT(String interestIT) {
-        this.interestIT = interestIT;
+    public void setDiplomaStatus(String diplomaStatus) {
+        this.diplomaStatus = diplomaStatus;
     }
 
-    public String getHighschool() {
-        return highschool;
+    public String getUsworkAuth() {
+        return usworkAuth;
     }
 
-    public void setHighschool(String highschool) {
-        this.highschool = highschool;
+    public void setUsworkAuth(String usworkAuth) {
+        this.usworkAuth = usworkAuth;
     }
 
-    public String getLegalUS() {
-        return legalUS;
+    public String getObjectoritentedExperience() {
+        return objectoritentedExperience;
     }
 
-    public void setLegalUS(String legalUS) {
-        this.legalUS = legalUS;
+    public void setObjectoritentedExperience(String objectoritentedExperience) {
+        this.objectoritentedExperience = objectoritentedExperience;
     }
 
-    public String getOop() {
-        return oop;
+    public String getMajor() {
+        return major;
     }
 
-    public void setOop(String oop) {
-        this.oop = oop;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
-    public String getExperienceOOP() {
-        return experienceOOP;
+    public String getGradYear() {
+        return gradYear;
     }
 
-    public void setExperienceOOP(String experienceOOP) {
-        this.experienceOOP = experienceOOP;
+    public void setGradYear(String gradYear) {
+        this.gradYear = gradYear;
     }
 
-    public String getMajorCS() {
-        return majorCS;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setMajorCS(String majorCS) {
-        this.majorCS = majorCS;
-    }
-
-    public String getGraduated6() {
-        return graduated6;
-    }
-
-    public void setGraduated6(String graduated6) {
-        this.graduated6 = graduated6;
-    }
-
-    public String getEarning42000() {
-        return earning42000;
-    }
-
-    public void setEarning42000(String earning42000) {
-        this.earning42000 = earning42000;
-    }
-
-    public String getWorkUS() {
-        return workUS;
-    }
-
-    public void setWorkUS(String workUS) {
-        this.workUS = workUS;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
     public long getId() {
@@ -224,7 +226,6 @@ public class User {
         this.roles = roles;
     }
 
-
     public Set<Programme> getAppliedProgramme() {
         return appliedProgramme;
     }
@@ -279,4 +280,5 @@ public class User {
     public boolean containsProgram(Programme programme) {
         return this.appliedProgramme.contains(programme) || this.acceptedProgramme.contains(programme) || this.approvedProgramme.contains(programme);
     }
+
 }

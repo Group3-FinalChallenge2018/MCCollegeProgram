@@ -33,52 +33,58 @@ public class DataLoader implements CommandLineRunner {
         r = new Role();
         r.setRole("ADMIN");
         roleRepository.save(r);
-
-        User student = new User("password", "clark", "Clark", "Kent", "clark@kent.com");
+//Saved user and progam With Travis new Model Design
+        User student = new User("password", "clark", "Clark", "Kent", "clark@kent.com","YES","YES","YES","YES","YES","YES","YES","YES","YES","parry@kent.com");
         userService.saveNewUser(student);
 
-        User student2 = new User("password", "harry", "Harry", "Potter", "harry@kent.com");
+        User student2 = new User("password", "harry", "Harry", "Potter", "Yes","YES","YES","YES","No","No","YES","YES","YES","YES","harry@kent.com");
         userService.saveNewUser(student2);
 
-        User student3 = new User("password", "tony", "Tony", "stark", "tony@kent.com");
+        User student3 = new User("password", "tony", "Tony", "stark",  "Yes","YES","YES","YES","No","No","YES","YES","YES","YES","harry@kent.com");
         userService.saveNewUser(student3);
 
-        User student4 = new User("password", "holy", "Holy", "Grail", "holy@kent.com");
+        User student4 = new User("password", "holy", "Holy", "Grail", "Yes","YES","YES","YES","No","No","YES","YES","YES","YES","harry@kent.com");
         userService.saveNewUser(student4);
 
-        User student5 = new User("password", "hola", "Hola", "hi", "hola@kent.com");
-        userService.saveNewUser(student5);
+//        User student5 = new User("password", "hola", "Hola", "hi", "hola@kent.com");
+//        userService.saveNewUser(student5);
+//
+//        User student6 = new User("password", "samsung", "Samsung", "Galaxy", "samsung@kent.com");
+//        userService.saveNewUser(student6);
+//
+//        User student7 = new User("password", "yolo", "Yolo", "Man", "yolo@kent.com");
+//        userService.saveNewUser(student7);
 
-        User student6 = new User("password", "samsung", "Samsung", "Galaxy", "samsung@kent.com");
-        userService.saveNewUser(student6);
-
-        User student7 = new User("password", "yolo", "Yolo", "Man", "yolo@kent.com");
-        userService.saveNewUser(student7);
-
-        User admin = new User("password", "admin", "admink", "adminKent", "admin@kent.com");
+        User admin = new User("password", "admin", "admink", "adminKent",  "Yes","YES","YES","YES","No","No","YES","YES","YES","YES","harry@kent.com");
         userService.saveNewAdmin(admin);
 
-        User admin2 = new User("password", "admin2", "admink", "adminKent", "admin2@kent.com");
+        User admin2 = new User("password", "admin2", "admink", "adminKent", "Yes","YES","YES","YES","No","No","YES","YES","YES","YES","harry@kent.com");
         userService.saveNewAdmin(admin2);
 
 
         Programme hit = new Programme("Hiring in Tech");
-        hit.setEnglishLearner("YES");
-        hit.setUnemployed("YES");
-        hit.setUnderemployed("YES");
-        hit.setComfortableComputer("YES");
-        hit.setInterestIT("YES");
-        hit.setHighschool("YES");
-        hit.setLegalUS("YES");
+        hit.setEnglishStatus("YES");
+        hit.setEmploymentStatus("YES");
+        hit.setDiplomaStatus("YES");
+        hit.setItcareerInterest("YES");
+        hit.setMajor("YES");
+        hit.setSalary("YES");
+        hit.setUsworkAuth("YES");
+        hit.setObjectoritentedExperience("YES");
+        hit.setGradYear("YES");
+
         programmeRepository.save(hit);
 
         Programme ptf = new Programme("Promising the Future");
-        ptf.setOop("YES");
-        ptf.setExperienceOOP("YES");
-        ptf.setMajorCS("YES");
-        ptf.setGraduated6("YES");
-        ptf.setEarning42000("YES");
-        ptf.setWorkUS("YES");
+        hit.setEnglishStatus("YES");
+        hit.setEmploymentStatus("YES");
+        hit.setDiplomaStatus("YES");
+        hit.setItcareerInterest("YES");
+        hit.setMajor("YES");
+        hit.setSalary("YES");
+        hit.setUsworkAuth("YES");
+        hit.setObjectoritentedExperience("YES");
+        hit.setGradYear("YES");
         programmeRepository.save(ptf);
     }
 }
