@@ -32,6 +32,7 @@ public class FrontEndForResumeFcApplicationTests {
         User user = userService.findByUsername("clark");
         Programme programme = programmeService.findByName("Promising the Future");
 
+        adminService.compareUserAndProgrammeRequirements(user, programme);
     }
 
     @Test
