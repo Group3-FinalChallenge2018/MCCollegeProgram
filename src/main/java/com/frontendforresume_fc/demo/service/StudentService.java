@@ -71,7 +71,6 @@ public class StudentService {
     public void acceptProgramme(User user, Programme programme){
         user.deleteApprovedProgramme(programme);
         user.addAcceptedProgramme(programme);
-        userService.deleteUser(user);
         userService.saveUser(user);
         programmeService.saveProgramme(programme);
     }
