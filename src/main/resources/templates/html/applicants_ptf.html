@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Applicant Resume</title>
+    <title>Status of Ptf Applicants</title>
     <link rel="icon" href="../images/favicon.ico">
     <!-- jQuery UI -->
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
     <!-- Font-awesome -->
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+
+
     <!-- Animate -->
     <link rel="stylesheet" type="text/css" href="../css/animate.css">
     <!-- Fw -->
@@ -53,7 +55,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resume</a>
                 <ul class="dropdown-menu">
                     <li><a href="resume_listing.html">resume listing</a></li>
-                    <li><a href="resume_details.html">resume details</a></li>
+                    <li><a href="A-resume_details.html">resume details</a></li>
                     <li><a href="A-edit_profiles.html">edit profiles</a></li>
                 </ul>
             </li>
@@ -84,7 +86,7 @@
         </ul>
     </div>
 </div>
-<header class="header-absolute smaller">
+<header class="header-absolute">
     <div class="top-header">
         <div class="container">
             <div class="row">
@@ -110,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="main-header p-b-20 p-t-20 slideInDown animated">
+    <div class="main-header p-b-20 p-t-20">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3">
@@ -142,7 +144,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resume</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="resume_listing.html">resume listing</a></li>
-                                    <li><a href="resume_details.html">resume details</a></li>
+                                    <li><a href="A-resume_details.html">resume details</a></li>
                                     <li><a href="A-edit_profiles.html">edit profiles</a></li>
                                 </ul>
                             </li>
@@ -180,89 +182,110 @@
 
 <div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
 
-<section class="block">
-    <div class="container selected">
-        <div class="title-group">
-            <h1>john anderson</h1>
-            <h3 class="color-6 f-normal">Software Engineer</h3>
-            <div class="wrap-img"><img src="../images/default2.png" alt="image" class="w-full"></div>
-        </div>
+<div class="text-align-center">
+    <h1>Applicants for <a href="apply_ptf.html">Promising the Future</a></h1>
+    <h2>
+        <a href="#applicants">Applied</a> |
+        <a href="#accepted">Accepted</a> |
+        <a href="#instructors">Instructors</a> |
+    </h2>
+</div>
 
+<section class="block-2 job bg-fa selected">
+    <div class="container">
+        <div class="title-group line-default">
+            <h3><a name="applicants">2,547 Applicants</a></h3>
+        </div>
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <div class="p-30 bg-f box-shadow-d">
-                    <h2 class="f-20 p-b-10 p-t-0">Program(s) Requirements</h2>
-                <div>
-                    <div class="col-md-6 text-center">
-                        <div class="f-10 p-b-10"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Applied</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>English Language Learner</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Unemployed</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Underemployed</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Authorized U.S. Worker</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Basic Computer Literacy</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Have Strong Interest in IT Career</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>High School Diploma/GED Status</div>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <div class="f-10 p-b-10"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
-                        <div class="p-5"><i class="fa fa-times m-r-5"></i>Not Eligible</div>
-                        <div class="p-5"><i class="fa fa-times m-r-5"></i>Did Not Apply</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Basic Object-Oriented Experience</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Major in Computer Science/Information Systems</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Graduated within the last 6 years</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Earning Less Than $42,000</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Authorized U.S. Worker</div>
-                        <div>&nbsp;</div>
-                        <div>&nbsp;</div>
-                        <div>&nbsp;</div>
+            <div class="col-md-14"><!-- Blog-item -->
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3 class="heading p-b-0 p-t-0">
+                                <a href="user_resume">John Anderson</a>
+                            </h3>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <br/>
+                            <div class="p-2"><i class="fa fa-code m-r-5"></i><strong>Promising the Future</strong></div>
+                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</div>
+                        </div>
                     </div>
                 </div>
-                    <br/>
-                    <h2 class="f-20 p-b-10 p-t-0">About Me</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <ul class="list-2x list-n-bg">
-                        <li><strong>Age</strong>28</li>
-                        <li><strong>Email</strong>john.info@gmail.com</li>
-                        <li><strong>Phone</strong>0123 456 789</li>
-                        <li><strong>Address</strong>San Antonio, Texas, US</li>
-                        <li><strong>Website</strong>www.theme3x.com</li>
-                    </ul>
-                    <h2 class="f-20 p-b-10">Education</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Qualifications</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Employment History</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Awards</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Extracurricular Activities</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Work Experience</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do eiusmod temp incidunt ut labomet icing elit sed do eiusmod temp incidunt ut labomet co</p>
-                    <h2 class="f-20 p-b-10">Competenciens &amp; Interests<br></h2>
-                    <ul class="list-1x ln m-l-35">
-                        <li>Interest in user interface design.</li>
-                        <li>Web application development experience.</li>
-                        <li>Experience working on cross-browser platforms.</li>
-                        <li>Development experience designing object-oriented JavaScript.</li>
-                        <li>Experience with user interface frameworks such as XUL, Flex and XAML.</li>
-                        <li>Knowledge of user interface design.</li>
-                    </ul>
-                </div>
-                <section>
-                    <div class="col-sm-6 text-center">
-                        <button type="submit" class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4">APPROVE</button>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                        <button type="submit" class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4">DENY</button>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
 </section>
+
+
+
+<section class="block-2 job bg-fa selected">
+    <div class="container">
+        <div class="title-group line-default">
+            <h3><a name="accepted">2,000 Accepted</a></h3>
+        </div>
+        <div class="row">
+            <div class="col-md-14"><!-- Blog-item -->
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-8">
+                            <h3 class="heading p-b-0 p-t-0">
+                                <a href="user_resume">John Anderson</a>
+                            </h3>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
+                        </div>
+                        <div class="col-sm-2 text-center">
+                            <br/>
+                            <div class="p-2"><i class="fa fa-code m-r-5"></i><strong>Promising the Future</strong></div>
+                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Approved</div>
+                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Accepted</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="block-2 job bg-fa selected">
+    <div class="container">
+        <div class="title-group line-default">
+            <h3><a name="instructors">2 Instructors </a></h3>
+        </div>
+        <div class="row">
+            <div class="col-md-14"><!-- Blog-item -->
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-10">
+                            <h3 class="heading p-b-0 p-t-0">
+                                <a href="user_resume">John Anderson</a>
+                            </h3>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
+                            <div class="f-weight-400">Skill: <span class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <footer class="bg-2">
     <div class="footer-top">
         <div class="container">

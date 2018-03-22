@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Admin</title>
+    <link rel="icon" href="../images/favicon.ico">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
+    <!-- Owl-coursel -->
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <!-- Fw -->
+    <link rel="stylesheet" type="text/css" href="../css/fw.css">
+    <!-- Style-->
+    <link rel="stylesheet" type="text/css" href="../css/style/finder.css">
+</head>
+<body>
+<div class="preloader"><i class="fa fa-spinner"></i></div>
+
+
+<!-- START of ALL MENUS FOR ADMIN -->
+
+<!-- Start of SIDE MENU BAR -->
+<div th:replace="html/base_fragments :: side_menu_bar_admin"></div>
+<!-- End of SIDE MENU BAR -->
+
+<header class="header-absolute smaller">
+
+    <!-- Start of TOP HEADER MENU -->
+    <div th:replace="html/base_fragments :: top_header_menu_admin"></div>
+    <!-- End of TOP HEADER MENU -->
+
+    <!-- Start of MAIN MENU BAR - ADMIN -->
+    <div th:replace="html/base_fragments :: main_menu_bar_admin"></div>
+    <!-- End of MAIN MENU BAR -->
+</header>
+
+<!-- END of ALL MENUS FOR ADMIN -->
+
+
+<section class="block">
+    <div class="container">
+        <div class="title-group line-default">
+            <h1>Apply Hiring in Tech Apllication</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box p-40">
+                    <div></div>
+                    <form th:action="@{/register}" th:object="${user}" method="post">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3" >
+                                <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
+                                    <label>Are you Fluent in English?</label>
+                                    <select th:field="*{englishStatus}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>class
+
+                                    <span th:if="${#fields.hasErrors('employmentStatus')}"
+                                          th:errors="*{employmentStatus}">employmentStatus Error</span>
+                                    <label>Are you Cuurently Employed?</label>
+                                    <select th:field="*{employmentStatus}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('underemploymentStatus')}"
+                                          th:errors="*{underemploymentStatus}">underemploymentStatus Error</span>
+                                    <label>Are you Currently underemployed? In the state of Maryland, a person who makes $42,000 or less is underemployed</label>
+                                    <select th:field="*{underemploymentStatus}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('itcareerInterest')}"
+                                          th:errors="*{itcareerInterest}">itcareerInterest Error</span>
+                                    <label>Are you passionate about coding and  believe you have the drive to succeed in an challenging immersive environment.
+                                    </label>
+                                    <select th:field="*{itcareerInterest}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('diplomaStatus')}"
+                                          th:errors="*{diplomaStatus}">diplomaStatus Error</span>
+                                    <label>Do you have Highschool Diploma or GED?
+                                    </label>
+                                    <select th:field="*{diplomaStatus}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('usworkAuth')}"
+                                          th:errors="*{usworkAuth}">diplomaStatus Error</span>
+                                    <label>Are you Authorized to Work in United States?
+                                    </label>
+                                    <select th:field="*{usworkAuth}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('objectoritentedExperience')}"
+                                          th:errors="*{objectoritentedExperience}">objectoritentedExperience  Error</span>
+                                    <label>Do you have Experience with Object Oritened Programmming?
+                                    </label>
+                                    <select th:field="*{objectoritentedExperience}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+
+
+
+
+                                    <span th:if="${#fields.hasErrors('gradYear')}"
+                                          th:errors="*{gradYear}">gradYear  Error</span>
+                                    <label> Our ideal candidate has graduatated college within the last 6 years?  Have you graduated during this timeframe?
+                                    </label>
+                                    <select th:field="*{gradYear}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('salary')}"
+                                          th:errors="*{salary}">salary  Error</span>
+                                    <label> Do you currently have a salary less than $42,000?
+                                    </label>
+                                    <select th:field="*{salary}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
+                                    </div>
+                                    <div class="form-group"></div>
+                                    <button class="ht-btn bg-4f84c4 m-t-20">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ht-btn bg-4f84c4 pull-right">Submit</a>
+    </div>
+</section>
+</header>
+
+
+<!-- START of FOOTER -->
+<div th:replace="html/base_fragments :: footer"></div>
+<!-- End of FOOTER -->
+
+
+<!-- jQuery -->
+<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<!-- Owl-coursel -->
+<script src="../js/owl-coursel/owl.carousel.js"></script>
+<!-- Classie -->
+<script src="../js/classie.js"></script>
+<!-- Script -->
+<script src="../js/script.js"></script>
+</body>
+</html>

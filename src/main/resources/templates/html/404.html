@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Admin</title>
+    <title>Error - 404</title>
     <link rel="icon" href="../images/favicon.ico">
     <!-- jQuery UI -->
     <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
@@ -26,60 +26,35 @@
 </head>
 <body>
 <div class="preloader"><i class="fa fa-spinner"></i></div>
-
-
-<!-- START of ALL MENUS FOR ADMIN -->
+<!-- START of ALL MENUS -->
 
 <!-- Start of SIDE MENU BAR -->
-<div th:replace="html/base_fragments :: side_menu_bar_admin"></div>
+<div th:replace="html/base_fragments :: side_menu_bar"></div>
 <!-- End of SIDE MENU BAR -->
 
 <header class="header-absolute smaller">
 
     <!-- Start of TOP HEADER MENU -->
-    <div th:replace="html/base_fragments :: top_header_menu_admin"></div>
+    <div th:replace="html/base_fragments :: top_header_menu"></div>
     <!-- End of TOP HEADER MENU -->
 
     <!-- Start of MAIN MENU BAR - ADMIN -->
-    <div th:replace="html/base_fragments :: main_menu_bar_admin"></div>
+    <div th:replace="html/base_fragments :: main_menu_bar"></div>
     <!-- End of MAIN MENU BAR -->
 </header>
 
-<!-- END of ALL MENUS FOR ADMIN -->
+<!-- END of ALL MENUS -->
 
 
 <section class="block">
     <div class="container">
-        <div class="title-group line-default">
-            <h1>Add Administrator</h1>
-            <p>Add another administrator.</p>
+        <div class="box text-center p-t-100 p-b-100 p-xs-20 m-b-0">
+            <h2 class="f-60 f-xs-30 f-bold text-uppercase f-family-poppins p-b-10 p-t-0 color-4f84c4 line-default">Error 404</h2>
+            <h2 class="f-30 p-t-0 f-weight-400">Page Not Found</h2>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="box p-40">
-                    <div></div>
-                    <form>
-                        <input type="text" class="form-item" placeholder="Location">
-                        <input type="text" class="form-item" placeholder="Email">
-                        <input type="text" class="form-item" placeholder="Phone">
-                        <input type="text" class="form-item" placeholder="Address">
-                        <textarea class="form-item h-200 p-15" placeholder="Short Bio"></textarea>
-
-                        <input type="text" class="form-item" placeholder="LinkedIn">
-                        <input type="text" class="form-item" placeholder="Google+">
-                        <input type="text" class="form-item" placeholder="Twitter">
-
-                        <p>Upload Headshot</p>
-                        <input type="file" placeholder="">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <a href="#" class="ht-btn bg-4f84c4 pull-right">Submit</a>
+        <div></div>
     </div>
 </section>
-</header>
-
 
 <!-- START of FOOTER -->
 <div th:replace="html/base_fragments :: footer"></div>

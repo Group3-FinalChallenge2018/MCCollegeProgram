@@ -8,6 +8,400 @@
 <body>
 
 
+<!-- Start of TEST NAV BAR -->
+<div th:fragment="navlinks">
+    <a href="/">Index</a> |
+    <a href="/all_applicants">All Applicants</a> |
+    <a href="/applicant_resume">Applicant's Resume</a> |
+    <a href="/accepted_students_hit">List of Accepted Students for HiT</a> |
+    <a href="/accepted_students_ptf">List of Accepted Students for PtF</a> |
+    <a href="/list_of_programs">List of Programs</a> |
+    <a href="/add_admin">Add Admin</a> |
+</div>
+<!-- End of TEST NAV BAR -->
+
+
+<!-- Start of TOP HEADER MENU -->
+<div th:fragment="top_header_menu">
+<div class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 hidden-xs hidden-sm">
+                <ul class="top-link">
+                    <li><i class="fa fa-envelope-o m-r-5"></i>info@programseeker.com</li>
+                    <li><i class="fa fa-phone m-r-5"></i>+0123 456 789</li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <ul class="top-link pull-right">
+                    <li>
+                        <a href="/" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
+                    </li>
+                    <li class="menu-btn"><i class="fa fa-bars f-14 icon icon-20"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--<div th:replace="html/base_fragments :: top_header_menu"></div>-->
+<!-- End of TOP HEADER MENU -->
+
+
+<!-- Start of SIDE MENU BAR -->
+<div th:fragment="side_menu_bar">
+<div class="menu-rs">
+    <div class="menu-wrap">
+        <div class="r-mv">
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-mb">
+            <li>
+                <a href="/" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+            </li>
+            <li>
+                <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+            </li>
+            <li>
+                <a href="/list_of_programs" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+            </li>
+            <li>
+                <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+            </li>
+            <li>
+                <a href="/applicant_dashboard_applied" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
+            </li>
+            <li>
+                <a href="/" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<!--<div th:replace="html/base_fragments :: side_menu_bar"></div>-->
+<!-- End of SIDE MENU BAR -->
+
+
+
+<!-- Start of MAIN MENU BAR -->
+<div th:fragment="main_menu_bar">
+<div class="main-header p-b-20 p-t-20 slideInDown animated">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <a href="#" class="logo m-t-10 m-b-10">
+                    <img src="../images/mt-0996-logo.png" alt="image" class="pull-left m-r-5 w-40">
+                    <h2 class="f-25 f-weight-300 f-family-poppins text-uppercase p-t-10 p-b-10">Program<strong class="f-weight-600 color-4f84c4">Seeker</strong></h2>
+                </a>
+            </div>
+            <div class="col-sm-7 hidden-xs hidden-sm pull-right text-right">
+                <nav id="holder_mn" class="menu-nav">
+                    <ul>
+                        <li>
+                            <a href="/index" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                        </li>
+                        <li>
+                            <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                        </li>
+                        <li>
+                            <a href="/list_of_programs" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                        </li>
+                        <li>
+                            <a href="/blog" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                        </li>
+                        <li>
+                            <a href="/applicant_dashboard_applied" role="button" aria-haspopup="true" aria-expanded="false">dashboard</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--<div th:replace="html/base_fragments :: main_menu_bar"></div>-->
+<!-- End of MAIN MENU BAR -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--START OF ADMIN -->
+
+<!-- Start of SIDE MENU BAR - ADMIN -->
+<div th:fragment="side_menu_bar_admin">
+    <div class="menu-rs">
+        <div class="menu-wrap">
+            <div class="r-mv">
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu-mb">
+                <li>
+                    <a href="index.html" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                </li>
+                <li>
+                    <a href="about_iti.html" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                </li>
+                <!--<li>-->
+                <!--<a href="list_of_programs.html" role="button" aria-haspopup="true" aria-expanded="false">programs</a>-->
+                <!--</li>-->
+                <li class="dropdown">
+                    <a href="list_of_programs.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="post_program.html">Post Program</a></li>
+                        <li><a href="all_applicants.html">View Applicants</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="blog.html" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                </li>
+                <li>
+                    <a href="add_admin.html" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+                </li>
+                <li>
+                    <a href="#" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div th:replace="html/base_fragments :: side_menu_bar_admin"></div>-->
+<!-- End of SIDE MENU BAR -->
+
+<!-- Start of TOP HEADER MENU -->
+<div th:fragment="top_header_menu_admin">
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 hidden-xs hidden-sm">
+                    <ul class="top-link">
+                        <li><i class="fa fa-envelope-o m-r-5"></i>info@programseeker.com</li>
+                        <li><i class="fa fa-phone m-r-5"></i>+0123 456 789</li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <ul class="top-link pull-right">
+                        <li>
+                            <a href="/" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
+                        </li>
+                        <li class="menu-btn"><i class="fa fa-bars f-14 icon icon-20"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div th:replace="html/base_fragments :: top_header_menu_admin"></div>-->
+<!-- End of TOP HEADER MENU -->
+
+    <!-- Start of MAIN MENU BAR - ADMIN -->
+    <div th:fragment="main_menu_bar_admin">
+        <div class="main-header p-b-20 p-t-20 slideInDown animated">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <a href="index.html" class="logo m-t-10 m-b-10">
+                            <img src="../images/mt-0996-logo.png" alt="image" class="pull-left m-r-5 w-40">
+                            <h2 class="f-25 f-weight-300 f-family-poppins text-uppercase p-t-10 p-b-10">Program<strong class="f-weight-600 color-4f84c4">Seeker</strong></h2>
+                        </a>
+                    </div>
+                    <div class="col-sm-7 hidden-xs hidden-sm pull-right text-right">
+                        <nav id="holder_mn_admin" class="menu-nav">
+                            <ul>
+                                <li>
+                                    <a href="index.html" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                                </li>
+                                <li>
+                                    <a href="about_iti.html" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="list_of_programs.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="post_program.html">Post Program</a></li>
+                                        <li><a href="all_applicants.html">View Applicants</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="blog.html" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                                </li>
+                                <li>
+                                    <a href="add_admin.html" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--<div th:replace="html/base_fragments :: main_menu_bar_admin"></div>-->
+    <!-- End of MAIN MENU BAR -->
+
+
+<!--END OF ADMIN -->
+
+
+
+
+
+
+
+
+<!-- Start of FOOTER -->
+<div th:fragment="footer">
+<div class="bg-2">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 m-b-xs-30">
+                    <img src="../images/mt-0996-logo.png" alt="image" class="w-50">
+                    <h2 class="color-f f-30 f-xs-20 f-family-poppins f-weight-500">PROGRAM SEEKER, Inc</h2>
+                    <p>Today's world is dependent on the ability to interact with and communicate information.</p>
+                    <ul class="list-inline m-t-20">
+                        <li><a href="https://www.facebook.com/montgomerycollege/" target="_blank"><i class="fa fa-facebook icon icon-40 rad-3 bg-4f84c4"></i></a></li>
+                        <li><a href="https://www.linkedin.com/school/montgomery-college/" target="_blank"><i class="fa fa-linkedin icon icon-40 rad-3 bg-f2552c"></i></a></li>
+                        <li><a href="https://twitter.com/montgomerycoll?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fa fa-twitter icon icon-40 rad-3 bg-95dee3"></i></a></li>
+                        <li><a href="https://www.instagram.com/montgomerycollege/" target="_blank"><i class="fa fa-instagram icon icon-40 rad-3 bg-fe718b"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 m-t-60 m-t-xs-30">
+                    <h4>Infomation</h4>
+                    <ul class="list">
+                        <li><a href="/list_of_programs">View Programs</a></li>
+                        <li><a href="/register">Create Your Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 m-t-60 m-t-xs-30">
+                    <h4>Community</h4>
+                    <ul class="list">
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 m-t-60 m-t-xs-30">
+                    <h4>Newsletter</h4>
+                    <input type="text" class="form-item no-border m-t-5" placeholder="Enter your email">
+                    <a href="#" class="ht-btn bg-4f84c4 m-t-30">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom bg-1">
+        <div class="container">
+            <p>© 2018 Designed & Developed by <a href="https://github.com/Group3-FinalChallenge2018/FrontEndForResume_FC/" class="color-9" target="_blank">G3</a>. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+</div>
+<!--<div th:replace="html/base_fragments :: footer"></div>-->
+<!-- End of FOOTER -->
+
+
+
+
+
+
+<!-- Start of SIDE MENU BAR - ADMIN -->
+<div th:fragment="side_menu_bar_admin">
+<div class="menu-rs">
+    <div class="menu-wrap">
+        <div class="r-mv">
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="menu-mb">
+            <li>
+                <a href="/index" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+            </li>
+            <li>
+                <a href="/about_iti" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+            </li>
+            <!--<li>-->
+                <!--<a href="list_of_programs.html" role="button" aria-haspopup="true" aria-expanded="false">programs</a>-->
+            <!--</li>-->
+            <li class="dropdown">
+                <a href="/list_of_programs" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/post_program">Post Program</a></li>
+                    <li><a href="/all_applicants">View Applicants</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="blog.html" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+            </li>
+            <li>
+                <a href="add_admin.html" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+            </li>
+            <li>
+                <a href="#" role="button" aria-haspopup="true" aria-expanded="false">logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<!-- End of SIDE MENU BAR -->
+
+
+
+<!-- Start of MAIN MENU BAR - ADMIN -->
+<!--<div th:fragment="main_menu_bar_admin">-->
+<div class="main-header p-b-20 p-t-20 slideInDown animated">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <a href="index.html" class="logo m-t-10 m-b-10">
+                    <img src="../images/mt-0996-logo.png" alt="image" class="pull-left m-r-5 w-40">
+                    <h2 class="f-25 f-weight-300 f-family-poppins text-uppercase p-t-10 p-b-10">Program<strong class="f-weight-600 color-4f84c4">Seeker</strong></h2>
+                </a>
+            </div>
+            <div class="col-sm-7 hidden-xs hidden-sm pull-right text-right">
+                <nav id="holder_mn_admin" class="menu-nav">
+                    <ul>
+                        <li>
+                            <a href="index.html" role="button" aria-haspopup="true" aria-expanded="false">home</a>
+                        </li>
+                        <li>
+                            <a href="about_iti.html" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="list_of_programs.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="post_program.html">Post Program</a></li>
+                                <li><a href="all_applicants.html">View Applicants</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="blog.html" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
+                        </li>
+                        <li>
+                            <a href="add_admin.html" role="button" aria-haspopup="true" aria-expanded="false">add admin</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</div>-->
+<!-- End of MAIN MENU BAR -->
+
+
 
 </body>
 </html>
