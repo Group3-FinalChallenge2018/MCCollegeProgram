@@ -122,13 +122,32 @@ public String showhitform(Model model){
     }
 
     @PostMapping("/submithit")
-    public String processshowhitform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result){
+    public String processshowhitform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result,Authentication auth){
 
         {
             if (result.hasErrors()) {
                 return "html/hitapply_form";
             }
         }
+
+        User tempUser = userService.findByUsername(auth.getName());
+
+        tempUser.setAble2WorkUS(user.getUsworkAuth());
+        tempUser.setDiplomaStatus(user.getDiplomaStatus());
+        tempUser.setEmail(user.getEmail());
+        tempUser.setEnglishStatus(user.getEnglishStatus());
+        tempUser.setFirstName(user.getFirstName());
+        tempUser.setEmploymentStatus(user.getEmploymentStatus());
+        tempUser.setGradYear(user.getGradYear());
+        tempUser.setSalary(user.getSalary());
+        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
+        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
+        tempUser.setMajor(user.getMajor());
+        userRepository.save(tempUser);
+
+        Programme programme = programmeService.findByName("Hiring in Tech");
+        studentService.apply2Programme(tempUser, programme);
+//        adminService.approveStudent2Programme(tempUser,programme);
 
         userRepository.save(user);
         model.addAttribute("userlist",userRepository.findAll());
@@ -156,7 +175,7 @@ public String showhitform(Model model){
     }
 
     @PostMapping("/submitptf")
-    public String processshowptfform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result){
+    public String processshowptfform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result,Authentication auth){
 
         {
             if (result.hasErrors()) {
@@ -164,6 +183,25 @@ public String showhitform(Model model){
             }
         }
 
+        User tempUser = userService.findByUsername(auth.getName());
+
+        tempUser.setAble2WorkUS(user.getUsworkAuth());
+        tempUser.setDiplomaStatus(user.getDiplomaStatus());
+        tempUser.setEmail(user.getEmail());
+        tempUser.setEnglishStatus(user.getEnglishStatus());
+        tempUser.setFirstName(user.getFirstName());
+        tempUser.setEmploymentStatus(user.getEmploymentStatus());
+        tempUser.setGradYear(user.getGradYear());
+        tempUser.setId(user.getId());
+        tempUser.setSalary(user.getSalary());
+        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
+        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
+        tempUser.setMajor(user.getMajor());
+        userRepository.save(tempUser);
+
+        Programme programme = programmeService.findByName("Promising the Future");
+
+        studentService.apply2Programme(tempUser, programme);
         userRepository.save(user);
         model.addAttribute("userlist",userRepository.findAll());
         return "html/applicants_ptf";
@@ -260,6 +298,39 @@ public String showhitform(Model model){
     public String viewApplicantsResume() {
         return "html/applicant_resume";
     }
+
+    @RequestMapping("/applicant_resume/{id}")
+    public String viewApplicantsResumebyid(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user",userRepository.findOne( new Long(userid)));
+        model.addAttribute("userlist",userRepository.findAll());
+
+        return "html/applicant_resume";
+    }
+
+    @RequestMapping("/approveptf/{id}")
+    public String approveptfuserResumebyid(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user",userRepository.findOne( new Long(userid)));
+        User user = userService.findById(userid);
+        Programme programme = programmeService.findByName("Promising the Future");
+
+        adminService.approveStudent2Programme(user,programme);
+        model.addAttribute("userlist",userRepository.findAll());
+
+        return "html/all_applicants";
+    }
+
+    @RequestMapping("/approvehit/{id}")
+    public String approvehituserResumebyid(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user",userRepository.findOne( new Long(userid)));
+        User user = userService.findById(userid);
+        Programme programme = programmeService.findByName("Hiring in Tech");
+
+        adminService.approveStudent2Programme(user,programme);
+        model.addAttribute("userlist",userRepository.findAll());
+
+        return "html/all_applicants";
+    }
+
 
 
     @RequestMapping("/applicant_dashboard_accepted")

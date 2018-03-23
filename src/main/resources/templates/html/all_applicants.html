@@ -249,6 +249,13 @@
                                 <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.gradYear}"><span></span></span>Grad Year</div>
 
                             </div>
+
+                            <h3 class="heading p-b-10 p-t-0" th:if="${user != null}">
+                                <a th:href="@{/applicant_resume/{id}(id=${user.id})}">See Resume</a>
+                            </h3>
+                            <h3 class="heading p-b-10 p-t-0" th:if="${user == null}">
+                                <a th:href="@{/applicant_resume}">See Resume</a>
+                            </h3>
                         </div>
                     </div>
                 </div>
