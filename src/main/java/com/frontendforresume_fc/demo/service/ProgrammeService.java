@@ -30,6 +30,8 @@ public class ProgrammeService {
         programmeRepository.save(programme);
     }
 
-
+    public Programme findById(long id){
+        return  programmeRepository.findOne(id);
+    }
 
 }
