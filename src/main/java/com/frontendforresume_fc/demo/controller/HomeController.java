@@ -1,7 +1,12 @@
 package com.frontendforresume_fc.demo.controller;
 
+import com.frontendforresume_fc.demo.model.Programme;
 import com.frontendforresume_fc.demo.model.User;
+import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
+import com.frontendforresume_fc.demo.service.AdminService;
+import com.frontendforresume_fc.demo.service.ProgrammeService;
+import com.frontendforresume_fc.demo.service.StudentService;
 import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,49 +26,19 @@ public class HomeController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    StudentService studentService;
 
-//    @GetMapping("/register")
-//    public String register(Model model) {
-//        model.addAttribute("user",new User());
-//        return "html/register";
-//    }
-//
-//    @PostMapping("/register")
-//    public String processregistration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model ){
-//
-//        model.addAttribute("user",user);
-//        if(result.hasErrors()){
-//            return "html/register";
-//        }else{
-//            userService.saveNewUser(user);
-//            model.addAttribute("message","User Account Successfully Created");
-//
-//        }
-//        return "html/index";
-//    }
-//
-//
-//
-//    @RequestMapping("/all_applicants")
-//    public String viewAllApplicants(Model model) {
-//        model.addAttribute("userlist",userRepository.findAll());
-//
-//        return "html/all_applicants";
-//    }
+    @Autowired
+    AdminService adminService;
+
+    @Autowired
+    ProgrammeRepository programmeRepository;
+
+    @Autowired
+    ProgrammeService programmeService;
 
 
-    @RequestMapping("/")
-    public String index() {
-        return "html/index";
-    }
-
-    @RequestMapping("/404")
-    public String error() { return "html/404"; }
-
-    @RequestMapping("/about_iti")
-    public String aboutITI() {
-        return "html/about_iti";
-    }
 
     @GetMapping("/register")
     public String register(@ModelAttribute("user") User user, Model model ) {
@@ -102,15 +77,44 @@ public class HomeController {
         return "redirect:/login";
     }
 
+
+    @RequestMapping("/")
+    public String index() {
+
+//        if (user.equals(null)){
+//            return "redirect:/"
+//        }
+        return "html/index";
+    }
+
+    @RequestMapping("/404")
+    public String error() { return "html/404"; }
+
+    @RequestMapping("/about_iti")
+    public String aboutITI() {
+        return "html/about_iti";
+    }
+
+
+
 //    /    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
 //    localhost:8080/showhit/1
-    @GetMapping("/submithit/{id}")
+@GetMapping("/showhit")
+public String showhitform(Model model){
+
+    return "html/apply_hit";
+}
+
+    @GetMapping("/showhit/{id}")
     public String showhitform(Model model,@PathVariable("id") long userid){
         model.addAttribute("user",userRepository.findOne( new Long(userid)));
         model.addAttribute("userlist",userRepository.findAll());
 
         return "html/apply_hit";
     }
+
+
+
     @GetMapping("/submithit")
     public String showhitform(Model model,@ModelAttribute("user") User user){
 
@@ -131,6 +135,11 @@ public class HomeController {
         return "html/applicants_hit";
     }
 
+    @GetMapping("/showptf")
+    public String showptfform(Model model){
+
+        return "html/apply_ptf";
+    }
 //    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
 //    localhost:8080/showptf/1
     @GetMapping("/showptf/{id}")
@@ -270,7 +279,9 @@ public class HomeController {
 
 
     @RequestMapping("/list_of_programs")
-    public String viewListOfPrograms() {
+    public String viewListOfPrograms(Model model) {
+//        model.addAttribute("user",userRepository.findOne( new Long(userid)));
+//        @PathVariable("id") long userid
         return "html/list_of_programs";
     }
 

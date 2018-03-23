@@ -52,11 +52,15 @@
                 <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">home</a>
             </li>
             <li>
-                <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                <a th:href="@{/register}" role="button" aria-haspopup="true" aria-expanded="false">Register</a>
             </li>
             <li>
-                <a th:href="@{/list_of_programs}" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
             </li>
+            <!--<li>-->
+                <!--<a th:href="@{/list_of_programs/{id}(id=${user.id})}" role="button" aria-haspopup="true" aria-expanded="false">programs</a>-->
+                <!--<a  th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}" ><span th:case="${true}"><a th:href="@{/showptf/{id}(id=${user.id})}" ></a></span><span th:case="${false}">User is not logged in no Access to programs</span>Hiring In Tech</a>-->
+            <!--</li>-->
             <li>
                 <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
             </li>
@@ -96,11 +100,14 @@
                             <a th:href="@{/}"  role="button" aria-haspopup="true" aria-expanded="false">home</a>
                         </li>
                         <li>
-                            <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
+                            <a th:href="@{/register}" role="button" aria-haspopup="true" aria-expanded="false">Register</a>
                         </li>
                         <li>
-                            <a th:href="@{/list_of_programs}" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                            <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
                         </li>
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs/{id}(id=${user.id})}" >Programs</a>
+                        <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs}" >Programs</a>
+
                         <li>
                             <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
                         </li>
@@ -116,23 +123,6 @@
 </div>
 <!--<div th:replace="html/base_fragments :: main_menu_bar"></div>-->
 <!-- End of MAIN MENU BAR -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--START OF ADMIN -->
 
@@ -151,11 +141,14 @@
                 <li>
                     <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
                 </li>
-                <li class="dropdown">
-                    <a th:href="@{/list_of_programs}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs/{id}(id=${user.id})}" >Programs</a>
+                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs}" >Programs</a>
+
+
+                    <!--<a th:href="@{/list_of_programs/{id}(id=${user.id})}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>-->
                     <ul class="dropdown-menu">
                         <li><a th:href="@{/post_program}" >Post Program</a></li>
-                        <li><a th:href="@{/list_of_programs}" >View Programs</a></li>
+                        <!--<li><a th:href="@{/list_of_programs/{id}(id=${user.id})}" >View Programs</a></li>-->
                         <li><a th:href="@{/all_applicants}" >View Applicants</a></li>
                     </ul>
                 </li>
@@ -229,7 +222,8 @@
                                     <a th:href="@{/about_iti}"  role="button" aria-haspopup="true" aria-expanded="false">about</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a th:href="@{/list_of_programs}"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">programs</a>
+                                <li th:if="${user != null}" ><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs/{id}(id=${user.id})}" >Programs</a>
+                                <li th:if="${user == null}" ><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs}" >Programs</a>
                                     <ul class="dropdown-menu">
                                         <li><a th:href="@{/post_program}" >Post Program</a></li>
                                         <li><a th:href="@{/list_of_programs}" >View Programs</a></li>
