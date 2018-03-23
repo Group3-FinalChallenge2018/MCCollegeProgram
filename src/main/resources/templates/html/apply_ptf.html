@@ -248,7 +248,9 @@
                         </li>
 
                     </ul>
-                    <a href="#" class="ht-btn bg-00c400 m-t-20 m-b-20 m-r-15">Apply for this job</a>
+                    <a th:href="@{/submitptf}" class="ht-btn bg-00c400 m-t-20 m-b-20 m-r-15">Apply to Promising Future Program</a>
+                    <a th:href="@{/submitptf}">Apply to Promising Future Program</a>
+
                     <!--<a href="#" class="ht-btn bg-4f84c4 m-t-20 m-b-20">Save</a>-->
 
                 </div>
@@ -273,10 +275,15 @@
                     <h5 class="p-t-0  text-center">Based on your profile, you should also apply to the following:</h5>
                     <hr/>
                     <div class="border-1x p-15 m-t-ab-1 m-b-15">
-                        <h3 class="p-0 p-b-5 f-16 text-center"><a href="html/program_detail_hit" target="_blank">Hiring In Tech</a></h3>
+                        <div class="p-0 p-b-5 f-16 text-center">
+                            <!--<a th:href="@{/submitptf}">Apply To Hiring in Tech</a></div>-->
+
+
                     </div>
                     <!--<a href="#" class="ht-btn m-t-20 bg-4f84c4">View all Jobs</a>-->
                 </div>
+
+                <a th:href="@{/submitptf}">Apply To Hiring in Tech</a>
                 <div class="box-item p-30 box-shadow-d">
                     <div class="title-group line-default">
                         <h2>Testimonial</h2>

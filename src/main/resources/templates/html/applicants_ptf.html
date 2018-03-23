@@ -194,63 +194,57 @@
 <section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
-            <h3><a name="applicants">2,547 Applicants</a></h3>
+            <h4><a href="applicants_hit.html">Applicants for Hiring In Tech</a></h4>
+            <h4><a href="applicants_ptf.html">Applicants for Promising The Future</a></h4>
+
+            <span th:each="user,iterationStatus  : ${userlist}">
+-            <h1 th:text="${iterationStatus.size}"></h1>
+-                                </span>
+            <h2>All Applicants</h2>
         </div>
-        <div class="row">
-            <div class="col-md-14"><!-- Blog-item -->
+        <div class="row" th:each="user : ${userlist}">
+            <div class="col-md-14"  ><!-- Blog-item -->
                 <div class="box-item">
                     <div class="row">
                         <div class="col-sm-2 text-center">
                             <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
                         </div>
-                        <div class="col-sm-8">
-                            <h3 class="heading p-b-0 p-t-0">
-                                <a href="user_resume">John Anderson</a>
+                        <div class="col-sm-10">
+                            <h3 class="heading p-b-0 p-t-0" th:text="${user.firstName}">
                             </h3>
                             <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
+                            <div class="f-weight-400">Skill: <span class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
                         </div>
-                        <div class="col-sm-2 text-center">
-                            <br/>
-                            <div class="p-2"><i class="fa fa-code m-r-5"></i><strong>Promising the Future</strong></div>
-                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</div>
+                    </div>
+                    <div class="border-1x p-10 m-t-15 bg-f">
+                        <div class="row color-9">
+                            <div class="col-sm-6 text-center">
+                                <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
+                                <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Not Eligible</div>-->
+                                <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Did Not Apply</div>-->
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.englishStatus}"><span></span></span>English Language Learner </div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.employmentStatus}"><span></span></span>Employment Status</div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.underemploymentStatus}"><span></span></span>Underemployment Status </div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.itcareerInterest}"><span></span></span>It Career Interest </div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.diplomaStatus}"><span></span></span>Has Diploma or GED </div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.usworkAuth}"><span></span></span>Authorized US Worker</div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.objectoritentedExperience}"><span></span></span> Obj Oritened Experience </div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.major}"><span></span></span>College Major</div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.salary}"><span></span></span>Salary</div>
+                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.gradYear}"><span></span></span>Grad Year</div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<section class="block-2 job bg-fa selected">
-    <div class="container">
-        <div class="title-group line-default">
-            <h3><a name="accepted">2,000 Accepted</a></h3>
-        </div>
-        <div class="row">
-            <div class="col-md-14"><!-- Blog-item -->
-                <div class="box-item">
-                    <div class="row">
-                        <div class="col-sm-2 text-center">
-                            <a href="#" class="thumb-img"><img src="../images/default.png" alt="image"></a>
-                        </div>
-                        <div class="col-sm-8">
-                            <h3 class="heading p-b-0 p-t-0">
-                                <a href="user_resume">John Anderson</a>
-                            </h3>
-                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
-                        </div>
-                        <div class="col-sm-2 text-center">
-                            <br/>
-                            <div class="p-2"><i class="fa fa-code m-r-5"></i><strong>Promising the Future</strong></div>
-                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Approved</div>
-                            <div class="p-5"><i class="fa fa-check m-r-5"></i>Accepted</div>
-                        </div>
-                    </div>
-                </div>
+                <nav aria-label="Page navigation" class="m-t-20">
+                    <ul class="pagination ht-pagination">
+                        <li><a href="#" aria-label="Previous"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#" aria-label="Next"><i class="fa fa-angle-double-right"></i></a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

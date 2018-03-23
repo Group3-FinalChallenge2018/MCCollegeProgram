@@ -1,7 +1,6 @@
 package com.frontendforresume_fc.demo.service;
 
 import com.frontendforresume_fc.demo.model.Programme;
-import com.frontendforresume_fc.demo.model.Requirement;
 import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
@@ -33,23 +32,23 @@ public class AdminService {
         return false;
     }
 
-    public HashSet<Requirement> compareUserAndProgrammeRequirements(User user, Programme programme){
-        HashSet<Requirement> userEligibilty = new HashSet<>();
-        for(Requirement studentReq: user.getStudentRequirements()){
-            for(Requirement programmeReq : programme.getProgrammeRequirements()){
-                String programmReqDes = programmeReq.getDescription();
-                String studentReqDes = studentReq.getDescription();
-                if(programmReqDes.equalsIgnoreCase(studentReqDes)){
-                    Requirement req = new Requirement(programmReqDes,
-                            programmeReq.isAnswer() && studentReq.isAnswer());
-                    userEligibilty.add(req);
-                    break;
-                }
-            }
-        }
+//    public HashSet<Requirement> compareUserAndProgrammeRequirements(User user, Programme programme){
+//        HashSet<Requirement> userEligibilty = new HashSet<>();
+//        for(Requirement studentReq: user.getStudentRequirements()){
+//            for(Requirement programmeReq : programme.getProgrammeRequirements()){
+//                String programmReqDes = programmeReq.getDescription();
+//                String studentReqDes = studentReq.getDescription();
+//                if(programmReqDes.equalsIgnoreCase(studentReqDes)){
+//                    Requirement req = new Requirement(programmReqDes,
+//                            programmeReq.isAnswer() && studentReq.isAnswer());
+//                    userEligibilty.add(req);
+//                    break;
+//                }
+//            }
+//        }
 
-        return userEligibilty;
-    }
+//        return userEligibilty;
+//    }
     /*
      * Get a list of students who have applied for a given programme
      */

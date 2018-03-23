@@ -51,55 +51,16 @@
 <section class="block">
     <div class="container">
         <div class="title-group line-default">
-            <h1>Apply Hiring in Tech Apllication</h1>
+            <h1>Promising in Future Application</h1>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="box p-40">
-                    <div></div>
-                    <form th:action="@{/register}" th:object="${user}" method="post">
+                    <form th:action="@{/submitptf}" th:object="${user}" method="post">
+                        <input type="hidden" th:field="*{id}">
+
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3" >
                                 <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
-                                    <label>Are you Fluent in English?</label>
-                                    <select th:field="*{englishStatus}">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>class
-
-                                    <span th:if="${#fields.hasErrors('employmentStatus')}"
-                                          th:errors="*{employmentStatus}">employmentStatus Error</span>
-                                    <label>Are you Cuurently Employed?</label>
-                                    <select th:field="*{employmentStatus}">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-
-                                    <span th:if="${#fields.hasErrors('underemploymentStatus')}"
-                                          th:errors="*{underemploymentStatus}">underemploymentStatus Error</span>
-                                    <label>Are you Currently underemployed? In the state of Maryland, a person who makes $42,000 or less is underemployed</label>
-                                    <select th:field="*{underemploymentStatus}">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-
-                                    <span th:if="${#fields.hasErrors('itcareerInterest')}"
-                                          th:errors="*{itcareerInterest}">itcareerInterest Error</span>
-                                    <label>Are you passionate about coding and  believe you have the drive to succeed in an challenging immersive environment.
-                                    </label>
-                                    <select th:field="*{itcareerInterest}">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-
-                                    <span th:if="${#fields.hasErrors('diplomaStatus')}"
-                                          th:errors="*{diplomaStatus}">diplomaStatus Error</span>
-                                    <label>Do you have Highschool Diploma or GED?
-                                    </label>
-                                    <select th:field="*{diplomaStatus}">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
 
                                     <span th:if="${#fields.hasErrors('usworkAuth')}"
                                           th:errors="*{usworkAuth}">diplomaStatus Error</span>
@@ -120,14 +81,20 @@
                                     </select>
 
 
-
-
-
                                     <span th:if="${#fields.hasErrors('gradYear')}"
                                           th:errors="*{gradYear}">gradYear  Error</span>
                                     <label> Our ideal candidate has graduatated college within the last 6 years?  Have you graduated during this timeframe?
                                     </label>
                                     <select th:field="*{gradYear}">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+
+                                    <span th:if="${#fields.hasErrors('major')}"
+                                          th:errors="*{major}">major  Error</span>
+                                    <label> Have you studied Computer Science
+                                    </label>
+                                    <select th:field="*{major}">
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
                                     </select>
@@ -146,7 +113,8 @@
                                         <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
                                     </div>
                                     <div class="form-group"></div>
-                                    <button class="ht-btn bg-4f84c4 m-t-20">Register</button>
+                                    <button type="submit" class="ht-btn bg-4f84c4 pull-right">Submit</button>
+
                                 </div>
                             </div>
                         </div>
