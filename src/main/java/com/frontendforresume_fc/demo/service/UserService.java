@@ -28,6 +28,10 @@ public class UserService {
         return userRepository.findUserByUsername(username);
     }
 
+    public User findById(long id){
+        return  userRepository.findOne(id);
+    }
+
     public Set<User> findByUser(){
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepository.findByRole("USER"));
