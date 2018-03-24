@@ -1,6 +1,7 @@
 package com.frontendforresume_fc.demo.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -165,7 +166,7 @@ public class User {
     public void setSalary(String salary) {
         this.salary = salary;
     }
-
+    @Value("#{user.id}")
     public long getId() {
         return id;
     }

@@ -59,10 +59,11 @@ public class DataLoader implements CommandLineRunner {
         userService.saveNewUser(student4);
 
 
-        User admin = new User("password", "admin", "Dave", "Wolfman", "admin@gmail.com");
+
+        User admin = new User("password", "admin", "Dave", "Wolfman", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@wolfam.com");
         userService.saveNewAdmin(admin);
 
-        User admin2 = new User("password", "admin2", "Conor", "McGregor", "admin2@gmail.com");
+        User admin2 = new User("password", "admin2", "Conor", "McGregor", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "admin@gmail.com");
         userService.saveNewAdmin(admin2);
 
 

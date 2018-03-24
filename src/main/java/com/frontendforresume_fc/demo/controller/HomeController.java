@@ -182,14 +182,18 @@ public String showhitform(Model model){
                 return "html/ptfapply_form";
             }
         }
+        userRepository.save(user);
+        model.addAttribute("userlist",userRepository.findAll());
 
-        User tempUser = userService.findByUsername(auth.getName());
+        User tempUser = userService.findByUsername(user.getUsername());
+        Programme programme = programmeService.findByName("Promising the Future");
 
         tempUser.setAble2WorkUS(user.getUsworkAuth());
         tempUser.setDiplomaStatus(user.getDiplomaStatus());
         tempUser.setEmail(user.getEmail());
         tempUser.setEnglishStatus(user.getEnglishStatus());
         tempUser.setFirstName(user.getFirstName());
+        tempUser.setLastName(user.getLastName());
         tempUser.setEmploymentStatus(user.getEmploymentStatus());
         tempUser.setGradYear(user.getGradYear());
         tempUser.setId(user.getId());
@@ -197,13 +201,11 @@ public String showhitform(Model model){
         tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
         tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
         tempUser.setMajor(user.getMajor());
-        userRepository.save(tempUser);
-
-        Programme programme = programmeService.findByName("Promising the Future");
-
         studentService.apply2Programme(tempUser, programme);
-        userRepository.save(user);
-        model.addAttribute("userlist",userRepository.findAll());
+        userRepository.save(tempUser);
+        userService.saveNewAdmin(user);
+
+
         return "html/applicants_ptf";
     }
 
