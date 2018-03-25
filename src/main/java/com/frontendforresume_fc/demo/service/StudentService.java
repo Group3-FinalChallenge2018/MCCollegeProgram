@@ -44,6 +44,7 @@ public class StudentService {
     public void apply2Programme(User user, Programme programme){
         //if user is not student return
         if(!isStudent(user)){
+
             System.out.println("User is not student");
             return;
         }
@@ -53,6 +54,19 @@ public class StudentService {
             System.out.println("This student already applies or accepted this program");
             return;
         }
+
+        //        Not sure if this is need for Student Service matching or if the student service methods takes care of this setting methods for each program
+        programme.setName(user.getFirstName());
+        programme.setAble2WorkUS(user.getUsworkAuth());
+        programme.setDiplomaStatus(user.getDiplomaStatus());
+        programme.setEnglishStatus(user.getEnglishStatus());
+        programme.setEmploymentStatus(user.getEmploymentStatus());
+        programme.setGradYear(user.getGradYear());
+        programme.setId(user.getId());
+        programme.setSalary(user.getSalary());
+        programme.setUnderemploymentStatus(user.getUnderemploymentStatus());
+        programme.setUnderstandOOP(user.getObjectoritentedExperience());
+        programme.setMajor(user.getMajor());
         user.addAppliedProgramme(programme);
         userService.saveUser(user);
         programmeService.saveProgramme(programme);

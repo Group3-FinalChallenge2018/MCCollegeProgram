@@ -129,7 +129,10 @@ public String showhitform(Model model){
                 return "html/hitapply_form";
             }
         }
+        userRepository.save(user);
+        model.addAttribute("applyhituserlist",userRepository.findAll());
 
+//        Somehgow primary key of programme primary key column(s) is changed. throwing error User altered from 1 to 7
         User tempUser = userService.findByUsername(auth.getName());
 
         tempUser.setAble2WorkUS(user.getUsworkAuth());
@@ -145,12 +148,10 @@ public String showhitform(Model model){
         tempUser.setMajor(user.getMajor());
         userRepository.save(tempUser);
 
-        Programme programme = programmeService.findByName("Hiring in Tech");
-        studentService.apply2Programme(tempUser, programme);
-//        adminService.approveStudent2Programme(tempUser,programme);
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        studentService.apply2Programme(tempUser, hit);
+        adminService.approveStudent2Programme(tempUser,hit);
 
-        userRepository.save(user);
-        model.addAttribute("userlist",userRepository.findAll());
         return "html/applicants_hit";
     }
 
@@ -183,28 +184,33 @@ public String showhitform(Model model){
             }
         }
         userRepository.save(user);
-        model.addAttribute("userlist",userRepository.findAll());
+        model.addAttribute("applyptfuserlist",userRepository.findAll());
 
-        User tempUser = userService.findByUsername(user.getUsername());
-        Programme programme = programmeService.findByName("Promising the Future");
+//        User tempUser = userService.findByUsername(user.getUsername());
+//        Programme ptf = programmeService.findByName("Promising the Future");
+//
+//        tempUser.setAble2WorkUS(user.getUsworkAuth());
+//        tempUser.setDiplomaStatus(user.getDiplomaStatus());
+//        tempUser.setEmail(user.getEmail());
+//        tempUser.setEnglishStatus(user.getEnglishStatus());
+//        tempUser.setFirstName(user.getFirstName());
+//        tempUser.setLastName(user.getLastName());
+//        tempUser.setEmploymentStatus(user.getEmploymentStatus());
+//        tempUser.setGradYear(user.getGradYear());
+//        tempUser.setId(user.getId());
+//        tempUser.setSalary(user.getSalary());
+//        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
+//        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
+//        tempUser.setMajor(user.getMajor());
 
-        tempUser.setAble2WorkUS(user.getUsworkAuth());
-        tempUser.setDiplomaStatus(user.getDiplomaStatus());
-        tempUser.setEmail(user.getEmail());
-        tempUser.setEnglishStatus(user.getEnglishStatus());
-        tempUser.setFirstName(user.getFirstName());
-        tempUser.setLastName(user.getLastName());
-        tempUser.setEmploymentStatus(user.getEmploymentStatus());
-        tempUser.setGradYear(user.getGradYear());
-        tempUser.setId(user.getId());
-        tempUser.setSalary(user.getSalary());
-        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
-        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
-        tempUser.setMajor(user.getMajor());
-        studentService.apply2Programme(tempUser, programme);
-        userRepository.save(tempUser);
-        userService.saveNewAdmin(user);
 
+//        During post mapping after clicking sumbit throws javax.persistence.NonUniqueResultException: result returns more than one elements
+//
+//        Then it is most likely that your database does not have even a single record matching your query OR you have too many results being returned. Might be due to temp user.
+//
+//        studentService.apply2Programme(tempUser, ptf);
+//        programmeRepository.save(ptf);
+        userService.saveNewUser(user);
 
         return "html/applicants_ptf";
     }
@@ -217,30 +223,6 @@ public String showhitform(Model model){
     @RequestMapping("/accepted_students_ptf")
     public String viewAcceptedStudentsForPTF() {
         return "html/accepted_students_ptf";
-    }
-
-    @RequestMapping("/testr")
-    public String testrequirements(Model model){
-        User user = userService.findByUsername("clark");
-        Programme programme = programmeService.findByName("Promising the Future");
-
-//        user.setStudentRequirements(new HashSet<>());
-//
-//        user.addRequirement(requirementService.createRequirement("Basic understanding of object oriented programming", true));
-//        user.addRequirement(requirementService.createRequirement("Previous experience with an object-oriented language", true));
-//        user.addRequirement(requirementService.createRequirement("Major in Computer Science / Information Systems", false));
-//        user.addRequirement(requirementService.createRequirement("Graduated within the last 6 years", false));
-//        user.addRequirement(requirementService.createRequirement("Currently earning 42,000 or less", false));
-//        user.addRequirement(requirementService.createRequirement("Be able to work in the United States", true));
-//
-//        HashSet<Requirement> userEligibilty =  adminService.compareUserAndProgrammeRequirements(user, programme);
-        userRepository.save(user);
-
-//        model.addAttribute("programme", programme.getProgrammeRequirements());
-//        model.addAttribute("students", user.getStudentRequirements());
-//        model.addAttribute( "requirementMatch", userEligibilty);
-        model.addAttribute("userlist",userRepository.findAll());
-        return "html/all_applicant";
     }
 
 
@@ -260,6 +242,7 @@ public String showhitform(Model model){
 
 
         model.addAttribute("userlist",userRepository.findAll());
+
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user model to save these requirments for this user.
         System.out.println(auth.getName());

@@ -5,6 +5,7 @@ import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.RoleRepository;
+import com.frontendforresume_fc.demo.service.StudentService;
 import com.frontendforresume_fc.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,6 +24,9 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    StudentService studentService;
 
     @Override
     public void run(String... strings) throws Exception {
@@ -81,7 +85,6 @@ public class DataLoader implements CommandLineRunner {
         hit.setComfortableComputer("YES");
         hit.setUnderstandOOP("YES");
         hit.setAble2WorkUS("YES");
-
         programmeRepository.save(hit);
 
         Programme ptf = new Programme("Promising the Future");
@@ -98,7 +101,8 @@ public class DataLoader implements CommandLineRunner {
         ptf.setUnderstandOOP("YES");
         ptf.setUnderemploymentStatus("YES");
         ptf.setAble2WorkUS("YES");
-
         programmeRepository.save(ptf);
+
+
     }
 }
