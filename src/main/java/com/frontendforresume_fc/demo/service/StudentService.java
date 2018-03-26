@@ -22,9 +22,9 @@ public class StudentService {
     /*
      * Check if given User is student or not
      */
-    public boolean isStudent(User user){
-        for(Role role: user.getRoles()){
-            if(role.getRole().equalsIgnoreCase("USER")){
+    public boolean isStudent(User user) {
+        for (Role role : user.getRoles()) {
+            if (role.getRole().equalsIgnoreCase("USER")) {
                 return true;
             }
         }
@@ -34,55 +34,41 @@ public class StudentService {
     /*
      * See suggestions of programmes that they should apply for
      */
-    public Set<Programme> getProgrammeSuggestion(User user){
+    public Set<Programme> getProgrammeSuggestion(User user) {
         return new HashSet<>();
     }
 
     /*
      * Student applies to programme
      */
-    public void apply2Programme(User user, Programme programme){
+    public void apply2Programme(User user, Programme programme) {
         //if user is not student return
-        if(!isStudent(user)){
+        if (!isStudent(user)) {
 
             System.out.println("User is not student");
             return;
         }
 
         //if student already applied or got accepted, student cannot apply
-        if(user.containsProgram(programme)){
+        if (user.containsProgram(programme)) {
             System.out.println("This student already applies or accepted this program");
             return;
         }
-
-        //        Not sure if this is need for Student Service matching or if the student service methods takes care of this setting methods for each program
-        programme.setName(user.getFirstName());
-        programme.setAble2WorkUS(user.getUsworkAuth());
-        programme.setDiplomaStatus(user.getDiplomaStatus());
-        programme.setEnglishStatus(user.getEnglishStatus());
-        programme.setEmploymentStatus(user.getEmploymentStatus());
-        programme.setGradYear(user.getGradYear());
-        programme.setId(user.getId());
-        programme.setSalary(user.getSalary());
-        programme.setUnderemploymentStatus(user.getUnderemploymentStatus());
-        programme.setUnderstandOOP(user.getObjectoritentedExperience());
-        programme.setMajor(user.getMajor());
         user.addAppliedProgramme(programme);
         userService.saveUser(user);
-        programmeService.saveProgramme(programme);
     }
 
     /*
      * Get a list of programmes that students have been approved for
      */
-    public Set<Programme> getApprovedProgramme(User user){
+    public Set<Programme> getApprovedProgramme(User user) {
         return user.getApprovedProgramme();
     }
 
     /*
      * Student accepts admission into a programme
      */
-    public void acceptProgramme(User user, Programme programme){
+    public void acceptProgramme(User user, Programme programme) {
         user.deleteApprovedProgramme(programme);
         user.addAcceptedProgramme(programme);
         userService.saveUser(user);
