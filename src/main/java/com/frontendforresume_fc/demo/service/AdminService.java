@@ -62,10 +62,26 @@ public class AdminService {
     }
 
     /*
-     * Check if a given User meets the criteria or not
+     * Check if a given User and Programme meet the criteria or not
      */
-    public boolean meetCriteria(User user) {
-        return false;
+    public boolean meetCriteria(User user, Programme programme) {
+        if(programme.getName().equalsIgnoreCase("Hiring in Tech")) {
+            return user.getEnglishStatus().equalsIgnoreCase(programme.getEnglishStatus()) &&
+                    user.getEmploymentStatus().equalsIgnoreCase(programme.getEmploymentStatus()) &&
+                    user.getUnderemploymentStatus().equalsIgnoreCase(programme.getUnderemploymentStatus()) &&
+                    user.getComfortableComputer().equalsIgnoreCase(programme.getComfortableComputer()) &&
+                    user.getItcareerInterest().equalsIgnoreCase(programme.getItcareerInterest()) &&
+                    user.getDiplomaStatus().equalsIgnoreCase(programme.getDiplomaStatus()) &&
+                    user.getUsworkAuth().equalsIgnoreCase(programme.getUsworkAuth());
+        }
+
+        return  user.getUnderstandOOP().equalsIgnoreCase(programme.getUnderstandOOP()) &&
+        user.getObjectoritentedExperience().equalsIgnoreCase(programme.getObjectoritentedExperience()) &&
+        user.getMajor().equalsIgnoreCase(programme.getMajor()) &&
+        user.getGradYear().equalsIgnoreCase(programme.getGradYear()) &&
+        user.getSalary().equalsIgnoreCase(programme.getSalary()) &&
+        user.getAble2WorkUS().equalsIgnoreCase(programme.getAble2WorkUS());
+
     }
 
     /*

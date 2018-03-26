@@ -35,7 +35,13 @@ public class StudentService {
      * See suggestions of programmes that they should apply for
      */
     public Set<Programme> getProgrammeSuggestion(User user) {
-        return new HashSet<>();
+        HashSet<Programme> suggestedProgrammes = new HashSet<>();
+        for(Programme programme : programmeService.getAllProgramme()){
+            if(user.containsProgram(programme)){
+                suggestedProgrammes.add(programme);
+            }
+        }
+        return suggestedProgrammes;
     }
 
     /*
