@@ -39,10 +39,9 @@ public class HomeController {
     ProgrammeService programmeService;
 
 
-
     @GetMapping("/register")
-    public String register(@ModelAttribute("user") User user, Model model ) {
-        model.addAttribute("user",new User());
+    public String register(@ModelAttribute("user") User user, Model model) {
+        model.addAttribute("user", new User());
 //Creating new user and new requirments model for the newly created user
 
         return "html/register";
@@ -50,26 +49,15 @@ public class HomeController {
 
 
     @PostMapping("/register")
-    public String processregistration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model ){
+    public String processregistration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 
-        model.addAttribute("user",user);
-        if(result.hasErrors()){
+        model.addAttribute("user", user);
+        if (result.hasErrors()) {
             return "html/register";
-        }else{
-
-
-
+        } else {
 //            Pasing in the current created user and requirments and checking username
             userService.saveNewUser(user);
-            userService.findByUsername(user.getUsername());
             Programme programme = programmeService.findByName("Promising the Future");
-
-            System.out.println(user.getEmploymentStatus());
-            System.out.println(programme.getEmploymentStatus());
-            System.out.println(user.getEnglishStatus());
-            System.out.println(programme.getEnglishStatus());
-            System.out.println(user.getDiplomaStatus());
-            System.out.println(programme.getDiplomaStatus());
 //
         }
 
@@ -80,15 +68,13 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-
-//        if (user.equals(null)){
-//            return "redirect:/"
-//        }
         return "html/index";
     }
 
     @RequestMapping("/404")
-    public String error() { return "html/404"; }
+    public String error() {
+        return "html/404";
+    }
 
     @RequestMapping("/about_iti")
     public String aboutITI() {
@@ -96,123 +82,101 @@ public class HomeController {
     }
 
 
-
-//    /    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
+    //    /    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
 //    localhost:8080/showhit/1
-@GetMapping("/showhit")
-public String showhitform(Model model){
+    @GetMapping("/showhit")
+    public String showhitform(Model model) {
 
-    return "html/apply_hit";
-}
+        return "html/apply_hit";
+    }
 
     @GetMapping("/showhit/{id}")
-    public String showhitform(Model model,@PathVariable("id") long userid){
-        model.addAttribute("user",userRepository.findOne( new Long(userid)));
-        model.addAttribute("userlist",userRepository.findAll());
+    public String showhitform(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user", userRepository.findOne(new Long(userid)));
+        model.addAttribute("userlist", userRepository.findAll());
 
         return "html/apply_hit";
     }
 
 
-
     @GetMapping("/submithit")
-    public String showhitform(Model model,@ModelAttribute("user") User user){
+    public String showhitform(Model model, @ModelAttribute("user") User user) {
 
         return "html/hitapply_form";
     }
 
     @PostMapping("/submithit")
-    public String processshowhitform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result,Authentication auth){
-
-        {
-            if (result.hasErrors()) {
-                return "html/hitapply_form";
-            }
+    public String processshowhitform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result, Authentication auth) {
+        if (result.hasErrors()) {
+            return "html/hitapply_form";
         }
-        userRepository.save(user);
-        model.addAttribute("applyhituserlist",userRepository.findAll());
 
-//        Somehgow primary key of programme primary key column(s) is changed. throwing error User altered from 1 to 7
-        User tempUser = userService.findByUsername(auth.getName());
-
-        tempUser.setAble2WorkUS(user.getUsworkAuth());
-        tempUser.setDiplomaStatus(user.getDiplomaStatus());
-        tempUser.setEmail(user.getEmail());
-        tempUser.setEnglishStatus(user.getEnglishStatus());
-        tempUser.setFirstName(user.getFirstName());
-        tempUser.setEmploymentStatus(user.getEmploymentStatus());
-        tempUser.setGradYear(user.getGradYear());
-        tempUser.setSalary(user.getSalary());
-        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
-        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
-        tempUser.setMajor(user.getMajor());
-        userRepository.save(tempUser);
+        User currUser = userService.findByUsername(auth.getName());
+        currUser.setAble2WorkUS(user.getUsworkAuth());
+        currUser.setDiplomaStatus(user.getDiplomaStatus());
+        currUser.setEnglishStatus(user.getEnglishStatus());
+        currUser.setEmploymentStatus(user.getEmploymentStatus());
+        currUser.setGradYear(user.getGradYear());
+        currUser.setSalary(user.getSalary());
+        currUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
+        currUser.setUnderstandOOP(user.getObjectoritentedExperience());
+        currUser.setMajor(user.getMajor());
+        userService.saveUser(currUser);
 
         Programme hit = programmeService.findByName("Hiring in Tech");
-        studentService.apply2Programme(tempUser, hit);
+        studentService.apply2Programme(currUser, hit);
+
+        model.addAttribute("applyhituserlist", userRepository.findAll());
 
         return "html/applicants_hit";
     }
 
     @GetMapping("/showptf")
-    public String showptfform(Model model){
+    public String showptfform(Model model) {
 
         return "html/apply_ptf";
     }
-//    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
+
+    //    When going to this route must pass id manually to test need to make anchor tag that includes id from currenllty logined in user  for testing use 1 for id
 //    localhost:8080/showptf/1
     @GetMapping("/showptf/{id}")
-    public String showptfpage(Model model, @PathVariable("id") long userid){
-        model.addAttribute("user",userRepository.findOne( new Long(userid)));
-        model.addAttribute("userlist",userRepository.findAll());
+    public String showptfpage(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user", userRepository.findOne(new Long(userid)));
+        model.addAttribute("userlist", userRepository.findAll());
         return "html/apply_ptf";
     }
 
     @GetMapping("/submitptf")
-    public String showptfform(Model model,@ModelAttribute("user") User user){
+    public String showptfform(Model model, @ModelAttribute("user") User user) {
 
         return "html/ptfapply_form";
     }
 
     @PostMapping("/submitptf")
-    public String processshowptfform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result,Authentication auth){
+    public String processshowptfform(Model model, @Valid @ModelAttribute("user") User user, BindingResult result, Authentication auth) {
 
         {
             if (result.hasErrors()) {
                 return "html/ptfapply_form";
             }
         }
-        userRepository.save(user);
+        User currUser = userService.findByUsername(auth.getName());
+        currUser.setAble2WorkUS(user.getUsworkAuth());
+        currUser.setDiplomaStatus(user.getDiplomaStatus());
+        currUser.setEnglishStatus(user.getEnglishStatus());
+        currUser.setEmploymentStatus(user.getEmploymentStatus());
+        currUser.setGradYear(user.getGradYear());
+        currUser.setSalary(user.getSalary());
+        currUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
+        currUser.setUnderstandOOP(user.getObjectoritentedExperience());
+        currUser.setMajor(user.getMajor());
+        userService.saveUser(currUser);
 
-        HashSet<User> users = new HashSet<>();
-        users.add(userService.findByUsername(auth.getName()));
-        model.addAttribute("applyptfuserlist",users);
+        Programme ptf = programmeService.findByName("Promising the Future");
+        studentService.apply2Programme(currUser, ptf);
 
-//        User tempUser = userService.findByUsername(user.getUsername());
-//        Programme ptf = programmeService.findByName("Promising the Future");
-//
-//        tempUser.setAble2WorkUS(user.getUsworkAuth());
-//        tempUser.setDiplomaStatus(user.getDiplomaStatus());
-//        tempUser.setEmail(user.getEmail());
-//        tempUser.setEnglishStatus(user.getEnglishStatus());
-//        tempUser.setFirstName(user.getFirstName());
-//        tempUser.setLastName(user.getLastName());
-//        tempUser.setEmploymentStatus(user.getEmploymentStatus());
-//        tempUser.setGradYear(user.getGradYear());
-//        tempUser.setId(user.getId());
-//        tempUser.setSalary(user.getSalary());
-//        tempUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
-//        tempUser.setUnderstandOOP(user.getObjectoritentedExperience());
-//        tempUser.setMajor(user.getMajor());
+        model.addAttribute("applyptfuserlist", userRepository.findAll());
 
-
-//        During post mapping after clicking sumbit throws javax.persistence.NonUniqueResultException: result returns more than one elements
-//
-//        Then it is most likely that your database does not have even a single record matching your query OR you have too many results being returned. Might be due to temp user.
-//
-//        studentService.apply2Programme(tempUser, ptf);
-//        programmeRepository.save(ptf);
-        userService.saveNewUser(user);
 
         return "html/applicants_ptf";
     }
@@ -230,20 +194,20 @@ public String showhitform(Model model){
 
     @RequestMapping("/all_users")
     public String viewAllUsers(Model model) {
-        model.addAttribute("userlist",userRepository.findAll());
+        model.addAttribute("userlist", userRepository.findAll());
 
         return "html/all_users";
     }
 
 
     @RequestMapping("/allapplicant")
-    public String viewallApplicants(Authentication auth,Model model) {
+    public String viewallApplicants(Authentication auth, Model model) {
 //        Programme programme;
 //
 //        model.addAttribute("userlist",adminService.getAppliedStudents(user));
 
 
-        model.addAttribute("userlist",userRepository.findAll());
+        model.addAttribute("userlist", userRepository.findAll());
 
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user model to save these requirments for this user.
@@ -253,9 +217,6 @@ public String showhitform(Model model){
 
         return "html/all_applicants";
     }
-
-
-
 
 
     @RequestMapping("/add_admin")
@@ -275,7 +236,6 @@ public String showhitform(Model model){
     }
 
 
-
     @RequestMapping("/login")
     public String login() {
         return "html/login";
@@ -288,34 +248,35 @@ public String showhitform(Model model){
 
     @RequestMapping("/applicant_resume/{id}")
     public String viewApplicantsResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user",userRepository.findOne( new Long(userid)));
-        model.addAttribute("userlist",userRepository.findAll());
+        model.addAttribute("user", userRepository.findOne(new Long(userid)));
+        model.addAttribute("userlist", userRepository.findAll());
 
         return "html/applicant_resume";
     }
 
     @RequestMapping("/approveptf/{id}")
     public String approveptfuserResumebyid(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user", userRepository.findOne(new Long(userid)));
         User user = userService.findById(userid);
-        Programme ptf = programmeService.findByName("Promising the Future");
+        Programme programme = programmeService.findByName("Promising the Future");
 
-        adminService.approveStudent2Programme(user,ptf);
-        model.addAttribute("userlist",adminService.getAppliedStudents(ptf));
+        adminService.approveStudent2Programme(user, programme);
+        model.addAttribute("userlist", userRepository.findAll());
 
         return "html/all_applicants";
     }
 
     @RequestMapping("/approvehit/{id}")
     public String approvehituserResumebyid(Model model, @PathVariable("id") long userid) {
+        model.addAttribute("user", userRepository.findOne(new Long(userid)));
         User user = userService.findById(userid);
-        Programme hit = programmeService.findByName("Hiring in Tech");
+        Programme programme = programmeService.findByName("Hiring in Tech");
 
-        adminService.approveStudent2Programme(user,hit);
-        model.addAttribute("userlist",adminService.getAppliedStudents(hit));
+        adminService.approveStudent2Programme(user, programme);
+        model.addAttribute("userlist", userRepository.findAll());
 
         return "html/all_applicants";
     }
-
 
 
     @RequestMapping("/applicant_dashboard_accepted")
@@ -343,10 +304,14 @@ public String showhitform(Model model){
 
 
     @RequestMapping("/blog")
-    public String blog() { return "html/blog"; }
+    public String blog() {
+        return "html/blog";
+    }
 
     @RequestMapping("/list_of_programs_admin")
-    public String viewListOfProgramsAdminView() { return "html/list_of_programs_admin"; }
+    public String viewListOfProgramsAdminView() {
+        return "html/list_of_programs_admin";
+    }
 
 
     @RequestMapping("/post_program")
