@@ -50,25 +50,26 @@ public class User {
         this.email = email;
     }
 
-    public User(String password, String username, String firstName, String lastName, String englishStatus, String employmentStatus, String underemploymentStatus, String itcareerInterest, String diplomaStatus, String usworkAuth, String objectoritentedExperience, String major, String gradYear, String salary, String email) {
+    public User(String password, String username, String firstName, String lastName, String email, String englishStatus, String employmentStatus, String underemploymentStatus, String comfortableComputer, String itcareerInterest, String diplomaStatus, String usworkAuth, String understandOOP, String objectoritentedExperience, String major, String gradYear, String salary, String able2WorkUS) {
         this.password = password;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.englishStatus = englishStatus;
         this.employmentStatus = employmentStatus;
         this.underemploymentStatus = underemploymentStatus;
+        this.comfortableComputer = comfortableComputer;
         this.itcareerInterest = itcareerInterest;
         this.diplomaStatus = diplomaStatus;
         this.usworkAuth = usworkAuth;
+        this.understandOOP = understandOOP;
         this.objectoritentedExperience = objectoritentedExperience;
         this.major = major;
         this.gradYear = gradYear;
         this.salary = salary;
-        this.email = email;
+        this.able2WorkUS = able2WorkUS;
     }
-
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();

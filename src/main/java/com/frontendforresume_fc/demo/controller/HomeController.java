@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashSet;
 
 @Controller
 public class HomeController {
@@ -126,9 +127,11 @@ public class HomeController {
         Programme hit = programmeService.findByName("Hiring in Tech");
         studentService.apply2Programme(currUser, hit);
 
-        model.addAttribute("applyhituserlist", userRepository.findAll());
+        HashSet<User> users = new HashSet<>();
+        users.add(userService.findByUsername(auth.getName()));
+        model.addAttribute("applyhituserlist",users);
 
-        return "html/applicants_hit";
+        return "redirect:/applicant_dashboard_applied";
     }
 
     @GetMapping("/showptf")
@@ -175,19 +178,31 @@ public class HomeController {
         Programme ptf = programmeService.findByName("Promising the Future");
         studentService.apply2Programme(currUser, ptf);
 
-        model.addAttribute("applyptfuserlist", userRepository.findAll());
+        HashSet<User> users = new HashSet<>();
+        users.add(userService.findByUsername(auth.getName()));
+        model.addAttribute("applyptfuserlist",users);
 
-
-        return "html/applicants_ptf";
+        return "redirect:/applicant_dashboard_applied";
     }
 
+
+
     @RequestMapping("/accepted_students_hit")
-    public String viewAcceptedStudentsForHIT() {
+    public String viewAcceptedStudentsForHIT(Model model) {
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        model.addAttribute("counthitaccepted",adminService.getAcceptedStudents(hit));
+        model.addAttribute("hitaccepted",adminService.getAcceptedStudents(hit));
         return "html/accepted_students_hit";
     }
 
     @RequestMapping("/accepted_students_ptf")
-    public String viewAcceptedStudentsForPTF() {
+    public String viewAcceptedStudentsForPTF(Model model) {
+        Programme ptf = programmeService.findByName("Promising the Future");
+
+        model.addAttribute("countptfaccepted",adminService.getNumOfAcceptedStudents(ptf));
+        model.addAttribute("ptfaccepted",adminService.getAcceptedStudents(ptf));
+
+
         return "html/accepted_students_ptf";
     }
 
@@ -208,6 +223,13 @@ public class HomeController {
 
 
         model.addAttribute("userlist", userRepository.findAll());
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        Programme ptf = programmeService.findByName("Promising the Future");
+
+
+
+        model.addAttribute("counthit",adminService.getNumOfAcceptedStudents((hit)));
+        model.addAttribute("countptf",adminService.getNumOfAppliedStudents(ptf));
 
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user model to save these requirments for this user.
@@ -248,16 +270,26 @@ public class HomeController {
 
     @RequestMapping("/applicant_resume/{id}")
     public String viewApplicantsResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user", userRepository.findOne(new Long(userid)));
+        User student = userService.findById(userid);
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        Programme ptf = programmeService.findByName("Promising the Future");
+        boolean appliedHIT = student.containsAppliedProgramme(hit);
+        boolean appliedPTF = student.containsAppliedProgramme(ptf);
+        model.addAttribute("user", student);
         model.addAttribute("userlist", userRepository.findAll());
+        model.addAttribute("appliedhit",appliedHIT);
+        model.addAttribute("appliedptf",appliedPTF);
+
 
         return "html/applicant_resume";
     }
 
+
+
     @RequestMapping("/approveptf/{id}")
     public String approveptfuserResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user", userRepository.findOne(new Long(userid)));
         User user = userService.findById(userid);
+        model.addAttribute("user", user);
         Programme programme = programmeService.findByName("Promising the Future");
 
         adminService.approveStudent2Programme(user, programme);
@@ -268,12 +300,11 @@ public class HomeController {
 
     @RequestMapping("/approvehit/{id}")
     public String approvehituserResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user", userRepository.findOne(new Long(userid)));
         User user = userService.findById(userid);
+        model.addAttribute("user", user);
         Programme programme = programmeService.findByName("Hiring in Tech");
-
         adminService.approveStudent2Programme(user, programme);
-        model.addAttribute("userlist", userRepository.findAll());
+        model.addAttribute("userlist", adminService.getAppliedStudents(programme));
 
         return "html/all_applicants";
     }
@@ -284,13 +315,31 @@ public class HomeController {
         return "html/applicant_dashboard_accepted";
     }
 
+
     @RequestMapping("/applicant_dashboard_applied")
-    public String applicantDashboardApplied() {
+    public String applicantDashboardApplied(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        Programme ptf = programmeService.findByName("Promising the Future");
+
+
+        User currentUser = userService.findByUsername(auth.getName());
+
+
+//
+        model.addAttribute("programmes", currentUser.getAppliedProgramme());
         return "html/applicant_dashboard_applied";
     }
 
+
     @RequestMapping("/applicant_dashboard_approved")
-    public String applicantDashboardApproved() {
+    public String applicantDashboardApproved(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        Programme ptf = programmeService.findByName("Promising the Future");
+
+
+        User currentUser = userService.findByUsername(auth.getName());
+        model.addAttribute("approvedprogram",currentUser.getApprovedProgramme());
+
         return "html/applicant_dashboard_approved";
     }
 

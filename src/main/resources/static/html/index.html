@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Program Seeker - Index</title>
+		<link rel="icon" href="../images/favicon.ico">
+		<!-- jQuery UI -->
+		<link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
+		<!-- Owl-coursel -->
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
+		<!-- Font-awesome -->
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+		<!-- Animate -->
+		<link rel="stylesheet" type="text/css" href="../css/animate.css">
+		<!-- Fw -->
+		<link rel="stylesheet" type="text/css" href="../css/fw.css">
+		<!-- Style-->
+		<link rel="stylesheet" type="text/css" href="../css/style/finder.css">
+	</head>
+	<body>
+		<div class="preloader"><i class="fa fa-spinner"></i></div>
+
+		<!-- START of ALL MENUS -->
+
+		<!-- Start of SIDE MENU BAR -->
+		<div th:replace="html/base_fragments :: side_menu_bar"></div>
+		<!-- End of SIDE MENU BAR -->
+
+		<header class="header-absolute smaller">
+
+			<!-- Start of TOP HEADER MENU -->
+			<div th:replace="html/base_fragments :: top_header_menu"></div>
+			<!-- End of TOP HEADER MENU -->
+
+			<!-- Start of MAIN MENU BAR - ADMIN -->
+			<div th:replace="html/base_fragments :: main_menu_bar"></div>
+			<!-- End of MAIN MENU BAR -->
+		</header>
+
+		<!-- END of ALL MENUS -->
+
+
+		<section>
+			<div class="banner bg-image-0 h-700 main-banner bg-fixed">
+				<div class="container">
+					<div class="caption align_item p-xs-20">
+						<h2 class="f-80 f-xs-50 p-t-0 f-weight-300 f-family-poppins text-uppercase p-b-10">Program<strong class="f-bold">Seeker</strong></h2>
+						<h5 class="f-30 f-xs-18 f-normal f-family-poppins">Today's world is dependent on the ability to interact with and communicate information. </h5>
+						<p class="max-w-900 f-20">This dependence will only increase as technology spreads to more devices, resulting in strong job growth in the areas of information security, cloud computing, IT management and much more.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="block-2 p-b-30">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6"><!-- Blog-item -->
+						<div class="bg-4f84c4 thumb-item">
+							<i class="fa fa-file-text-o"></i>
+							<h4 class="heading f-family-poppins">Are you an instructor?</h4>
+							<a href="/post_program" class="ht-btn">Post A Course</a>
+						</div>
+					</div>
+					<div class="col-sm-6"><!-- Blog-item -->
+						<div class="bg-dc4c46 thumb-item selected">
+							<i class="fa fa-file-text"></i>
+							<h4 class="heading f-family-poppins">Seeking a program?</h4>
+							<a href="/list_of_programs" class="ht-btn">View Programs</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="block bg-fa p-t-60 p-b-30">
+			<div class="container">
+				<div class="title-group line-default">
+					<h2>Recent Blog Posts</h2>
+					<p>Stay updated with the latest tips on how to start, maintain, and grow your career!</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-md-4"><!-- Blog-item -->
+						<div class="box-item box-shadow-d">
+							<a href="/blog" class="blog-image"><img src="../images/blog_1.jpg" alt="image"></a>
+							<div class="caption">
+								<h4 class="heading"><a href="/blog">What do Hiring Managers Look For In A Resume?</a></h4>
+								<ul class="post-date">
+									<li>By <a href="/blog">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+								<p>Standing out from the equally-qualified pack and getting that job offer most often boils down to “fit.”</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4"><!-- Blog-item -->
+						<div class="box-item box-shadow-d">
+							<a href="/blog" class="blog-image"><img src="../images/blog_2.jpg" alt="image"></a>
+							<div class="caption">
+								<h4 class="heading"><a href="/blog">“Why Should I Hire You?” Here’s How to Answer.</a></h4>
+								<ul class="post-date">
+									<li>By <a href="/blog">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+								<p class="color-3">It’s so open-ended and we often feel clueless as to what the interviewer wants to hear.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4"><!-- Blog-item -->
+						<div class="box-item box-shadow-d">
+							<a href="/blog" class="blog-image"><img src="../images/blog_3.jpg" alt="image"></a>
+							<div class="caption">
+								<h4 class="heading"><a href="/blog">Write A Powerful Cover Letter</a></h4>
+								<ul class="post-date">
+									<li>By <a href="/blog">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+								<p class="color-3">A cover letter is an amazing opportunity to begin planting these seeds right from the introduction.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="bg-3">
+			<div class="banner bg-image-02">
+				<div class="caption">
+					<h2 class="f-60 f-xs-30 f-family-poppins p-b-10">Create Your Profile Today</h2>
+					<h3 class="f-normal f-30">We will help you find the right program to start your dream career!</h3>
+					<a href="/register" class="ht-btn">Register</a>
+				</div>
+			</div>
+		</section>
+		<div th:replace="html/base_fragments :: footer"></div>
+		<!-- jQuery -->
+		<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="../js/bootstrap/bootstrap.min.js"></script>
+		<!-- Owl-coursel -->
+		<script src="../js/owl-coursel/owl.carousel.js"></script>
+		<!-- Classie -->
+		<script src="../js/classie.js"></script>
+		<!-- Script -->
+		<script src="../js/script.js"></script>
+	</body>
+</html>

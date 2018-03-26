@@ -68,13 +68,13 @@
                 <!--<a  th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}" ><span th:case="${true}"><a th:href="@{/showptf/{id}(id=${user.id})}" ></a></span><span th:case="${false}">User is not logged in no Access to programs</span>Hiring In Tech</a>-->
             <!--</li>-->
 
-            <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf/{id}(id=${user.id})}" >Apply Promising in Future</a>-->
+            <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf/{id}(id=${user.id})}" >Apply Promising in Future</a>
             <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf}" >Apply Promising in Future</a>
-            <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit/{id}(id=${user.id})}" >Apply Hiring in Tech</a>-->
+            <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit/{id}(id=${user.id})}" >Apply Hiring in Tech</a>
             <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit}" >Apply Hiring in Tech</a>
-            <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit/{id}(id=${user.id})}" >Show Hiring in Tech</a>-->
+            <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit/{id}(id=${user.id})}" >Show Hiring in Tech</a>
             <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit}" >Show Hiring in Tech</a>
-            <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf/{id}(id=${user.id})}" >Show Promising in the Future</a>-->
+            <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf/{id}(id=${user.id})}" >Show Promising in the Future</a>
             <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf}" >Show Promising in the Future</a>
             <li>
                 <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
@@ -123,15 +123,15 @@
                         <li>
                             <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
                         </li>
-                        <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs/{id}(id=${user.id})}" >Programs</a>-->
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs/{id}(id=${user.id})}" >Programs</a>
                         <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/list_of_programs}" >Programs</a>
-                        <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf/{id}(id=${user.id})}" >Apply Promising in Future</a>-->
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf/{id}(id=${user.id})}" >Apply Promising in Future</a>
                         <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submitptf}" >Apply Promising in Future</a>
-                        <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit/{id}(id=${user.id})}" >Apply Hiring in Tech</a>-->
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit/{id}(id=${user.id})}" >Apply Hiring in Tech</a>
                         <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/submithit}" >Apply Hiring in Tech</a>
-                        <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit/{id}(id=${user.id})}" >Show Hiring in Tech</a>-->
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit/{id}(id=${user.id})}" >Show Hiring in Tech</a>
                         <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit}" >Show Hiring in Tech</a>
-                        <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf/{id}(id=${user.id})}" >Show Promising in the Future</a>-->
+                        <li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf/{id}(id=${user.id})}" >Show Promising in the Future</a>
                         <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf}" >Show Promising in the Future</a>
                         <li>
                             <a th:href="@{/blog}" role="button" aria-haspopup="true" aria-expanded="false">blog</a>
@@ -202,16 +202,6 @@
                 <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showhit}" >Show Hiring in Tech</a>
                 <!--<li th:if="${user != null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf/{id}(id=${user.id})}" >Show Promising in the Future</a>-->
                 <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf}" >Show Promising in the Future</a>
-                <li>
-                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/showptf}" >Show Promising in the Future</a>
-                <li>
-                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/accepted_students_hit}" >Show Accepted_students Hiring in Tech</a>
-                <li>
-                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/accepted_students_ptf}" >Show Accepted_students Promising in Future</a>
-                <li>
-                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/accepted_students_hit}" >Show Accepted_students Hiring in Tech</a>
-                <li>
-                <li th:if="${user == null}" ><a  role="button" aria-haspopup="true" aria-expanded="false" th:href="@{/accepted_students_ptf}" >Show Accepted_students Promising in Future</a>
                 <li>
             </ul>
         </div>

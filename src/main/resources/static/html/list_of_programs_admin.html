@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List of Programs</title>
+    <link rel="icon" href="../images/favicon.ico">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
+    <!-- Owl-coursel -->
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <!-- Fw -->
+    <link rel="stylesheet" type="text/css" href="../css/fw.css">
+    <!-- Style-->
+    <link rel="stylesheet" type="text/css" href="../css/style/finder.css">
+</head>
+<body>
+<div class="preloader"><i class="fa fa-spinner"></i></div>
+
+<!-- START of ALL MENUS FOR ADMIN -->
+
+<!-- Start of SIDE MENU BAR -->
+<div th:replace="html/base_fragments :: side_menu_bar_admin"></div>
+<!-- End of SIDE MENU BAR -->
+
+<header class="header-absolute smaller">
+
+    <!-- Start of TOP HEADER MENU -->
+    <div th:replace="html/base_fragments :: top_header_menu_admin"></div>
+    <!-- End of TOP HEADER MENU -->
+
+    <!-- Start of MAIN MENU BAR - ADMIN -->
+    <div th:replace="html/base_fragments :: main_menu_bar_admin"></div>
+    <!-- End of MAIN MENU BAR -->
+</header>
+
+<!-- END of ALL MENUS FOR ADMIN -->
+
+<section class="block-2 job bg-fa">
+    <div class="container">
+        <div class="title-group line-default">
+            <h1>1,356 Programs</h1>
+            <p>Learn more about the programs we currently offer.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><!-- Blog-item -->
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="/applicants_hit" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-10">
+                            <h3 class="heading p-b-10 p-t-0">
+                                <a href="/applicants_hit">Hiring In Tech</a>
+                            </h3>
+                            <b class="f-16">51 Mannakee Street, Rockville, MD 20850</b>
+                            <p class="m-b-15 m-t-10">Hiring In Tech is a new U.S. Department of Labor grant-funded training program for those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, you may be able to enter one or more tracks that will help you further your education and training and find a job.</p>
+                            <div class="border-1x p-5 p-l-15 p-r-15 bg-f">
+                                <div class="row color-9">
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-users m-r-5"></i>100 <a href="/applicants_hit#applicants">Applicants</a></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-user-plus m-r-5"></i>78 <a href="/applicants_hit#accepted">Accepted</a></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-university m-r-5"></i>2 <a href="/applicants_hit#instructors">Instructors</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-item">
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <a href="/applicants_ptf" class="thumb-img"><img src="../images/default.png" alt="image"></a>
+                        </div>
+                        <div class="col-sm-10">
+                            <h3 class="heading p-b-10 p-t-0">
+                                <a href="/applicants_ptf">Promising the Future</a>
+                            </h3>
+                            <b class="f-16">51 Mannakee Street, Rockville, MD 20850</b>
+                            <p class="m-b-15 m-t-10">Promising the Future is an 8 hour a day (9 am - 5 pm, M-F) 8-week, immersive software engineering program funded by the Department of Labor. This course aims to increase the number of skilled software developers in this country. We do this by accepting qualified candidates who cannot afford the cost of a coding boot camp. If accepted into the program all fees will be covered by the program.</p>
+                            <div class="border-1x p-5 p-l-15 p-r-15 bg-f">
+                                <div class="row color-9">
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-users m-r-5"></i>100 <a href="/applicants_ptf.html#applicants">Applicants</a></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-user-plus m-r-5"></i>78 <a href="/applicants_ptf.html#accepted">Accepted</a></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="p-5"><i class="fa fa-university m-r-5"></i>2 <a href="/applicants_ptf.html#instructors">Instructors</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- START of FOOTER -->
+<div th:replace="html/base_fragments :: footer"></div>
+<!-- End of FOOTER -->
+
+<!-- jQuery -->
+<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap/bootstrap.min.js"></script>
+<!-- Owl-coursel -->
+<script src="../js/owl-coursel/owl.carousel.js"></script>
+<!-- Classie -->
+<script src="../js/classie.js"></script>
+<!-- Script -->
+<script src="../js/script.js"></script>
+</body>
+</html>

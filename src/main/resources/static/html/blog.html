@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Blog</title>
+		<link rel="icon" href="../images/favicon.ico">
+		<!-- jQuery UI -->
+		<link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
+		<!-- Owl-coursel -->
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+		<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
+		<!-- Font-awesome -->
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+		<!-- Animate -->
+		<link rel="stylesheet" type="text/css" href="../css/animate.css">
+		<!-- Fw -->
+		<link rel="stylesheet" type="text/css" href="../css/fw.css">
+		<!-- Style-->
+		<link rel="stylesheet" type="text/css" href="../css/style/finder.css">
+	</head>
+	<body>
+		<div class="preloader"><i class="fa fa-spinner"></i></div>
+
+		<!-- START of ALL MENUS -->
+
+		<!-- Start of SIDE MENU BAR -->
+		<div th:replace="html/base_fragments :: side_menu_bar"></div>
+		<!-- End of SIDE MENU BAR -->
+
+		<header class="header-absolute smaller">
+
+			<!-- Start of TOP HEADER MENU -->
+			<div th:replace="html/base_fragments :: top_header_menu"></div>
+			<!-- End of TOP HEADER MENU -->
+
+			<!-- Start of MAIN MENU BAR - ADMIN -->
+			<div th:replace="html/base_fragments :: main_menu_bar"></div>
+			<!-- End of MAIN MENU BAR -->
+		</header>
+
+		<!-- END of ALL MENUS -->
+
+
+		<section class="block">
+			<div class="container">
+				<div class="title-group line-default">
+					<h1>Our Blog</h1>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-12"><!-- Blog-item -->
+						<div class="box box-item p-25">
+							<a href="#" class="blog-image"><img src="../images/blog_1.jpg" alt="image"></a>
+							<div class="blog-caption">
+								<h2 class="blog-name"><a href="#">What do Hiring Managers Look For In A Resume?</a></h2>
+								<ul class="post-date">
+									<li>By <a href="#">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+								<p>Standing out from the equally-qualified pack and getting that job offer most often boils down to “fit.”</p>
+							</div>
+						</div>
+						<div class="box box-item p-25">
+							<a href="#" class="blog-image"><img src="../images/blog_2.jpg" alt="image"></a>
+							<div class="blog-caption">
+								<h2 class="blog-name"><a href="#">“Why Should I Hire You?” Here’s How to Answer.</a></h2>
+								<ul class="post-date">
+									<li>By <a href="#">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+								<p>It’s so open-ended and we often feel clueless as to what the interviewer wants to hear.</p>
+							</div>
+						</div>
+						<div class="box box-item p-25">
+							<a href="#" class="blog-image"><img src="../images/blog_3.jpg" alt="image"></a>
+							<div class="blog-caption">
+								<h2 class="blog-name"><a href="#">Write A Powerful Cover Letter</a></h2>
+								<ul class="post-date">
+									<li>By <a href="#">Admin</a></li>
+									<li>January 23 2015</li>
+									<li>3 comment</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- START of FOOTER -->
+		<div th:replace="html/base_fragments :: footer"></div>
+		<!-- End of FOOTER -->
+
+
+		<!-- jQuery -->
+		<script src="../js/jquery/jquery-2.2.4.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="../js/bootstrap/bootstrap.min.js"></script>
+		<!-- Owl-coursel -->
+		<script src="../js/owl-coursel/owl.carousel.js"></script>
+		<!-- Classie -->
+		<script src="../js/classie.js"></script>
+		<!-- Script -->
+		<script src="../js/script.js"></script>
+	</body>
+</html>

@@ -38,37 +38,37 @@ public class DataLoader implements CommandLineRunner {
         r.setRole("ADMIN");
         roleRepository.save(r);
 //Saved user and progam With Travis new Model Design
-        User student = new User("password", "clark", "Clark", "Kent", "Yes", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "parry@kent.com");
+        User student = new User("password", "clark", "Clark", "Kent", "clark@gmail.com", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "Yes","Yes","Yes","yes");
         student.setUnderstandOOP("YES");
         student.setComfortableComputer("YES");
         student.setAble2WorkUS("YES");
         userService.saveNewUser(student);
 
-        User student2 = new User("password", "harry", "Harry", "Potter", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
-        student2.setUnderstandOOP("YES");
-        student2.setComfortableComputer("YES");
-        student2.setAble2WorkUS("YES");
-        userService.saveNewUser(student2);
-
-        User student3 = new User("password", "tony", "Tony", "stark", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
-        student3.setUnderstandOOP("YES");
-        student3.setComfortableComputer("YES");
-        student3.setAble2WorkUS("YES");
-        userService.saveNewUser(student3);
-
-        User student4 = new User("password", "holy", "Holy", "Grail", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
-        student4.setUnderstandOOP("YES");
-        student4.setComfortableComputer("YES");
-        student4.setAble2WorkUS("YES");
-        userService.saveNewUser(student4);
-
-
-
-        User admin = new User("password", "admin", "Dave", "Wolfman", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@wolfam.com");
-        userService.saveNewAdmin(admin);
-
-        User admin2 = new User("password", "admin2", "Conor", "McGregor", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "admin@gmail.com");
-        userService.saveNewAdmin(admin2);
+//        User student2 = new User("password", "harry", "Harry", "Potter", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
+//        student2.setUnderstandOOP("YES");
+//        student2.setComfortableComputer("YES");
+//        student2.setAble2WorkUS("YES");
+//        userService.saveNewUser(student2);
+//
+//        User student3 = new User("password", "tony", "Tony", "stark", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
+//        student3.setUnderstandOOP("YES");
+//        student3.setComfortableComputer("YES");
+//        student3.setAble2WorkUS("YES");
+//        userService.saveNewUser(student3);
+//
+//        User student4 = new User("password", "holy", "Holy", "Grail", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@kent.com");
+//        student4.setUnderstandOOP("YES");
+//        student4.setComfortableComputer("YES");
+//        student4.setAble2WorkUS("YES");
+//        userService.saveNewUser(student4);
+//
+//
+//
+//        User admin = new User("password", "admin", "Dave", "Wolfman", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "harry@wolfam.com");
+//        userService.saveNewAdmin(admin);
+//
+//        User admin2 = new User("password", "admin2", "Conor", "McGregor", "Yes", "YES", "YES", "YES", "No", "No", "YES", "YES", "YES", "YES", "admin@gmail.com");
+//        userService.saveNewAdmin(admin2);
 
 
         Programme hit = new Programme("Hiring in Tech");
