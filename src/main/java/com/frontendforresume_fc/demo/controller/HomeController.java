@@ -150,7 +150,6 @@ public String showhitform(Model model){
 
         Programme hit = programmeService.findByName("Hiring in Tech");
         studentService.apply2Programme(tempUser, hit);
-        adminService.approveStudent2Programme(tempUser,hit);
 
         return "html/applicants_hit";
     }
@@ -184,7 +183,10 @@ public String showhitform(Model model){
             }
         }
         userRepository.save(user);
-        model.addAttribute("applyptfuserlist",userRepository.findAll());
+
+        HashSet<User> users = new HashSet<>();
+        users.add(userService.findByUsername(auth.getName()));
+        model.addAttribute("applyptfuserlist",users);
 
 //        User tempUser = userService.findByUsername(user.getUsername());
 //        Programme ptf = programmeService.findByName("Promising the Future");
@@ -294,24 +296,22 @@ public String showhitform(Model model){
 
     @RequestMapping("/approveptf/{id}")
     public String approveptfuserResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user",userRepository.findOne( new Long(userid)));
         User user = userService.findById(userid);
-        Programme programme = programmeService.findByName("Promising the Future");
+        Programme ptf = programmeService.findByName("Promising the Future");
 
-        adminService.approveStudent2Programme(user,programme);
-        model.addAttribute("userlist",userRepository.findAll());
+        adminService.approveStudent2Programme(user,ptf);
+        model.addAttribute("userlist",adminService.getAppliedStudents(ptf));
 
         return "html/all_applicants";
     }
 
     @RequestMapping("/approvehit/{id}")
     public String approvehituserResumebyid(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user",userRepository.findOne( new Long(userid)));
         User user = userService.findById(userid);
-        Programme programme = programmeService.findByName("Hiring in Tech");
+        Programme hit = programmeService.findByName("Hiring in Tech");
 
-        adminService.approveStudent2Programme(user,programme);
-        model.addAttribute("userlist",userRepository.findAll());
+        adminService.approveStudent2Programme(user,hit);
+        model.addAttribute("userlist",adminService.getAppliedStudents(hit));
 
         return "html/all_applicants";
     }
