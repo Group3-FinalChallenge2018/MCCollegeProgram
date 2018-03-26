@@ -92,7 +92,7 @@
             <div class="row">
                 <div class="col-md-6 hidden-xs hidden-sm">
                     <ul class="top-link">
-                        <li><i class="fa fa-envelope-o m-r-5"></i>info@jobseeker.com</li>
+                        <li><i  class="fa fa-envelope-o m-r-5"><span th:text ="${#authentication.getName()}"></span></i></li>
                         <li><i class="fa fa-phone m-r-5"></i>+0123 456 789</li>
                     </ul>
                 </div>
@@ -197,12 +197,12 @@
             <h4><a href="applicants_hit.html">Applicants for Hiring In Tech</a></h4>
             <h4><a href="applicants_ptf.html">Applicants for Promising The Future</a></h4>
 
-            <span th:each="user,iterationStatus  : ${userlist}">
--            <h1 th:text="${iterationStatus.size}"></h1>
--                                </span>
-            <h2>All Applicants</h2>
+            <!--<span th:each="user,iterationStatus  : ${userlist}">-->
+<!-- -            <h1 th:text="${iterationStatus.size}"></h1>-->
+<!-- -                                </span>-->
+            <h2>Promising the Future Applicants</h2>
         </div>
-        <div class="row" th:each="user : ${userlist}">
+        <div class="row" th:each="user : ${applyptfuserlist}">
             <div class="col-md-14"  ><!-- Blog-item -->
                 <div class="box-item">
                     <div class="row">
@@ -212,7 +212,7 @@
                         <div class="col-sm-10">
                             <h3 class="heading p-b-0 p-t-0" th:text="${user.firstName}">
                             </h3>
-                            <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
+                            <h5 class="f-weight-300 p-t-10 p-b-10">Java Developer</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
                             <div class="f-weight-400">Skill: <span class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
                         </div>

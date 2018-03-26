@@ -5,6 +5,7 @@ import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.RoleRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

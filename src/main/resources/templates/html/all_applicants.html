@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-md-6 hidden-xs hidden-sm">
                     <ul class="top-link">
-                        <li><i class="fa fa-envelope-o m-r-5"></i>info@jobseeker.com</li>
+                        <li><i  class="fa fa-envelope-o m-r-5"><span th:text ="${#authentication.getName()}"></span></i></li>
                         <li><i class="fa fa-phone m-r-5"></i>+0123 456 789</li>
                     </ul>
                 </div>
@@ -190,13 +190,14 @@
             <h4><a href="applicants_hit.html">Applicants for Hiring In Tech</a></h4>
             <h4><a href="applicants_ptf.html">Applicants for Promising The Future</a></h4>
 
-            <span th:each="user,iterationStatus  : ${userlist}">
--            <h1 th:text="${iterationStatus.size}"></h1>
--                                </span>
+            <!--Need java controller based counter for userlist that passes userrepo.findall model size (# of all users)-->
+            <!--<span th:each="user,iterationStatus  : ${userlist}">-->
+<!-- -            <h1 th:text="${iterationStatus.size}"></h1>-->
+<!-- -                                </span>-->
             <h2>All Applicants</h2>
         </div>
-        <div class="row" th:each="user : ${userlist}">
-            <div class="col-md-14"  ><!-- Blog-item -->
+        <div class="row" >
+            <div class="col-md-14" th:each="user : ${userlist}" ><!-- Blog-item -->
                 <div class="box-item">
                     <div class="row">
                         <div class="col-sm-2 text-center">
@@ -249,43 +250,16 @@
                                 <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.gradYear}"><span></span></span>Grad Year</div>
 
                             </div>
+
+                            <h3 class="heading p-b-10 p-t-0" th:if="${user != null}">
+                                <a th:href="@{/applicant_resume/{id}(id=${user.id})}">See Resume</a>
+                            </h3>
+                            <h3 class="heading p-b-10 p-t-0" th:if="${user == null}">
+                                <a th:href="@{/applicant_resume}">See Resume</a>
+                            </h3>
                         </div>
                     </div>
                 </div>
-
-
-                <!--&lt;!&ndash;Travis esting code view&ndash;&gt;-->
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-10 col-sm-offset-1">-->
-                        <!--<div class="p-30 bg-f box-shadow-d" th:each="user : ${userlist}">-->
-                            <!--<h2 class="f-20 p-b-10 p-t-0">Program(s) Requirements</h2>-->
-                            <!--<ul class="list-2x list-n-bg text-left">-->
-                                <!--<li class="p-5"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5"></i>Applied</li>-->
-                                <!--<li class="p-5" ><i class="fa fa-check m-r-5" th:text="${user.englishStatus}"></i>English Language Learner</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.employmentStatus}"></i>Unemployed</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.underemploymentStatus}"></i>Underemployed</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.usworkAuth}"></i>Authorized U.S. Worker</li>-->
-                                <!--&lt;!&ndash;Assuming they have object oritented Experience they have basic computer literacy&ndash;&gt;-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.objectoritentedExperience}"></i>Basic Computer Literacy</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.itcareerInterest}"></i>Have Strong Interest in IT Career</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.diplomaStatus}"></i>High School Diploma/GED Status</li>-->
-                            <!--</ul>-->
-                            <!--<br>-->
-                            <!--<ul class="list-2x list-n-bg text-left">-->
-                                <!--<li class="p-5"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></li>-->
-                                <!--<li class="p-5"><i class="fa fa-times m-r-5"></i>Not Eligible</li>-->
-                                <!--<li class="p-5"><i class="fa fa-times m-r-5"></i>Did Not Apply</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.objectoritentedExperience}"></i>Basic Object-Oriented Experience</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.major}"></i>Major in Computer Science/Information Systems</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.gradYear}"></i>Graduated within the last 6 years</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.salary}"></i>Earning Less Than $42,000</li>-->
-                                <!--<li class="p-5"><i class="fa fa-check m-r-5" th:text="${user.usworkAuth}"></i>Authorized U.S. Worker</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
                 <!--&lt;!&ndash;Test code&ndash;&gt;-->
                 <nav aria-label="Page navigation" class="m-t-20">
                     <ul class="pagination ht-pagination">
