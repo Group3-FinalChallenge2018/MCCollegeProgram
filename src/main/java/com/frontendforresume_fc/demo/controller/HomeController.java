@@ -229,8 +229,20 @@ public class HomeController {
 
 
     @RequestMapping("/add_admin")
-    public String addAdmin() {
+    public String addAdmin(Model model) {
+        model.addAttribute("user", new User());
         return "html/add_admin";
+    }
+
+    @PostMapping("/add_admin")
+    public String addNewAdmin(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+        model.addAttribute("user", user);
+        if (result.hasErrors()) {
+            return "html/add_admin";
+        }
+        userService.saveNewAdmin(user);
+
+        return "redirect:/";
     }
 
 
