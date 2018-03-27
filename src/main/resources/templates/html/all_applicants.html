@@ -53,28 +53,35 @@
     <div class="container">
         <div class="title-group line-default">
             <!--<h4>-->
-                <!--<a  th:href="@{/accepted_students_hit}">Applicants for Hiring In Tech</a></h4>-->
+            <!--<a  th:href="@{/accepted_students_hit}">Applicants for Hiring In Tech</a></h4>-->
             <!--<h4><p th:text="${countptf}">-->
-                <!--<a  th:href="@{/accepted_students_ptf}">Applicants for Promising The Future</a></h4>-->
+            <!--<a  th:href="@{/accepted_students_ptf}">Applicants for Promising The Future</a></h4>-->
             <!--<h4><p th:text="${countptf}"></p><a  th:href="@{/accepted_students_ptf}">Accepted for Promising The Future</a></h4>-->
             <!--<h4><p th:text="${counthit}"></p><a  th:href="@{/accepted_students_hit}">Accepted for Hiring in Tech</a></h4>-->
 
             <!--Need java controller based counter for userlist that passes userrepo.findall model size (# of all users)-->
             <!--<span th:each="user,iterationStatus  : ${userlist}">-->
-<!-- -            <h1 th:text="${iterationStatus.size}"></h1>-->
-<!-- -                                </span>-->
+            <!-- -            <h1 th:text="${iterationStatus.size}"></h1>-->
+            <!-- -                                </span>-->
             <h2>All Applicants</h2>
 
-            <p th:text="${countptf}"></p>
-            <p>Applied for Promising The Future</p>
-            <p th:text="${counthit}"></p>
-            <p>Accepted for Hiring in Tech</p>
-
+            <div>
+                <strong>Applied for Promising The Future</strong>
+                <p th:text="${countAppliedptf}"></p>
+                <strong>Applied for Hiring in Tech</strong>
+                <p th:text="${countAppliedhit}"></p>
+            </div>
+            <div>
+                <strong>Accepted for Promising The Future</strong>
+                <p th:text="${countAcceptedptf}"></p>
+                <strong>Accepted for Hiring in Tech</strong>
+                <p th:text="${countAcceptedhit}"></p>
+            </div>
 
 
         </div>
-        <div class="row" >
-            <div class="col-md-14" th:each="user : ${userlist}" ><!-- Blog-item -->
+        <div class="row">
+            <div class="col-md-14" th:each="user : ${userlist}"><!-- Blog-item -->
                 <div class="box-item">
                     <div class="row">
                         <div class="col-sm-2 text-center">
@@ -84,42 +91,71 @@
                             <h3 class="heading p-b-0 p-t-0" th:text="${user.firstName}">
                             </h3>
                             <h5 class="f-weight-300 p-t-10 p-b-10">PHP Developer</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing elit sed do</p>
-                            <div class="f-weight-400">Skill: <span class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna aliqua uat
+                                veniama icing elit sed do</p>
+                            <div class="f-weight-400">Skill: <span
+                                    class="color-9">PHP, My Sql, HTML5, CSS3, Javascript</span></div>
                         </div>
                     </div>
                     <div class="border-1x p-10 m-t-15 bg-f">
                         <div class="row color-9">
                             <div class="col-sm-6 text-center">
-                                <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></div>
+                                <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong>
+                                </div>
                                 <!--<div class="p-5"><i></i>Eligible</div>-->
                                 <!--<div class="p-5"><i></i>Applied</div>-->
-                                <div class="p-5"><i ></i><span th:text="${user.englishStatus} + ' '" ><span></span></span>English Language Learner </div>
-                                <div class="p-5"><i></i><span th:text="${user.employmentStatus}+ ' '" ><span></span></span>Employment Status</div>
-                                <div class="p-5"><i></i><span th:text="${user.underemploymentStatus}+ ' '" ><span></span></span>Underemployment Status </div>
-                                <div class="p-5"><i></i><span th:text="${user.itcareerInterest}+ ' '" ><span></span></span>It Career Interest </div>
-                                <div class="p-5"><i></i><span th:text="${user.diplomaStatus}+ ' '" ><span></span></span>Has Diploma or GED </div>
-                                <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '" ><span></span></span>Authorized US Worker</div>
-                                        </div>
+                                <div class="p-5"><i></i><span th:text="${user.englishStatus} + ' '"><span></span></span>English
+                                    Language Learner
+                                </div>
+                                <div class="p-5"><i></i><span
+                                        th:text="${user.employmentStatus}+ ' '"><span></span></span>Employment Status
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.underemploymentStatus}+ ' '"><span></span></span>Underemployment
+                                    Status
+                                </div>
+                                <div class="p-5"><i></i><span
+                                        th:text="${user.itcareerInterest}+ ' '"><span></span></span>It Career Interest
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.diplomaStatus}+ ' '"><span></span></span>Has
+                                    Diploma or GED
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '"><span></span></span>Authorized
+                                    US Worker
+                                </div>
+                            </div>
                             <div class="col-sm-6 text-center">
-                                <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
-                                <div class="p-5"><i></i><span th:text="${user.understandOOP}+ ' '" ><span></span></span>Understand OOP </div>
-                                <div class="p-5"><i></i><span th:text="${user.Able2WorkUS}+ ' '" ><span></span></span>Able US Worker</div>
-                                <div class="p-5"><i></i><span th:text="${user.objectoritentedExperience}+ ' '" ><span></span></span>Basic Obj Oritened Experience </div>
-                                <div class="p-5"><i></i><span th:text="${user.major}+ ' '" ><span></span></span>College Major</div>
-                                <div class="p-5"><i></i><span th:text="${user.salary}+ ' '" ><span></span></span><span></span>Salary</div>
-                                <div class="p-5"><i></i><span th:text="${user.gradYear}+ ' '" ><span></span></span>Grad Year</div>
+                                <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Promising the
+                                    Future</strong></div>
+                                <div class="p-5"><i></i><span th:text="${user.understandOOP}+ ' '"><span></span></span>Understand
+                                    OOP
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.Able2WorkUS}+ ' '"><span></span></span>Able
+                                    US Worker
+                                </div>
+                                <div class="p-5"><i></i><span
+                                        th:text="${user.objectoritentedExperience}+ ' '"><span></span></span>Basic Obj
+                                    Oritened Experience
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.major}+ ' '"><span></span></span>College
+                                    Major
+                                </div>
+                                <div class="p-5"><i></i><span
+                                        th:text="${user.salary}+ ' '"><span></span></span><span></span>Salary
+                                </div>
+                                <div class="p-5"><i></i><span th:text="${user.gradYear}+ ' '"><span></span></span>Grad
+                                    Year
+                                </div>
                             </div>
-                            </div>
-
-                            <h3 class="heading p-b-10 p-t-0">
-                                <a th:href="@{/applicant_resume/{id}(id=${user.id})}">See Resume</a>
-                            </h3>
                         </div>
+
+                        <h3 class="heading p-b-10 p-t-0">
+                            <a th:href="@{/applicant_resume/{id}(id=${user.id})}">See Resume</a>
+                        </h3>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <footer class="bg-2">
@@ -129,7 +165,8 @@
                 <div class="col-sm-5 m-b-xs-30">
                     <img src="../images/mt-0996-logo.png" alt="image" class="w-50">
                     <h2 class="color-f f-30 f-xs-20 f-family-poppins f-weight-500">JOB SEEKER, Inc</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna aliqua uat veniama
+                        icing</p>
                     <ul class="list-inline m-t-20">
                         <li><a href="#"><i class="fa fa-facebook icon icon-40 rad-3 bg-4f84c4"></i></a></li>
                         <li><a href="#"><i class="fa fa-google icon icon-40 rad-3 bg-f2552c"></i></a></li>

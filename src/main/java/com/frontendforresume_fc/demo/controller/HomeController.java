@@ -218,8 +218,10 @@ public class HomeController {
 
 
 
-        model.addAttribute("counthit",adminService.getNumOfAcceptedStudents((hit)));
-        model.addAttribute("countptf",adminService.getNumOfAppliedStudents(ptf));
+        model.addAttribute("countAcceptedhit",adminService.getNumOfAcceptedStudents((hit)));
+        model.addAttribute("countAcceptedptf",adminService.getNumOfAcceptedStudents((ptf)));
+        model.addAttribute("countAppliedhit", adminService.getNumOfAppliedStudents(hit));
+        model.addAttribute("countAppliedptf",adminService.getNumOfAppliedStudents(ptf));
 
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user templates.model to save these requirments for this user.
@@ -276,7 +278,7 @@ public class HomeController {
         adminService.approveStudent2Programme(user, ptf);
         model.addAttribute("userlist", adminService.getAppliedStudents(ptf));
 
-        return "redirect:/accepted_students_ptf";
+        return "redirect:/allapplicant";
     }
 
     @RequestMapping("/approvehit/{id}")
@@ -287,7 +289,7 @@ public class HomeController {
         adminService.approveStudent2Programme(user, hit);
         model.addAttribute("userlist", adminService.getAppliedStudents(hit));
 
-        return "redirect:/accepted_students_hit";
+        return "redirect:/allapplicant";
     }
 
 
