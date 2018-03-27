@@ -33,12 +33,40 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/register",
             "/h2-console/**",
             "/**",
+            "/login",
+            "/404",
+            "/faqs",
+            "/about_iti",
+            "/applicant_resume",
+            "/list_of_programs",
+            "/blog",
+            "/post_program"
+
     };
 
     private static final String[] USER_MATCHERS = {
+            "/showhit",
+            "/showhit/**",
+            "/submithit",
+            "/showptf",
+            "/showptf/**",
+            "/applicant_dashboard_applied",
+            "/applicant_dashboard_accepted",
+            "/applicant_dashboard_suggested",
+            "/applicant_dashboard_approved",
+            "/update/applicant_dashboard_approved/**"
+
+
     };
 
     private static final String[] ADMIN_MATCHERS = {
+            "/accepted_students_hit",
+            "/accepted_students_ptf",
+            "/all_users",
+            "/allapplicant",
+            "/add_admin",
+            "/approveptf/**",
+            "/approvehit/**",
 
     };
 

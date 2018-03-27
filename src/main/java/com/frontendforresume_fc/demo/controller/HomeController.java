@@ -81,6 +81,11 @@ public class HomeController {
         return "html/404";
     }
 
+    @RequestMapping("/faqs")
+    public String faq() {
+        return "html/faqs";
+    }
+
     @RequestMapping("/about_iti")
     public String aboutITI() {
         return "html/about_iti";
