@@ -163,7 +163,7 @@
                     <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">home</a>
                 </li>
                 <li>
-                    <a th:href="@{/allapplicant}" role="button" aria-haspopup="true" aria-expanded="false">Show All Applicants</a>
+                    <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/allapplicant}" role="button" aria-haspopup="true" aria-expanded="false">Show All Applicants</a>
                 </li>
                 <li>
                     <a th:href="@{/about_iti}" role="button" aria-haspopup="true" aria-expanded="false">about</a>
@@ -176,7 +176,10 @@
                     <ul class="dropdown-menu">
                         <!--<li><a th:href="@{/post_program}" >Post Program</a></li>-->
                         <!--<li><a th:href="@{/list_of_programs/{id}(id=${user.id})}" >View Programs</a></li>-->
-                        <li><a th:href="@{/all_applicants}" >View Applicants</a></li>
+                        <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/all_applicants}" >View Applicants</a></li>
+                        <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/accepted_students_ptf}" >Accepted Applicants PTF</a></li>
+                        <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/accepted_students_hit}" >Accepted Applicants HIT</a></li>
+
                     </ul>
                 </li>
                 <li>
@@ -229,12 +232,17 @@
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <ul class="top-link pull-right">
+
                         <li>
                             <a th:href="@{/faqs}" role="button" aria-haspopup="true" aria-expanded="false">FAQs</a>
                         </li>
                         <li>
-                            <a th:href="@{/}" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
+                            <a th:href="@{/logout}" role="button" aria-haspopup="true" aria-expanded="false">LOGOUT</a>
                         </li>
+
+
+
+
                         <li class="menu-btn"><i class="fa fa-bars f-14 icon icon-20"></i></li>
                     </ul>
                 </div>

@@ -50,8 +50,10 @@
 <section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
-            <h4><a href="applicants_hit.html" th:text="${counthit}">Applicants for Hiring In Tech</a></h4>
-            <h4><a href="applicants_ptf.html" th:text="${countptf}">Applicants for Promising The Future</a></h4>
+            <h4><a  th:text="${counthit}"></a>Applicants for Hiring In Tech</h4>
+            <h4><a  th:text="${countptf}">Applicants for Promising The Future</a></h4>
+            <h4><a  th:href="@{/accepted_students_ptf}">Accepted for Promising The Future</a></h4>
+            <h4><a  th:href="@{/accepted_students_hit}">Accepted for Hiring in Tech</a></h4>
 
             <!--Need java controller based counter for userlist that passes userrepo.findall model size (# of all users)-->
             <!--<span th:each="user,iterationStatus  : ${userlist}">-->
@@ -90,7 +92,7 @@
                             <div class="col-sm-6 text-center">
                                 <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
                                 <div class="p-5"><i></i><span th:text="${user.understandOOP}+ ' '" ><span></span></span>Understand OOP </div>
-                                <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '" ><span></span></span>Authorized US Worker</div>
+                                <div class="p-5"><i></i><span th:text="${user.Able2WorkUS}+ ' '" ><span></span></span>Able US Worker</div>
                                 <div class="p-5"><i></i><span th:text="${user.objectoritentedExperience}+ ' '" ><span></span></span>Basic Obj Oritened Experience </div>
                                 <div class="p-5"><i></i><span th:text="${user.major}+ ' '" ><span></span></span>College Major</div>
                                 <div class="p-5"><i></i><span th:text="${user.salary}+ ' '" ><span></span></span><span></span>Salary</div>

@@ -116,7 +116,7 @@ public class HomeController {
         }
 
         User currUser = userService.findByUsername(auth.getName());
-        currUser.setAble2WorkUS(user.getUsworkAuth());
+        currUser.setUsworkAuth(user.getUsworkAuth());
         currUser.setDiplomaStatus(user.getDiplomaStatus());
         currUser.setEnglishStatus(user.getEnglishStatus());
         currUser.setEmploymentStatus(user.getEmploymentStatus());
@@ -162,7 +162,7 @@ public class HomeController {
             }
         }
         User currUser = userService.findByUsername(auth.getName());
-        currUser.setAble2WorkUS(user.getUsworkAuth());
+        currUser.setAble2WorkUS(user.getAble2WorkUS());
         currUser.setGradYear(user.getGradYear());
         currUser.setSalary(user.getSalary());
         currUser.setObjectoritentedExperience(user.getObjectoritentedExperience());
@@ -263,7 +263,7 @@ public class HomeController {
         adminService.approveStudent2Programme(user, ptf);
         model.addAttribute("userlist", adminService.getAppliedStudents(ptf));
 
-        return "html/all_applicants";
+        return "redirect:/accepted_students_ptf";
     }
 
     @RequestMapping("/approvehit/{id}")
@@ -274,7 +274,7 @@ public class HomeController {
         adminService.approveStudent2Programme(user, hit);
         model.addAttribute("userlist", adminService.getAppliedStudents(hit));
 
-        return "html/all_applicants";
+        return "redirect:/accepted_students_hit";
     }
 
 

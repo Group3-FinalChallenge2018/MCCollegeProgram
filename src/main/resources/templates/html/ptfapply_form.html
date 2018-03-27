@@ -63,14 +63,15 @@
                         <div class="col-sm-6 col-sm-offset-3" >
                             <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
 
-                                <span th:if="${#fields.hasErrors('usworkAuth')}"
-                                      th:errors="*{usworkAuth}">diplomaStatus Error</span>
-                                <label>Are you Authorized to Work in United States?
+                                <span th:if="${#fields.hasErrors('Able2WorkUS')}"
+                                      th:errors="*{Able2WorkUS}">Able2WorkUS Error</span>
+                                <label>Are you Able to Work in United States?
                                 </label>
-                                <select th:field="*{usworkAuth}">
+                                <select th:field="*{Able2WorkUS}">
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
+
 
                                 <br />
                                 <br />

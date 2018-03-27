@@ -65,23 +65,23 @@
                         <div class="f-10 p-b-10"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></div>
                         <!--<div class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</div>-->
                         <!--<div class="p-5"><i class="fa fa-check m-r-5"></i>Applied</div>-->
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>English Language Learner</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Unemployed</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Underemployed</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Authorized U.S. Worker</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Basic Computer Literacy</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Have Strong Interest in IT Career</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>High School Diploma/GED Status</div>
+                        <div class="p-5"><i ></i><span th:text="${user.englishStatus} + ' '" ><span></span></span>English Language Learner </div>
+                        <div class="p-5"><i></i><span th:text="${user.employmentStatus}+ ' '" ><span></span></span>Employment Status</div>
+                        <div class="p-5"><i></i><span th:text="${user.underemploymentStatus}+ ' '" ><span></span></span>Underemployment Status </div>
+                        <div class="p-5"><i></i><span th:text="${user.itcareerInterest}+ ' '" ><span></span></span>It Career Interest </div>
+                        <div class="p-5"><i></i><span th:text="${user.diplomaStatus}+ ' '" ><span></span></span>Has Diploma or GED </div>
+                        <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '" ><span></span></span>Authorized US Worker</div>
                     </div>
                     <div class="col-md-6 text-center">
                         <div class="f-10 p-b-10"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
                         <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Not Eligible</div>-->
                         <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Did Not Apply</div>-->
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Basic Object-Oriented Experience</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Major in Computer Science/Information Systems</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Graduated within the last 6 years</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Earning Less Than $42,000</div>
-                        <div class="p-5"><i class="fa fa-check m-r-5"></i>Authorized U.S. Worker</div>
+                        <div class="p-5"><i></i><span th:text="${user.understandOOP}+ ' '" ><span></span></span>Understand OOP </div>
+                        <div class="p-5"><i></i><span th:text="${user.Able2WorkUS}+ ' '" ><span></span></span>Able US Worker</div>
+                        <div class="p-5"><i></i><span th:text="${user.objectoritentedExperience}+ ' '" ><span></span></span>Basic Obj Oritened Experience </div>
+                        <div class="p-5"><i></i><span th:text="${user.major}+ ' '" ><span></span></span>College Major</div>
+                        <div class="p-5"><i></i><span th:text="${user.salary}+ ' '" ><span></span></span><span></span>Salary</div>
+                        <div class="p-5"><i></i><span th:text="${user.gradYear}+ ' '" ><span></span></span>Grad Year</div>
                         <div>&nbsp;</div>
                         <div>&nbsp;</div>
                         <div>&nbsp;</div>
@@ -119,14 +119,14 @@
                         <li>Knowledge of user interface design.</li>
                     </ul>
                 </div>
-                <section>
-                    <div class="col-sm-6 text-center">
-                        <button  class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedhit}" th:href="@{/approvehit/{id}(id=${user.id})}">Approve HIT</button>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                        <button class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedptf}" th:href="@{/approveptf/{id}(id=${user.id})}">Approve PTF</button>
-                    </div>
-                </section>
+                <!--<section>-->
+                    <!--<div class="col-sm-6 text-center">-->
+                        <!--<button  class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedhit}" th:href="@{/approvehit/{id}(id=${user.id})}">Approve HIT</button>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-6 text-center">-->
+                        <!--<button class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedptf}" th:href="@{/approveptf/{id}(id=${user.id})}">Approve PTF</button>-->
+                    <!--</div>-->
+                <!--</section>-->
             </div>
         </div>
     </div>
