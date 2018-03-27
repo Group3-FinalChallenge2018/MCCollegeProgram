@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 ">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Register</title>
-	<link rel="icon" href="../images/favicon.ico">
-	<!-- jQuery UI -->
-	<link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
-	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
-	<!-- Owl-coursel -->
-	<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
-	<link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
-	<!-- Font-awesome -->
-	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-	<!-- Animate -->
-	<link rel="stylesheet" type="text/css" href="../css/animate.css">
-	<!-- Fw -->
-	<link rel="stylesheet" type="text/css" href="../css/fw.css">
-	<!-- Style-->
-	<link rel="stylesheet" type="text/css" href="../css/style/finder.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link rel="icon" href="../images/favicon.ico">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" type="text/css" href="../css/jquery/jquery-ui.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/bootstrap.min.css">
+    <!-- Owl-coursel -->
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="../css/owl-coursel/owl.transitions.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="../css/animate.css">
+    <!-- Fw -->
+    <link rel="stylesheet" type="text/css" href="../css/fw.css">
+    <!-- Style-->
+    <link rel="stylesheet" type="text/css" href="../css/style/finder.css">
 </head>
 <body>
 <div class="preloader"><i class="fa fa-spinner"></i></div>
@@ -35,127 +35,127 @@
 
 <header class="header-absolute smaller">
 
-	<!-- Start of TOP HEADER MENU -->
-	<div th:replace="html/base_fragments :: top_header_menu"></div>
-	<!-- End of TOP HEADER MENU -->
+    <!-- Start of TOP HEADER MENU -->
+    <div th:replace="html/base_fragments :: top_header_menu"></div>
+    <!-- End of TOP HEADER MENU -->
 
-	<!-- Start of MAIN MENU BAR - ADMIN -->
-	<div th:replace="html/base_fragments :: main_menu_bar"></div>
-	<!-- End of MAIN MENU BAR -->
+    <!-- Start of MAIN MENU BAR - ADMIN -->
+    <div th:replace="html/base_fragments :: main_menu_bar"></div>
+    <!-- End of MAIN MENU BAR -->
 </header>
 
 <!-- END of ALL MENUS -->
 <section class="p-t-50 p-b-0 bg-f">
-	<div class="container">
-		<div class="p-40 p-xs-20 bg-4f84c4">
-			<div class="rad-0 w-full no-bg">
-				<div class="row m-0">
-					<div class="col-sm-11 p-5 p-t-0">
-						<div class="row m-0">
-							<div class="col-sm-8 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20" placeholder="What job you are looking for?"></div>
-							<div class="col-sm-4 p-5"><input type="text" class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20 selected" placeholder="City, provide, street"></div>
-						</div>
-					</div>
-					<div class="col-sm-1 p-5 p-l-0 p-xs-10">
-						<button class="ht-btn ht-btn-3x bg-dc4c46 pull-right text-center p-l-25 p-r-25 m-t-0 rad-3 w-full" type="submit"><i class="fa fa-search"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="max-w-900"></div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="p-40 p-xs-20 bg-4f84c4">
+            <div class="rad-0 w-full no-bg">
+                <div class="row m-0">
+                    <div class="col-sm-11 p-5 p-t-0">
+                        <div class="row m-0">
+                            <div class="col-sm-8 p-5"><input type="text"
+                                                             class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20"
+                                                             placeholder="What job you are looking for?"></div>
+                            <div class="col-sm-4 p-5"><input type="text"
+                                                             class="form-item form-item-3x no-border m-b-0 rad-3 p-l-20 selected"
+                                                             placeholder="City, provide, street"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-900"></div>
+        </div>
+    </div>
 </section>
 <section class="block">
-	<div class="container">
-		<div class="title-group line-default">
-			<h1>register</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna</p>
-		</div>
-		<form th:action="@{/register}" th:object="${user}" method="post">
-			<input type="hidden" th:field="*{id}">
+    <div class="container">
+        <div class="title-group line-default">
+            <h1>register</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna</p>
+        </div>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <input type="hidden" th:field="*{id}">
 
-			<div class="row">
-				<div class="col-sm-6 col-sm-offset-3" >
-					<div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
-						<span th:if="${#fields.hasErrors('lastName')}"
-							  th:errors="*{lastName}">Last Name Error</span>
-						<input th:field="*{lastName}"  type="text" class="form-item" placeholder="Last name">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="box p-40"><!-- Nav tabs --><!-- Tab panes -->
+                        <span th:if="${#fields.hasErrors('lastName')}"
+                              th:errors="*{lastName}">Last Name Error</span>
+                        <input th:field="*{lastName}" type="text" class="form-item" placeholder="Last name">
 
-						<span th:if="${#fields.hasErrors('firstName')}"
-							  th:errors="*{firstName}">First Name Error</span>
-						<input type="text"  th:field="*{firstName}" class="form-item" placeholder="First name">
-
-
-						<span th:if="${#fields.hasErrors('username')}"
-							  th:errors="*{username}">Username Error</span>
-						<input th:field="*{username}" type="text" class="form-item" placeholder="Username">
+                        <span th:if="${#fields.hasErrors('firstName')}"
+                              th:errors="*{firstName}">First Name Error</span>
+                        <input type="text" th:field="*{firstName}" class="form-item" placeholder="First name">
 
 
-						<input th:field="*{email}" type="text" class="form-item" placeholder="Email">
+                        <span th:if="${#fields.hasErrors('username')}"
+                              th:errors="*{username}">Username Error</span>
+                        <input th:field="*{username}" type="text" class="form-item" placeholder="Username">
 
-						<span th:if="${#fields.hasErrors('password')}"
-							  th:errors="*{password}">Password Error</span>
-						<input type="password" th:field="*{password}"  class="form-item" placeholder="Password">
-					</div>
-				</div>
-			</div>
-						<div class="checkbox">
-							<label><input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
-						</div>
-						<div class="form-group"></div>
-						<button class="ht-btn bg-4f84c4 m-t-20">Register</button>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+
+                        <input th:field="*{email}" type="text" class="form-item" placeholder="Email">
+
+                        <span th:if="${#fields.hasErrors('password')}"
+                              th:errors="*{password}">Password Error</span>
+                        <input type="password" th:field="*{password}" class="form-item" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" value="">Option one is this and that—be sure to include why it's
+                    great</label>
+            </div>
+            <div class="form-group"></div>
+            <button class="ht-btn bg-4f84c4 m-t-20">Register</button>
+        </form>
+    </div>
 </section>
 <footer class="bg-2">
-	<div class="footer-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-5 m-b-xs-30">
-					<img src="../images/mt-0996-logo.png" alt="image" class="w-50">
-					<h2 class="color-f f-30 f-xs-20 f-family-poppins f-weight-500">JOB SEEKER, Inc</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing  labore et dolore magna aliqua uat veniama icing</p>
-					<ul class="list-inline m-t-20">
-						<li><a href="#"><i class="fa fa-facebook icon icon-40 rad-3 bg-4f84c4"></i></a></li>
-						<li><a href="#"><i class="fa fa-google icon icon-40 rad-3 bg-f2552c"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter icon icon-40 rad-3 bg-95dee3"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram icon icon-40 rad-3 bg-fe718b"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-sm-2 m-t-60 m-t-xs-30">
-					<h4>Infomation</h4>
-					<ul class="list">
-						<li><a href="#">Terms</a></li>
-						<li><a href="#">Licenses</a></li>
-						<li><a href="#">Post a job</a></li>
-						<li><a href="#">Create a resume</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-2 m-t-60 m-t-xs-30">
-					<h4>Community</h4>
-					<ul class="list">
-						<li><a href="#">Help center</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Carrer advide</a></li>
-						<li><a href="#">Specials</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-3 m-t-60 m-t-xs-30">
-					<h4>Newsletter</h4>
-					<input type="text" class="form-item no-border m-t-5" placeholder="Enter your email">
-					<a href="#" class="ht-btn bg-4f84c4 m-t-30">Subscribe</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer-bottom bg-1">
-		<div class="container">
-			<p>© 2017 Designed by <a href="#" class="color-9">t3theme</a>. All rights reserved</p>
-		</div>
-	</div>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 m-b-xs-30">
+                    <img src="../images/mt-0996-logo.png" alt="image" class="w-50">
+                    <h2 class="color-f f-30 f-xs-20 f-family-poppins f-weight-500">JOB SEEKER, Inc</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing labore et dolore magna aliqua uat veniama
+                        icing</p>
+                    <ul class="list-inline m-t-20">
+                        <li><a href="#"><i class="fa fa-facebook icon icon-40 rad-3 bg-4f84c4"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google icon icon-40 rad-3 bg-f2552c"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter icon icon-40 rad-3 bg-95dee3"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram icon icon-40 rad-3 bg-fe718b"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 m-t-60 m-t-xs-30">
+                    <h4>Infomation</h4>
+                    <ul class="list">
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Licenses</a></li>
+                        <li><a href="#">Post a job</a></li>
+                        <li><a href="#">Create a resume</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 m-t-60 m-t-xs-30">
+                    <h4>Community</h4>
+                    <ul class="list">
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carrer advide</a></li>
+                        <li><a href="#">Specials</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 m-t-60 m-t-xs-30">
+                    <h4>Newsletter</h4>
+                    <input type="text" class="form-item no-border m-t-5" placeholder="Enter your email">
+                    <a href="#" class="ht-btn bg-4f84c4 m-t-30">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom bg-1">
+        <div class="container">
+            <p>© 2017 Designed by <a href="#" class="color-9">t3theme</a>. All rights reserved</p>
+        </div>
+    </div>
 </footer>
 <!-- jQuery -->
 <script src="../js/jquery/jquery-2.2.4.min.js"></script>
