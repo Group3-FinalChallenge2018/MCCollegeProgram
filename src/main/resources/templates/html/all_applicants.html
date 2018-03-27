@@ -52,16 +52,26 @@
 <section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
-            <h4><a  th:text="${counthit}"></a>Applicants for Hiring In Tech</h4>
-            <h4><a  th:text="${countptf}">Applicants for Promising The Future</a></h4>
-            <h4><a  th:href="@{/accepted_students_ptf}">Accepted for Promising The Future</a></h4>
-            <h4><a  th:href="@{/accepted_students_hit}">Accepted for Hiring in Tech</a></h4>
+            <!--<h4>-->
+                <!--<a  th:href="@{/accepted_students_hit}">Applicants for Hiring In Tech</a></h4>-->
+            <!--<h4><p th:text="${countptf}">-->
+                <!--<a  th:href="@{/accepted_students_ptf}">Applicants for Promising The Future</a></h4>-->
+            <!--<h4><p th:text="${countptf}"></p><a  th:href="@{/accepted_students_ptf}">Accepted for Promising The Future</a></h4>-->
+            <!--<h4><p th:text="${counthit}"></p><a  th:href="@{/accepted_students_hit}">Accepted for Hiring in Tech</a></h4>-->
 
             <!--Need java controller based counter for userlist that passes userrepo.findall model size (# of all users)-->
             <!--<span th:each="user,iterationStatus  : ${userlist}">-->
 <!-- -            <h1 th:text="${iterationStatus.size}"></h1>-->
 <!-- -                                </span>-->
             <h2>All Applicants</h2>
+
+            <p th:text="${countptf}"></p>
+            <p>Applied for Promising The Future</p>
+            <p th:text="${counthit}"></p>
+            <p>Accepted for Hiring in Tech</p>
+
+
+
         </div>
         <div class="row" >
             <div class="col-md-14" th:each="user : ${userlist}" ><!-- Blog-item -->
