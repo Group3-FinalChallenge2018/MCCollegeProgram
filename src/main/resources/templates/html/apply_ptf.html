@@ -113,7 +113,7 @@
                         </li>
 
                     </ul>
-                    <a th:href="@{/submitptf}" class="ht-btn bg-00c400 m-t-20 m-b-20 m-r-15">Apply to Promising Future Program</a>
+                    <a th:href="@{/submitptf}" class="ht-btn bg-00c400 m-t-20 m-b-20 m-r-15" sec:authorize="hasAuthority('USER')">Apply to Promising Future Program</a>
 
                     <!--<a href="#" class="ht-btn bg-4f84c4 m-t-20 m-b-20">Save</a>-->
 

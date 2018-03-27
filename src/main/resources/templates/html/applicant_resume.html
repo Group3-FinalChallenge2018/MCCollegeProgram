@@ -133,10 +133,10 @@
 </section>
 
 <h3 class="heading p-b-10 p-t-0">
-    <a  class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedhit}" th:href="@{/approvehit/{id}(id=${user.id})}">Approve HIT</a>
+    <a  class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedhit}" th:href="@{/approvehit/{id}(id=${user.id})}" sec:authorize="hasAuthority('ADMIN')">Approve HIT</a>
 </h3>
 <h3 class="heading p-b-10 p-t-0">
-    <a class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedptf}" th:href="@{/approveptf/{id}(id=${user.id})}">Approve PTF</a>
+    <a class="ht-btn ht-btn-2x rad-4 text-center m-t-10 bg-4f84c4" th:if="${appliedptf}" th:href="@{/approveptf/{id}(id=${user.id})}" sec:authorize="hasAuthority('ADMIN')">Approve PTF</a>
 </h3>
 
 
