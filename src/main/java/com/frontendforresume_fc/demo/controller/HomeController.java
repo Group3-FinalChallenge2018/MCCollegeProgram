@@ -93,7 +93,7 @@ public class HomeController {
 
     @GetMapping("/showhit/{id}")
     public String showhitform(Model model, @PathVariable("id") long userid) {
-        model.addAttribute("user", userRepository.findOne(new Long(userid)));
+        model.addAttribute("user", userRepository.findOne((userid)));
         model.addAttribute("userlist", userRepository.findAll());
 
         return "html/apply_hit";
@@ -217,11 +217,6 @@ public class HomeController {
 
     @RequestMapping("/allapplicant")
     public String viewallApplicants(Authentication auth, Model model) {
-//        Programme programme;
-//
-//        model.addAttribute("userlist",adminService.getAppliedStudents(user));
-
-
         model.addAttribute("userlist", userRepository.findAll());
         Programme hit = programmeService.findByName("Hiring in Tech");
         Programme ptf = programmeService.findByName("Promising the Future");
@@ -234,9 +229,6 @@ public class HomeController {
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
 //        Must pass user model to save these requirments for this user.
         System.out.println(auth.getName());
-//        model.addAttribute("requirementsforuser",requirementService.getRequirement("Basic understanding of object oriented programming",requirement.isAnswer()));
-//        model.addAttribute("oobjrequirementsforuser",requirementService.getRequirement("Previous experience with an object-oriented language", requirement.isAnswer()));
-
         return "html/all_applicants";
     }
 
@@ -279,8 +271,6 @@ public class HomeController {
         model.addAttribute("userlist", userRepository.findAll());
         model.addAttribute("appliedhit",appliedHIT);
         model.addAttribute("appliedptf",appliedPTF);
-
-
         return "html/applicant_resume";
     }
 
@@ -320,12 +310,7 @@ public class HomeController {
     public String applicantDashboardApplied(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
         Programme hit = programmeService.findByName("Hiring in Tech");
         Programme ptf = programmeService.findByName("Promising the Future");
-
-
         User currentUser = userService.findByUsername(auth.getName());
-
-
-//
         model.addAttribute("programmes", currentUser.getAppliedProgramme());
         return "html/applicant_dashboard_applied";
     }
@@ -335,8 +320,6 @@ public class HomeController {
     public String applicantDashboardApproved(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
         Programme hit = programmeService.findByName("Hiring in Tech");
         Programme ptf = programmeService.findByName("Promising the Future");
-
-
         User currentUser = userService.findByUsername(auth.getName());
         model.addAttribute("approvedprogram",currentUser.getApprovedProgramme());
 
@@ -346,8 +329,6 @@ public class HomeController {
 
     @RequestMapping("/list_of_programs")
     public String viewListOfPrograms(Model model) {
-//        model.addAttribute("user",userRepository.findOne( new Long(userid)));
-//        @PathVariable("id") long userid
         return "html/list_of_programs";
     }
 
