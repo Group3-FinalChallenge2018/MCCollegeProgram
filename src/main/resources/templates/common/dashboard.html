@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.tymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="sideNavBar" class="col-md-3">
+    <div class="list-2"><!-- Product-item -->
+        <a class="thumb-item" href="/applicant_dashboard_suggested">
+            <i class="fa fa-file-text-o"></i>
+            <h4 class="heading f-20">Suggestions<br></h4>
+        </a>
+        <a class="thumb-item" href="/applicant_dashboard_applied">
+            <i class="fa fa-file-text-o"></i>
+            <h4 class="heading f-20">Applied<br></h4>
+        </a>
+        <a class="thumb-item" href="/applicant_dashboard_approved">
+            <i class="fa fa-clipboard"></i>
+            <h4 class="heading f-20">Approved<br></h4>
+        </a>
+        <a class="thumb-item" href="/applicant_dashboard_accepted">
+            <i class="fa fa-check-circle"></i>
+            <h4 class="heading f-20">Accepted<br></h4>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
