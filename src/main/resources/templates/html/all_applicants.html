@@ -28,25 +28,25 @@
 </head>
 <body>
 <div class="preloader"><i class="fa fa-spinner"></i></div>
-<!-- START of ALL MENUS FOR ADMIN -->
+
+<!-- START of ALL MENUS -->
 
 <!-- Start of SIDE MENU BAR -->
-<div th:replace="html/base_fragments :: side_menu_bar_admin"></div>
+<div th:replace="html/base_fragments :: side_menu_bar"></div>
 <!-- End of SIDE MENU BAR -->
 
 <header class="header-absolute smaller">
 
     <!-- Start of TOP HEADER MENU -->
-    <div th:replace="html/base_fragments :: top_header_menu_admin"></div>
+    <div th:replace="html/base_fragments :: top_header_menu"></div>
     <!-- End of TOP HEADER MENU -->
 
     <!-- Start of MAIN MENU BAR - ADMIN -->
-    <div th:replace="html/base_fragments :: main_menu_bar_admin"></div>
+    <div th:replace="html/base_fragments :: main_menu_bar"></div>
     <!-- End of MAIN MENU BAR -->
 </header>
 
-<div th:replace="html/base_fragments :: navlinks"></div><br/><br/>
-
+<!-- END of ALL MENUS -->
 <section class="block-2 job bg-fa selected">
     <div class="container">
         <div class="title-group line-default">
@@ -78,59 +78,32 @@
                         <div class="row color-9">
                             <div class="col-sm-6 text-center">
                                 <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Hiring for Tech</strong></div>
-                                <!--<div class="p-5"><i class="fa fa-check m-r-5"></i>Eligible</div>-->
-                                <!--<div class="p-5"><i class="fa fa-check m-r-5"></i>Applied</div>-->
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.englishStatus}"><span></span></span>English Language Learner </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.employmentStatus}"><span></span></span>Employment Status</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.underemploymentStatus}"><span></span></span>Underemployment Status </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.itcareerInterest}"><span></span></span>It Career Interest </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.diplomaStatus}"><span></span></span>Has Diploma or GED </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.usworkAuth}"><span></span></span>Authorized US Worker</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.objectoritentedExperience}"><span></span></span> Obj Oritened Experience </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.major}"><span></span></span>College Major</div>
-                                    <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.salary}"><span></span></span>Salary</div>
-                                        <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.gradYear}"><span></span></span>Grad Year</div>
-
-
-
-
-
-
+                                <!--<div class="p-5"><i></i>Eligible</div>-->
+                                <!--<div class="p-5"><i></i>Applied</div>-->
+                                <div class="p-5"><i ></i><span th:text="${user.englishStatus} + ' '" ><span></span></span>English Language Learner </div>
+                                <div class="p-5"><i></i><span th:text="${user.employmentStatus}+ ' '" ><span></span></span>Employment Status</div>
+                                <div class="p-5"><i></i><span th:text="${user.underemploymentStatus}+ ' '" ><span></span></span>Underemployment Status </div>
+                                <div class="p-5"><i></i><span th:text="${user.itcareerInterest}+ ' '" ><span></span></span>It Career Interest </div>
+                                <div class="p-5"><i></i><span th:text="${user.diplomaStatus}+ ' '" ><span></span></span>Has Diploma or GED </div>
+                                <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '" ><span></span></span>Authorized US Worker</div>
                                         </div>
                             <div class="col-sm-6 text-center">
                                 <div class="p-2"><i class="fa fa-desktop m-r-5"></i><strong>Promising the Future</strong></div>
-                                <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Not Eligible</div>-->
-                                <!--<div class="p-5"><i class="fa fa-times m-r-5"></i>Did Not Apply</div>-->
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.englishStatus}"><span></span></span>English Language Learner </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.employmentStatus}"><span></span></span>Employment Status</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.underemploymentStatus}"><span></span></span>Underemployment Status </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.itcareerInterest}"><span></span></span>It Career Interest </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.diplomaStatus}"><span></span></span>Has Diploma or GED </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.usworkAuth}"><span></span></span>Authorized US Worker</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.objectoritentedExperience}"><span></span></span> Obj Oritened Experience </div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.major}"><span></span></span>College Major</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.salary}"><span></span></span>Salary</div>
-                                <div class="p-5"><i class="fa fa-check m-r-5"></i><span th:text="${user.gradYear}"><span></span></span>Grad Year</div>
-
+                                <div class="p-5"><i></i><span th:text="${user.understandOOP}+ ' '" ><span></span></span>Understand OOP </div>
+                                <div class="p-5"><i></i><span th:text="${user.usworkAuth}+ ' '" ><span></span></span>Authorized US Worker</div>
+                                <div class="p-5"><i></i><span th:text="${user.objectoritentedExperience}+ ' '" ><span></span></span>Basic Obj Oritened Experience </div>
+                                <div class="p-5"><i></i><span th:text="${user.major}+ ' '" ><span></span></span>College Major</div>
+                                <div class="p-5"><i></i><span th:text="${user.salary}+ ' '" ><span></span></span><span></span>Salary</div>
+                                <div class="p-5"><i></i><span th:text="${user.gradYear}+ ' '" ><span></span></span>Grad Year</div>
+                            </div>
                             </div>
 
-                            <h3 class="heading p-b-10 p-t-0" th:if="${user != null}">
+                            <h3 class="heading p-b-10 p-t-0">
                                 <a th:href="@{/applicant_resume/{id}(id=${user.id})}">See Resume</a>
-                            </h3>
-                            <h3 class="heading p-b-10 p-t-0" th:if="${user == null}">
-                                <a th:href="@{/applicant_resume}">See Resume</a>
                             </h3>
                         </div>
                     </div>
                 </div>
-                <!--&lt;!&ndash;Test code&ndash;&gt;-->
-                <nav aria-label="Page navigation" class="m-t-20">
-                    <ul class="pagination ht-pagination">
-                        <li><a href="#" aria-label="Previous"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" aria-label="Next"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>

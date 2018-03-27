@@ -58,14 +58,16 @@ public class HomeController {
         } else {
 //            Pasing in the current created user and requirments and checking username
             userService.saveNewUser(user);
-            Programme programme = programmeService.findByName("Promising the Future");
 //
         }
 
-//        Must redirect to login to new rigister user form input within /applicant_resume route checkinng for requirement descriptions and and boolean values
         return "redirect:/login";
     }
 
+    @RequestMapping("/login")
+    public String login() {
+        return "html/login";
+    }
 
     @RequestMapping("/")
     public String index() {
@@ -117,19 +119,14 @@ public class HomeController {
         currUser.setDiplomaStatus(user.getDiplomaStatus());
         currUser.setEnglishStatus(user.getEnglishStatus());
         currUser.setEmploymentStatus(user.getEmploymentStatus());
-        currUser.setGradYear(user.getGradYear());
-        currUser.setSalary(user.getSalary());
+        currUser.setItcareerInterest(user.getItcareerInterest());
         currUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
-        currUser.setUnderstandOOP(user.getObjectoritentedExperience());
-        currUser.setMajor(user.getMajor());
         userService.saveUser(currUser);
 
         Programme hit = programmeService.findByName("Hiring in Tech");
         studentService.apply2Programme(currUser, hit);
 
-        HashSet<User> users = new HashSet<>();
-        users.add(userService.findByUsername(auth.getName()));
-        model.addAttribute("applyhituserlist",users);
+        model.addAttribute("applyhituserlist", userRepository.findAll());
 
         return "redirect:/applicant_dashboard_applied";
     }
@@ -165,22 +162,18 @@ public class HomeController {
         }
         User currUser = userService.findByUsername(auth.getName());
         currUser.setAble2WorkUS(user.getUsworkAuth());
-        currUser.setDiplomaStatus(user.getDiplomaStatus());
-        currUser.setEnglishStatus(user.getEnglishStatus());
-        currUser.setEmploymentStatus(user.getEmploymentStatus());
         currUser.setGradYear(user.getGradYear());
         currUser.setSalary(user.getSalary());
-        currUser.setUnderemploymentStatus(user.getUnderemploymentStatus());
-        currUser.setUnderstandOOP(user.getObjectoritentedExperience());
+        currUser.setObjectoritentedExperience(user.getObjectoritentedExperience());
+        currUser.setUnderstandOOP(user.getUnderstandOOP());
         currUser.setMajor(user.getMajor());
         userService.saveUser(currUser);
 
         Programme ptf = programmeService.findByName("Promising the Future");
         studentService.apply2Programme(currUser, ptf);
 
-        HashSet<User> users = new HashSet<>();
-        users.add(userService.findByUsername(auth.getName()));
-        model.addAttribute("applyptfuserlist",users);
+
+        model.addAttribute("applyptfuserlist",userRepository.findAll());
 
         return "redirect:/applicant_dashboard_applied";
     }
@@ -238,22 +231,6 @@ public class HomeController {
         return "html/add_admin";
     }
 
-    @RequestMapping("/all_applicants")
-    public String allApplicants() {
-        return "html/all_applicants";
-    }
-
-
-    @RequestMapping("/register")
-    public String register() {
-        return "html/register";
-    }
-
-
-    @RequestMapping("/login")
-    public String login() {
-        return "html/login";
-    }
 
     @RequestMapping("/applicant_resume")
     public String viewApplicantsResume() {
@@ -280,10 +257,10 @@ public class HomeController {
     public String approveptfuserResumebyid(Model model, @PathVariable("id") long userid) {
         User user = userService.findById(userid);
         model.addAttribute("user", user);
-        Programme programme = programmeService.findByName("Promising the Future");
+        Programme ptf = programmeService.findByName("Promising the Future");
 
-        adminService.approveStudent2Programme(user, programme);
-        model.addAttribute("userlist", userRepository.findAll());
+        adminService.approveStudent2Programme(user, ptf);
+        model.addAttribute("userlist", adminService.getAppliedStudents(ptf));
 
         return "html/all_applicants";
     }
@@ -292,9 +269,9 @@ public class HomeController {
     public String approvehituserResumebyid(Model model, @PathVariable("id") long userid) {
         User user = userService.findById(userid);
         model.addAttribute("user", user);
-        Programme programme = programmeService.findByName("Hiring in Tech");
-        adminService.approveStudent2Programme(user, programme);
-        model.addAttribute("userlist", adminService.getAppliedStudents(programme));
+        Programme hit = programmeService.findByName("Hiring in Tech");
+        adminService.approveStudent2Programme(user, hit);
+        model.addAttribute("userlist", adminService.getAppliedStudents(hit));
 
         return "html/all_applicants";
     }
@@ -310,8 +287,8 @@ public class HomeController {
     public String applicantDashboardApplied(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
         Programme hit = programmeService.findByName("Hiring in Tech");
         Programme ptf = programmeService.findByName("Promising the Future");
-        User currentUser = userService.findByUsername(auth.getName());
-        model.addAttribute("programmes", currentUser.getAppliedProgramme());
+        User currentuser = userService.findByUsername(auth.getName());
+        model.addAttribute("programmes", currentuser.getAppliedProgramme());
         return "html/applicant_dashboard_applied";
     }
 
@@ -320,9 +297,8 @@ public class HomeController {
     public String applicantDashboardApproved(Authentication auth, Model model, @ModelAttribute ("user") User user ) {
         Programme hit = programmeService.findByName("Hiring in Tech");
         Programme ptf = programmeService.findByName("Promising the Future");
-        User currentUser = userService.findByUsername(auth.getName());
-        model.addAttribute("approvedprogram",currentUser.getApprovedProgramme());
-
+        user = userService.findByUsername(auth.getName());
+        model.addAttribute("approvedprogram",user.getApprovedProgramme());
         return "html/applicant_dashboard_approved";
     }
 
