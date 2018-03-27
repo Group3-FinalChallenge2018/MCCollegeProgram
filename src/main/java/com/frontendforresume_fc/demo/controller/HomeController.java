@@ -343,7 +343,8 @@ public class HomeController {
 
 
     @RequestMapping("/list_of_programs")
-    public String viewListOfPrograms(Model model) {
+    public String viewListOfPrograms(Model mode, Authentication auth) {
+        mode.addAttribute("user", userService.findByUsername(auth.getName()));
         return "html/list_of_programs";
     }
 
