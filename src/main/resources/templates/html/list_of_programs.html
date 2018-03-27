@@ -65,7 +65,8 @@
                         <div class="col-sm-10">
                             <h3 class="heading p-b-10 p-t-0" th:if="${user != null}">
                                 Hiring In Tech
-                                <a th:href="@{/showhit/{id}(id=${user.id})}" sec:authorize="isAuthenticated()">View More</a>
+                                <a th:href="@{/showhit/{id}(id=${user.id})}" sec:authorize="isAuthenticated()">View
+                                    More</a>
                             </h3>
                             <b class="f-16">51 Mannakee Street, Rockville, MD 20850</b>
                             <p class="m-b-15 m-t-10">Hiring In Tech is a new U.S. Department of Labor grant-funded
@@ -94,11 +95,8 @@
                         </div>
                         <div class="col-sm-10">
                             <h3 class="heading p-b-10 p-t-0" th:if="${user != null}">
-                                <a th:href="@{/showptf/{id}(id=${user.id})}" sec:authorize="isAuthenticated()">Promising
-                                    the Future</a>
-                            </h3>
-                            <h3 class="heading p-b-10 p-t-0" th:if="${user == null}" sec:authorize="isAuthenticated()">
-                                <a th:href="@{/showptf}">Promising the Future</a>
+                                Promising the Future
+                                <a th:href="@{/showptf/{id}(id=${user.id})}" sec:authorize="isAuthenticated()"></a>
                             </h3>
                             <b class="f-16">51 Mannakee Street, Rockville, MD 20850</b>
                             <p class="m-b-15 m-t-10">Promising the Future is an 8 hour a day (9 am - 5 pm, M-F) 8-week,
