@@ -151,7 +151,7 @@
                                    sec:authorize="hasAuthority('ADMIN')">add admin</a>
                             </li>
                             <li>
-                                <a th:href="@{/applicant_dashboard_applied}" role="button" aria-haspopup="true"
+                                <a sec:authorize="hasAuthority('USER')" th:href="@{/applicant_dashboard_applied}" role="button" aria-haspopup="true"
                                    aria-expanded="false">dashboard</a>
                             </li>
                             <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/accepted_students_ptf}"

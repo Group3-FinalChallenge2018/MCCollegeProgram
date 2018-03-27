@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        Role r = new Role();
+        /*Role r = new Role();
         r.setRole("USER");
         roleRepository.save(r);
 
@@ -102,7 +102,7 @@ public class DataLoader implements CommandLineRunner {
         ptf.setUnderemploymentStatus("YES");
         ptf.setAble2WorkUS("YES");
         programmeRepository.save(ptf);
-
+*/
 
     }
 }
