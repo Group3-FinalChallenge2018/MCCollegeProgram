@@ -154,8 +154,6 @@
                                 <a th:href="@{/applicant_dashboard_applied}" role="button" aria-haspopup="true"
                                    aria-expanded="false">dashboard</a>
                             </li>
-                            <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/all_applicants}" role="button"
-                                   aria-haspopup="true" aria-expanded="false">View Applicants</a></li>
                             <li><a sec:authorize="hasAuthority('ADMIN')" th:href="@{/accepted_students_ptf}"
                                    role="button" aria-haspopup="true" aria-expanded="false">Accepted Applicants PTF</a>
                             </li>
