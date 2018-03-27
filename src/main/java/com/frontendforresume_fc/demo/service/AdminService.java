@@ -5,9 +5,15 @@ import com.frontendforresume_fc.demo.model.Role;
 import com.frontendforresume_fc.demo.model.User;
 import com.frontendforresume_fc.demo.repository.ProgrammeRepository;
 import com.frontendforresume_fc.demo.repository.UserRepository;
+import com.google.common.collect.Lists;
+import it.ozimov.springboot.mail.model.Email;
+import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
+import it.ozimov.springboot.mail.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.internet.InternetAddress;
+import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +28,8 @@ public class AdminService {
     @Autowired
     UserService userService;
 
+    @Autowired
+    EmailService emailService;
     /*
      * Check if given User is admin or not
      */
@@ -121,5 +129,28 @@ public class AdminService {
     public void addNewAdmin(String password, String username, String firstName, String lastName, String email) {
         User admin = new User(password, username, firstName, lastName, email);
         userService.saveNewAdmin(admin);
+    }
+
+    public void sendEmailWithoutTemplating(User user, Programme programme) {
+        final Email email;
+
+        StringBuilder emailBody = new StringBuilder();
+        emailBody.append("Dear " + user.getFirstName() + "\n");
+        emailBody.append("We want to congrats you for your admission to " + programme.getName() + "\n");
+        emailBody.append("We hope to see you soon!\n");
+        emailBody.append("Sincerely");
+
+        try {
+            email = DefaultEmail.builder()
+                    .from(new InternetAddress("cicero@mala-tempora.currunt", "Marco Tullio Cicerone "))
+                    .to(Lists.newArrayList(new InternetAddress(user.getEmail(), user.getFirstName() + " " + user.getLastName())))
+                    .subject("Congratulation to Your Admission to " + programme.getName())
+                    .body(emailBody.toString())
+                    .encoding("UTF-8").build();
+
+            emailService.send(email);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }

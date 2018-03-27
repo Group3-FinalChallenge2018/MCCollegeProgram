@@ -8,6 +8,7 @@ import com.frontendforresume_fc.demo.service.AdminService;
 import com.frontendforresume_fc.demo.service.ProgrammeService;
 import com.frontendforresume_fc.demo.service.StudentService;
 import com.frontendforresume_fc.demo.service.UserService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -278,7 +279,9 @@ public class HomeController {
 
 
     @RequestMapping("/applicant_dashboard_accepted")
-    public String applicantDashboardAccepted() {
+    public String applicantDashboardAccepted(Authentication auth, Model model) {
+        User user = userService.findByUsername(auth.getName());
+        model.addAttribute("programmes", user.getAcceptedProgramme());
         return "html/applicant_dashboard_accepted";
     }
 
@@ -300,6 +303,15 @@ public class HomeController {
         user = userService.findByUsername(auth.getName());
         model.addAttribute("approvedprogram",user.getApprovedProgramme());
         return "html/applicant_dashboard_approved";
+    }
+
+    @RequestMapping("/update/applicant_dashboard_approved/{id}")
+    public String applicantAcceptProgramme(Authentication auth, Model model, @PathVariable("id") long id) {
+        Programme programme = programmeService.findById(id);
+        User user = userService.findByUsername(auth.getName());
+        studentService.acceptProgramme(user, programme);
+        adminService.sendEmailWithoutTemplating(user, programme);
+        return "redirect:/applicant_dashboard_approved";
     }
 
 

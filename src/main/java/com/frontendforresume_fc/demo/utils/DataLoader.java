@@ -38,7 +38,7 @@ public class DataLoader implements CommandLineRunner {
         r.setRole("ADMIN");
         roleRepository.save(r);
 //Saved user and progam With Travis new Model Design
-        User student = new User("password", "clark", "Clark", "Kent", "clark@gmail.com", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "Yes","Yes","Yes","yes");
+        User student = new User("password", "clark", "Clark", "Kent", "clarkjavabootcamp@gmail.com", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "YES", "Yes","Yes","Yes","yes");
         student.setUnderstandOOP("YES");
         student.setComfortableComputer("YES");
         student.setAble2WorkUS("YES");

@@ -34,8 +34,6 @@ public class AdminController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    EmailService emailService;
 
     private final String adminDir = "admin/";
 
@@ -43,8 +41,6 @@ public class AdminController {
     public String getStudentListHIT(Model model) {
         User clark = userService.findByUsername("clark");
         User harry = userService.findByUsername("harry");
-
-        sendEmailWithoutTemplating();
 
         Programme programme = programmeService.findByName("Hiring in Tech");
 
@@ -86,21 +82,5 @@ public class AdminController {
         return adminDir + "listStudents";
     }
 
-    public void sendEmailWithoutTemplating() {
-        final Email email;
-        try {
-            email = DefaultEmail.builder()
-                    .from(new InternetAddress("cicero@mala-tempora.currunt", "Marco Tullio Cicerone "))
-                    .to(Lists.newArrayList(new InternetAddress("sangseokum@gmail.com", "Sangseok Um")))
-                    .subject("Laelius de amicitia")
-                    .body("Firmamentum autem stabilitatis constantiaeque eius, quam in amicitia quaerimus, fides est.")
-                    .encoding("UTF-8").build();
 
-            emailService.send(email);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 }
