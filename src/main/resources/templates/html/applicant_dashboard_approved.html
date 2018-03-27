@@ -54,22 +54,7 @@
             <h4><a href="/applicant_resume">View My Resume</a></h4>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                <div class="list-2"><!-- Product-item -->
-                    <a class="thumb-item" href="/applicant_dashboard_applied">
-                        <i class="fa fa-file-text-o"></i>
-                        <h4 class="heading f-20">Applied<br></h4>
-                    </a>
-                    <a class="thumb-item" href="/applicant_dashboard_approved">
-                        <i class="fa fa-clipboard"></i>
-                        <h4 class="heading f-20">Approved<br></h4>
-                    </a>
-                    <a class="thumb-item" href="/applicant_dashboard_accepted">
-                        <i class="fa fa-check-circle"></i>
-                        <h4 class="heading f-20">Accepted<br></h4>
-                    </a>
-                </div>
-            </div>
+            <div th:replace="common/dashboard :: sideNavBar"></div>
             <div class="col-sm-9">
                 <div class="box p-40">
                     <div></div>

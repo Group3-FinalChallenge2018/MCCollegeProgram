@@ -37,7 +37,7 @@ public class StudentService {
     public Set<Programme> getProgrammeSuggestion(User user) {
         HashSet<Programme> suggestedProgrammes = new HashSet<>();
         for(Programme programme : programmeService.getAllProgramme()){
-            if(user.containsProgram(programme)){
+            if(!user.containsProgram(programme)){
                 suggestedProgrammes.add(programme);
             }
         }

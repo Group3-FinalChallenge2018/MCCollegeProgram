@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class HomeController {
@@ -44,7 +45,7 @@ public class HomeController {
     @GetMapping("/register")
     public String register(@ModelAttribute("user") User user, Model model) {
         model.addAttribute("user", new User());
-//Creating new user and new requirments model for the newly created user
+//Creating new user and new requirments templates.model for the newly created user
 
         return "html/register";
     }
@@ -221,7 +222,7 @@ public class HomeController {
         model.addAttribute("countptf",adminService.getNumOfAppliedStudents(ptf));
 
 //Currently Displaying new user registation output for Based on Registeration form answers needs to be cleaner solution instead of adding to different models.
-//        Must pass user model to save these requirments for this user.
+//        Must pass user templates.model to save these requirments for this user.
         System.out.println(auth.getName());
         return "html/all_applicants";
     }
@@ -293,6 +294,13 @@ public class HomeController {
         User currentuser = userService.findByUsername(auth.getName());
         model.addAttribute("programmes", currentuser.getAppliedProgramme());
         return "html/applicant_dashboard_applied";
+    }
+
+    @RequestMapping("/applicant_dashboard_suggested")
+    public String suggestedProgrammes(Model model, Authentication auth){
+        Set<Programme> programmes = studentService.getProgrammeSuggestion(userService.findByUsername(auth.getName()));
+        model.addAttribute("programmes", programmes);
+        return "html/applicant_dashboard_suggested";
     }
 
 
